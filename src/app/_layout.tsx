@@ -1,18 +1,27 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import '../../global.css';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+import { PortalHost } from '@rn-primitives/portal';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { Stack, ThemeProvider } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { useColorScheme } from 'nativewind';
 
-SplashScreen.preventAutoHideAsync();
+import { queryClient } from '@/lib/query-client';
+import { NAV_THEME } from '@/lib/theme';
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
+  const { colorScheme } = useColorScheme();
+  const scheme = colorScheme ?? 'light';
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider value={NAV_THEME[scheme]}>
+        <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        </Stack>
+        <PortalHost />
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
