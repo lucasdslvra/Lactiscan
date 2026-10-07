@@ -15,12 +15,17 @@ export function productName(product: OffProduct): string {
   return clean(product.product_name_fr) ?? clean(product.product_name) ?? 'Produit sans nom';
 }
 
+/** OFF contributors mark allergens as `_lait_`; the sheet highlights them its own way. */
+function stripAllergenMarks(text: string): string {
+  return text.replace(/_([^_]+)_/g, '$1');
+}
+
 /** Ingredients in French first, then in the original language; `null` when OFF has none. */
 export function productIngredients(product: OffProduct): ProductIngredients | null {
   const fr = clean(product.ingredients_text_fr);
-  if (fr) return { text: fr, lang: 'fr' };
+  if (fr) return { text: stripAllergenMarks(fr), lang: 'fr' };
   const other = clean(product.ingredients_text);
-  return other ? { text: other, lang: 'other' } : null;
+  return other ? { text: stripAllergenMarks(other), lang: 'other' } : null;
 }
 
 /** « Marque A · 500 g »: the first brand only, as OFF lists brands and owners together. */

@@ -3,8 +3,8 @@ import { CameraView, type BarcodeScanningResult } from 'expo-camera';
 import * as Haptics from 'expo-haptics';
 import { router, useFocusEffect, useIsFocused } from 'expo-router';
 import { ArrowRight, Flashlight } from 'lucide-react-native';
-import { useCallback, useState } from 'react';
-import { Platform, Pressable, StyleSheet, View } from 'react-native';
+import { useCallback, useRef, useState } from 'react';
+import { Platform, Pressable, StyleSheet, View, type LayoutChangeEvent } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ManualEntryButton } from '@/components/scan/manual-entry-button';
@@ -14,6 +14,7 @@ import { Text } from '@/components/ui/text';
 import { useScanGuard } from '@/hooks/use-scan-guard';
 import { normalizeScannedCode, SCAN_BARCODE_TYPES } from '@/lib/barcode';
 import { productQueryOptions } from '@/lib/off';
+import { isInScanWindow, type ScanWindow } from '@/lib/scan-window';
 import { cn } from '@/lib/utils';
 import { LABEL } from '@/lib/theme';
 
@@ -57,9 +58,30 @@ export function BarcodeScanner({ cameraEnabled, onRequestPermission }: BarcodeSc
   );
   const submitCode = useScanGuard(openProduct);
 
+  // Viewfinder in the camera view's coordinates: its row gives y and height, the viewfinder
+  // itself x and width. A ref, as only the scan callback reads it.
+  const windowRef = useRef<ScanWindow | null>(null);
+  const rowRef = useRef<{ y: number; height: number } | null>(null);
+  const frameRef = useRef<{ x: number; width: number } | null>(null);
+  const updateWindow = () => {
+    const row = rowRef.current;
+    const frame = frameRef.current;
+    windowRef.current = row && frame ? { ...frame, ...row } : null;
+  };
+  const onRowLayout = ({ nativeEvent: { layout } }: LayoutChangeEvent) => {
+    rowRef.current = { y: layout.y, height: layout.height };
+    updateWindow();
+  };
+  const onViewfinderLayout = ({ nativeEvent: { layout } }: LayoutChangeEvent) => {
+    frameRef.current = { x: layout.x, width: layout.width };
+    updateWindow();
+  };
+
   const onBarcodeScanned = useCallback(
-    ({ type, data }: BarcodeScanningResult) => {
-      const code = normalizeScannedCode(type, data);
+    (result: BarcodeScanningResult) => {
+      // The camera reads the whole picture: ignore codes not aimed at in the viewfinder.
+      if (!isInScanWindow(result, windowRef.current)) return;
+      const code = normalizeScannedCode(result.type, result.data);
       if (code) submitCode(code);
     },
     [submitCode]
@@ -79,9 +101,9 @@ export function BarcodeScanner({ cameraEnabled, onRequestPermission }: BarcodeSc
         )}
         <View style={StyleSheet.absoluteFill}>
           <View className="bg-ink/60 flex-1" />
-          <View className="h-[180px] flex-row">
+          <View className="h-[180px] flex-row" onLayout={onRowLayout}>
             <View className="bg-ink/60 flex-1" />
-            <Viewfinder />
+            <Viewfinder onLayout={onViewfinderLayout} />
             <View className="bg-ink/60 flex-1" />
           </View>
           <View className="bg-ink/60 flex-1 items-center gap-2 px-4 pt-7">
@@ -144,9 +166,9 @@ function TorchButton({ on, onToggle }: { on: boolean; onToggle: () => void }) {
 }
 
 /** 300×180 window: four paper corner brackets and a red aiming line. */
-function Viewfinder() {
+function Viewfinder({ onLayout }: { onLayout: (event: LayoutChangeEvent) => void }) {
   return (
-    <View className="w-[300px]" aria-hidden>
+    <View className="w-[300px]" aria-hidden onLayout={onLayout}>
       <View className="border-paper absolute left-0 top-0 h-9 w-9 border-l-4 border-t-4" />
       <View className="border-paper absolute right-0 top-0 h-9 w-9 border-r-4 border-t-4" />
       <View className="border-paper absolute bottom-0 left-0 h-9 w-9 border-b-4 border-l-4" />

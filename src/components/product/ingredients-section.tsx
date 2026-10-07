@@ -2,12 +2,29 @@ import { View } from 'react-native';
 
 import { Text } from '@/components/ui/text';
 import { tracesSentence } from '@/lib/allergens';
-import type { OffProduct } from '@/lib/off';
-import { productIngredients } from '@/lib/product';
+import type { DairyIngredients } from '@/lib/dairy';
+import type { ProductIngredients } from '@/lib/product';
+
+interface IngredientsSectionProps {
+  ingredients: ProductIngredients | null;
+  dairy: DairyIngredients;
+  /** Off when the verdict is « Sans lait »: nothing is highlighted then. */
+  highlight: boolean;
+  tracesTags: string[] | undefined;
+}
 
 /** Ingredient list, French first, with the « peut contenir » traces in a box of their own. */
-export function IngredientsSection({ product }: { product: OffProduct }) {
-  const ingredients = productIngredients(product);
+export function IngredientsSection({
+  ingredients,
+  dairy,
+  highlight,
+  tracesTags,
+}: IngredientsSectionProps) {
+  const marked = highlight && dairy.names.length > 0;
+  const spokenList =
+    ingredients && marked
+      ? `${ingredients.text} Ingrédients laitiers : ${dairy.names.join(', ')}.`
+      : undefined;
 
   return (
     <View className="gap-2.5 px-4 pt-[30px]">
@@ -23,7 +40,21 @@ export function IngredientsSection({ product }: { product: OffProduct }) {
       </View>
 
       {ingredients ? (
-        <Text className="font-body text-ink text-base leading-[26px]">{ingredients.text}</Text>
+        <Text aria-label={spokenList} className="font-body text-ink text-base leading-[26px]">
+          {marked
+            ? dairy.parts.map((part, i) =>
+                part.dairy ? (
+                  <Text
+                    key={i}
+                    className="bg-mark font-body-bold text-mark-ink text-base underline">
+                    {part.text}
+                  </Text>
+                ) : (
+                  part.text
+                )
+              )
+            : ingredients.text}
+        </Text>
       ) : (
         <Text className="font-body text-ink-muted text-base leading-[26px]">
           Ingrédients non renseignés sur Open Food Facts.
@@ -35,7 +66,7 @@ export function IngredientsSection({ product }: { product: OffProduct }) {
           TRACES
         </Text>
         <Text className="font-body text-ink flex-1 text-sm leading-[20px]">
-          {tracesSentence(product.traces_tags)}
+          {tracesSentence(tracesTags)}
         </Text>
       </View>
     </View>

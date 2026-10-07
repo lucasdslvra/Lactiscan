@@ -29,6 +29,11 @@ describe('productIngredients', () => {
     expect(productIngredients(product)).toEqual({ text: 'Wheat flour, butter.', lang: 'other' });
   });
 
+  it('removes the `_allergen_` marks of contributors', () => {
+    const product = { ...base, ingredients_text_fr: 'Sucre, _lait_ écrémé en poudre, sel_marin.' };
+    expect(productIngredients(product)?.text).toBe('Sucre, lait écrémé en poudre, sel_marin.');
+  });
+
   it('returns null without ingredients', () => {
     expect(productIngredients(base)).toBeNull();
   });

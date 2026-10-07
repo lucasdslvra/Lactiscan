@@ -12,9 +12,27 @@ export const LABEL = {
   inkSoft: '#CFC9BC',
   scanline: '#FF5A3C',
   link: '#1E3FAE',
+  mark: '#F6D3CC',
+  markInk: '#7A1A10',
+  verdictMilk: '#B0281C',
   verdictMilkFg: '#FBF7EE',
+  verdictLactose: '#E8AE2E',
   verdictTraces: '#F4C095',
+  verdictFree: '#A9CBF7',
 } as const;
+
+/** Every text color shown on a colored ground, as `[text, background]`; all must pass WCAG AA. */
+export const TEXT_PAIRS: Record<string, [string, string]> = {
+  'Contient du lait': [LABEL.verdictMilkFg, LABEL.verdictMilk],
+  'Sans lactose': [LABEL.ink, LABEL.verdictLactose],
+  'Traces possibles': [LABEL.ink, LABEL.verdictTraces],
+  'Sans lait': [LABEL.ink, LABEL.verdictFree],
+  'Information incomplète': [LABEL.ink, LABEL.paper],
+  'Ingrédient laitier': [LABEL.markInk, LABEL.mark],
+  'Badge du mode': [LABEL.paper, LABEL.ink],
+  'Texte secondaire': [LABEL.inkMuted, LABEL.paper],
+  Lien: [LABEL.link, LABEL.paper],
+};
 
 // Static font files: one family per weight, since `fontWeight` does not pick a weight of a
 // custom font on Android.

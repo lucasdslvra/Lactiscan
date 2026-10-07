@@ -26,7 +26,9 @@ interface Variant {
 
 const INK = { ink: LABEL.ink, inkClass: 'text-ink', ruleClass: 'border-ink' };
 
-// « Système visuel · verdicts » mockup: color + icon + text, readable in greyscale.
+// « Système visuel · verdicts » mockup: color + icon + text, readable in greyscale. « Traces
+// possibles » and « Sans lait » have nearly the same luminance: the hatched bands, the icon and
+// the title tell them apart.
 const VARIANTS: Record<DisplayedKind, Variant> = {
   'contains-milk': {
     title: 'Contient\ndu lait',
@@ -67,10 +69,14 @@ const VARIANTS: Record<DisplayedKind, Variant> = {
   },
 };
 
-function detailLine({ kind, acceptable, milkTraces }: Verdict): string {
+function detailLine({ kind, acceptable, milkTraces }: Verdict, dairyCount: number): string {
   switch (kind) {
     case 'contains-milk':
-      return 'LAIT DANS LES ALLERGÈNES';
+      // The allergen says milk even when the ingredient list names none we recognise.
+      if (dairyCount === 0) return 'LAIT DANS LES ALLERGÈNES';
+      return dairyCount === 1
+        ? '1 INGRÉDIENT LAITIER DÉTECTÉ'
+        : `${dairyCount} INGRÉDIENTS LAITIERS DÉTECTÉS`;
     case 'lactose-free':
       return 'CONTIENT DU LAIT';
     case 'traces':
@@ -103,7 +109,16 @@ function TracesBand() {
 }
 
 /** The verdict as a big label, for the active profile. Nothing for an unknown product. */
-export function VerdictCard({ verdict, mode }: { verdict: Verdict; mode: MilkMode }) {
+export function VerdictCard({
+  verdict,
+  mode,
+  dairyCount,
+}: {
+  verdict: Verdict;
+  mode: MilkMode;
+  /** Dairy ingredients highlighted in the list. */
+  dairyCount: number;
+}) {
   if (verdict.kind === 'not-found') return null;
   const variant = VARIANTS[verdict.kind];
   const isTraces = verdict.kind === 'traces';
@@ -137,7 +152,7 @@ export function VerdictCard({ verdict, mode }: { verdict: Verdict; mode: MilkMod
           </Text>
           <View className={cn('border-t-[1.5px] pt-2', variant.ruleClass)}>
             <Text className={cn('font-mono text-[11px] tracking-[1.1px]', variant.inkClass)}>
-              {detailLine(verdict)}
+              {detailLine(verdict, dairyCount)}
             </Text>
           </View>
         </View>

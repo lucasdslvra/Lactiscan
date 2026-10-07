@@ -1,4 +1,5 @@
 import { useLocalSearchParams } from 'expo-router';
+import { WifiOff } from 'lucide-react-native';
 import { ActivityIndicator, ScrollView, View } from 'react-native';
 
 import { IngredientsSection } from '@/components/product/ingredients-section';
@@ -8,11 +9,14 @@ import { ProductTopBar } from '@/components/product/product-top-bar';
 import { ScanAgainBar, scanAnotherProduct } from '@/components/product/scan-again-bar';
 import { VerdictCard } from '@/components/product/verdict-card';
 import { Button } from '@/components/ui/button';
+import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { useVerdictSettings } from '@/hooks/use-verdict-settings';
-import { useProduct, type OffClientError } from '@/lib/off';
+import { findDairyIngredients } from '@/lib/dairy';
+import { useProduct, type OffClientError, type OffProduct } from '@/lib/off';
+import { productIngredients } from '@/lib/product';
 import { LABEL } from '@/lib/theme';
-import { evaluateVerdict } from '@/lib/verdict';
+import { evaluateVerdict, type VerdictSettings } from '@/lib/verdict';
 
 /**
  * « 04 · Fiche produit » mockup, landing screen of a scan or a manual entry: product,
@@ -36,18 +40,31 @@ export default function ProduitScreen() {
           </View>
         )}
 
-        {product && (
-          <>
-            <ProductSummary product={product} />
-            <VerdictCard verdict={evaluateVerdict(product, settings)} mode={settings.mode} />
-            <IngredientsSection product={product} />
-            <OffDisclaimer />
-          </>
-        )}
+        {product && <ProductSheet product={product} settings={settings} />}
       </ScrollView>
 
       {product && <ScanAgainBar />}
     </View>
+  );
+}
+
+function ProductSheet({ product, settings }: { product: OffProduct; settings: VerdictSettings }) {
+  const verdict = evaluateVerdict(product, settings);
+  const ingredients = productIngredients(product);
+  const dairy = findDairyIngredients(ingredients?.text ?? '');
+
+  return (
+    <>
+      <ProductSummary product={product} />
+      <VerdictCard verdict={verdict} mode={settings.mode} dairyCount={dairy.names.length} />
+      <IngredientsSection
+        ingredients={ingredients}
+        dairy={dairy}
+        highlight={verdict.kind !== 'milk-free'}
+        tracesTags={product.traces_tags}
+      />
+      <OffDisclaimer />
+    </>
   );
 }
 
@@ -56,10 +73,10 @@ function ProductError({ error, onRetry }: { error: OffClientError; onRetry: () =
     return (
       <View className="border-ink gap-2 border-2 p-4">
         <Text className="font-mono text-ink text-[10px] tracking-[1.2px]">CODE INCONNU</Text>
-        <Text className="font-display text-ink text-3xl uppercase leading-[30px]">
+        <Text className="font-display text-ink text-3xl uppercase leading-[27px]">
           Produit introuvable
         </Text>
-        <Text className="font-body text-ink text-sm">
+        <Text className="font-body text-ink text-sm leading-[20px]">
           Lisez l&apos;étiquette du produit : aucun verdict n&apos;est affiché.
         </Text>
         <ScanAgainButton />
@@ -70,14 +87,19 @@ function ProductError({ error, onRetry }: { error: OffClientError; onRetry: () =
   const offline = error.kind === 'network' || error.kind === 'timeout';
   return (
     <View className="bg-ink gap-2 p-4">
-      <Text className="font-mono text-paper text-[10px] tracking-[1.2px]">
-        {offline ? 'HORS LIGNE' : 'SERVICE INDISPONIBLE'}
-      </Text>
-      <Text className="font-display text-paper text-3xl uppercase leading-[30px]">
+      <View className="flex-row items-center gap-2">
+        {offline && <Icon as={WifiOff} size={16} strokeWidth={2} className="text-paper" />}
+        <Text className="font-mono text-paper text-[10px] tracking-[1.2px]">
+          {offline ? 'HORS LIGNE' : 'SERVICE INDISPONIBLE'}
+        </Text>
+      </View>
+      <Text className="font-display text-paper text-3xl uppercase leading-[27px]">
         {offline ? 'Pas de connexion' : 'Réessayez plus tard'}
       </Text>
-      <Text className="font-body text-paper text-sm">Ce produit ne peut pas être chargé.</Text>
-      <Button onPress={onRetry} className="bg-paper mt-1 h-12 rounded-none">
+      <Text className="font-body text-paper text-sm leading-[20px]">
+        {offline ? 'Ce nouveau produit ne peut pas être chargé.' : 'Ce produit ne peut pas être chargé.'}
+      </Text>
+      <Button onPress={onRetry} className="border-paper bg-paper mt-1 h-11 rounded-none border-2">
         <Text className="font-body-bold text-ink text-sm font-normal">Réessayer</Text>
       </Button>
     </View>
@@ -89,7 +111,7 @@ function ScanAgainButton() {
     <Button
       variant="ghost"
       onPress={scanAnotherProduct}
-      className="border-ink mt-1 h-12 rounded-none border-2">
+      className="border-ink mt-1 h-11 rounded-none border-2">
       <Text className="font-body-bold text-ink text-sm font-normal">Scanner un autre produit</Text>
     </Button>
   );
