@@ -7,7 +7,27 @@ module.exports = {
   presets: [require('nativewind/preset')],
   theme: {
     extend: {
+      // « Étiquette » visual system from the MilkApp mockup. Mirrored in `LABEL` (src/lib/theme.ts).
+      fontFamily: {
+        display: ['BigShouldersDisplay_900Black'],
+        'display-bold': ['BigShouldersDisplay_800ExtraBold'],
+        body: ['AtkinsonHyperlegibleNext_400Regular'],
+        'body-bold': ['AtkinsonHyperlegibleNext_700Bold'],
+        mono: ['AtkinsonHyperlegibleMono_400Regular'],
+        'mono-semibold': ['AtkinsonHyperlegibleMono_600SemiBold'],
+      },
       colors: {
+        paper: { DEFAULT: '#F3EFE6', dim: '#E9E3D6' },
+        field: '#FFFDF7',
+        ink: { DEFAULT: '#17150F', muted: '#4A463C', soft: '#CFC9BC' },
+        scanline: '#FF5A3C',
+        link: '#1E3FAE',
+        verdict: {
+          milk: '#B0281C',
+          lactose: '#E8AE2E',
+          traces: '#F4C095',
+          free: '#A9CBF7',
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

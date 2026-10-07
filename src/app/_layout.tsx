@@ -1,17 +1,50 @@
 import '../../global.css';
 
+import {
+  AtkinsonHyperlegibleMono_400Regular,
+  AtkinsonHyperlegibleMono_600SemiBold,
+} from '@expo-google-fonts/atkinson-hyperlegible-mono';
+import {
+  AtkinsonHyperlegibleNext_400Regular,
+  AtkinsonHyperlegibleNext_700Bold,
+} from '@expo-google-fonts/atkinson-hyperlegible-next';
+import {
+  BigShouldersDisplay_800ExtraBold,
+  BigShouldersDisplay_900Black,
+} from '@expo-google-fonts/big-shoulders-display';
 import { PortalHost } from '@rn-primitives/portal';
 import { QueryClientProvider } from '@tanstack/react-query';
+import { useFonts } from 'expo-font';
 import { Stack, ThemeProvider } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
+import { useEffect } from 'react';
 
 import { queryClient } from '@/lib/query-client';
-import { NAV_THEME } from '@/lib/theme';
+import { FONTS, LABEL, NAV_THEME } from '@/lib/theme';
+
+void SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const { colorScheme } = useColorScheme();
   const scheme = colorScheme ?? 'light';
+  // Keys are the family names used by `FONTS` and the `font-*` classes.
+  const [fontsLoaded, fontError] = useFonts({
+    BigShouldersDisplay_800ExtraBold,
+    BigShouldersDisplay_900Black,
+    AtkinsonHyperlegibleNext_400Regular,
+    AtkinsonHyperlegibleNext_700Bold,
+    AtkinsonHyperlegibleMono_400Regular,
+    AtkinsonHyperlegibleMono_600SemiBold,
+  });
+  const ready = fontsLoaded || !!fontError;
+
+  useEffect(() => {
+    if (ready) void SplashScreen.hideAsync();
+  }, [ready]);
+
+  if (!ready) return null;
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -19,6 +52,17 @@ export default function RootLayout() {
         <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="saisie" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="produit/[code]"
+            options={{
+              title: 'Fiche produit',
+              headerStyle: { backgroundColor: LABEL.paper },
+              headerTintColor: LABEL.ink,
+              headerTitleStyle: { fontFamily: FONTS.bodyBold },
+              headerShadowVisible: false,
+            }}
+          />
         </Stack>
         <PortalHost />
       </ThemeProvider>

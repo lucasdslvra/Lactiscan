@@ -1,5 +1,29 @@
 import { DarkTheme, DefaultTheme, type Theme } from 'expo-router/react-navigation';
 
+// « Étiquette » visual system from the MilkApp mockup. Mirror of the `paper`, `ink`… colors
+// and `font-*` families in tailwind.config.js, for places that need raw values.
+export const LABEL = {
+  paper: '#F3EFE6',
+  paperDim: '#E9E3D6',
+  field: '#FFFDF7',
+  ink: '#17150F',
+  inkMuted: '#4A463C',
+  inkSoft: '#CFC9BC',
+  scanline: '#FF5A3C',
+  link: '#1E3FAE',
+} as const;
+
+// Static font files: one family per weight, since `fontWeight` does not pick a weight of a
+// custom font on Android.
+export const FONTS = {
+  display: 'BigShouldersDisplay_900Black',
+  displayBold: 'BigShouldersDisplay_800ExtraBold',
+  body: 'AtkinsonHyperlegibleNext_400Regular',
+  bodyBold: 'AtkinsonHyperlegibleNext_700Bold',
+  mono: 'AtkinsonHyperlegibleMono_400Regular',
+  monoSemiBold: 'AtkinsonHyperlegibleMono_600SemiBold',
+} as const;
+
 // Mirror of the CSS variables in global.css, for places that need raw colors
 // (navigation theme, tab bar tint, status bar…).
 export const THEME = {
