@@ -6,6 +6,8 @@ interface OffProductDocument {
   product_name?: string;
   product_name_fr?: string;
   brands?: string;
+  /** Free text, e.g. `500 g`. */
+  quantity?: string;
   image_front_url?: string;
   image_front_small_url?: string;
   ingredients_text?: string;
@@ -15,6 +17,8 @@ interface OffProductDocument {
   traces_tags?: string[];
   /** e.g. `['en:no-lactose']` */
   labels_tags?: string[];
+  /** Comma-separated, in the product's main language, from most generic to most specific. */
+  categories?: string;
   /** From most generic to most specific. */
   categories_tags?: string[];
   /** Completeness flags, e.g. `en:ingredients-to-be-completed`. */

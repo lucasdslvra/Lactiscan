@@ -1,38 +1,53 @@
-import { router, useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { ActivityIndicator, ScrollView, View } from 'react-native';
 
+import { IngredientsSection } from '@/components/product/ingredients-section';
+import { OffDisclaimer } from '@/components/product/off-disclaimer';
+import { ProductSummary } from '@/components/product/product-summary';
+import { ProductTopBar } from '@/components/product/product-top-bar';
+import { ScanAgainBar, scanAnotherProduct } from '@/components/product/scan-again-bar';
+import { VerdictCard } from '@/components/product/verdict-card';
 import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
+import { useVerdictSettings } from '@/hooks/use-verdict-settings';
 import { useProduct, type OffClientError } from '@/lib/off';
 import { LABEL } from '@/lib/theme';
+import { evaluateVerdict } from '@/lib/verdict';
 
 /**
- * Landing screen of a scan or a manual entry, first cut: name and brand only.
- * The full sheet (photo, ingredients, verdict) comes with US-08 and following.
+ * « 04 · Fiche produit » mockup, landing screen of a scan or a manual entry: product,
+ * verdict for the active profile, ingredients and traces, and the Open Food Facts warning.
  */
 export default function ProduitScreen() {
   const { code } = useLocalSearchParams<{ code: string }>();
+  const settings = useVerdictSettings();
   const { data: product, error, isPending, refetch } = useProduct(code);
 
   return (
-    <ScrollView className="bg-paper flex-1" contentContainerClassName="gap-4 p-5">
-      <Text className="font-mono text-ink text-xs tracking-[1.4px]">EAN {code}</Text>
+    <View className="bg-paper flex-1">
+      <ProductTopBar code={code} mode={settings.mode} />
 
-      {isPending && <ActivityIndicator color={LABEL.ink} size="large" className="mt-8" />}
+      <ScrollView className="flex-1" contentContainerClassName="pb-2">
+        {isPending && <ActivityIndicator color={LABEL.ink} size="large" className="mt-12" />}
 
-      {error && <ProductError error={error} onRetry={() => void refetch()} />}
+        {error && (
+          <View className="px-4 pt-5">
+            <ProductError error={error} onRetry={() => void refetch()} />
+          </View>
+        )}
 
-      {product && (
-        <View className="gap-2">
-          <Text role="heading" className="font-display text-ink text-[40px] uppercase leading-[40px]">
-            {product.product_name_fr || product.product_name || 'Produit sans nom'}
-          </Text>
-          {!!product.brands && (
-            <Text className="font-body text-ink-muted text-base">{product.brands}</Text>
-          )}
-        </View>
-      )}
-    </ScrollView>
+        {product && (
+          <>
+            <ProductSummary product={product} />
+            <VerdictCard verdict={evaluateVerdict(product, settings)} mode={settings.mode} />
+            <IngredientsSection product={product} />
+            <OffDisclaimer />
+          </>
+        )}
+      </ScrollView>
+
+      {product && <ScanAgainBar />}
+    </View>
   );
 }
 
@@ -73,7 +88,7 @@ function ScanAgainButton() {
   return (
     <Button
       variant="ghost"
-      onPress={() => router.back()}
+      onPress={scanAnotherProduct}
       className="border-ink mt-1 h-12 rounded-none border-2">
       <Text className="font-body-bold text-ink text-sm font-normal">Scanner un autre produit</Text>
     </Button>

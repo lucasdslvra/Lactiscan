@@ -5,12 +5,15 @@ import { DarkTheme, DefaultTheme, type Theme } from 'expo-router/react-navigatio
 export const LABEL = {
   paper: '#F3EFE6',
   paperDim: '#E9E3D6',
+  paperHatch: '#E2DACA',
   field: '#FFFDF7',
   ink: '#17150F',
   inkMuted: '#4A463C',
   inkSoft: '#CFC9BC',
   scanline: '#FF5A3C',
   link: '#1E3FAE',
+  verdictMilkFg: '#FBF7EE',
+  verdictTraces: '#F4C095',
 } as const;
 
 // Static font files: one family per weight, since `fontWeight` does not pick a weight of a

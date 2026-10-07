@@ -22,7 +22,7 @@ import { useColorScheme } from 'nativewind';
 import { useEffect } from 'react';
 
 import { queryClient } from '@/lib/query-client';
-import { FONTS, LABEL, NAV_THEME } from '@/lib/theme';
+import { NAV_THEME } from '@/lib/theme';
 
 void SplashScreen.preventAutoHideAsync();
 
@@ -53,16 +53,7 @@ export default function RootLayout() {
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="saisie" options={{ headerShown: false }} />
-          <Stack.Screen
-            name="produit/[code]"
-            options={{
-              title: 'Fiche produit',
-              headerStyle: { backgroundColor: LABEL.paper },
-              headerTintColor: LABEL.ink,
-              headerTitleStyle: { fontFamily: FONTS.bodyBold },
-              headerShadowVisible: false,
-            }}
-          />
+          <Stack.Screen name="produit/[code]" options={{ headerShown: false }} />
         </Stack>
         <PortalHost />
       </ThemeProvider>

@@ -17,13 +17,13 @@ module.exports = {
         'mono-semibold': ['AtkinsonHyperlegibleMono_600SemiBold'],
       },
       colors: {
-        paper: { DEFAULT: '#F3EFE6', dim: '#E9E3D6' },
+        paper: { DEFAULT: '#F3EFE6', dim: '#E9E3D6', hatch: '#E2DACA' },
         field: '#FFFDF7',
         ink: { DEFAULT: '#17150F', muted: '#4A463C', soft: '#CFC9BC' },
         scanline: '#FF5A3C',
         link: '#1E3FAE',
         verdict: {
-          milk: '#B0281C',
+          milk: { DEFAULT: '#B0281C', fg: '#FBF7EE', rule: '#E7A69D' },
           lactose: '#E8AE2E',
           traces: '#F4C095',
           free: '#A9CBF7',
