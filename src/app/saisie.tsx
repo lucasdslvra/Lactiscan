@@ -1,31 +1,31 @@
 import { router } from 'expo-router';
-import { ArrowLeft, ArrowRight } from 'lucide-react-native';
+import { ArrowLeft, ArrowRight, Check, TriangleAlert } from 'lucide-react-native';
 import { useState } from 'react';
 import { Pressable, ScrollView, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { BarcodePreview } from '@/components/barcode-preview';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
+import { checkManualCode, type ManualCodeCheck } from '@/lib/barcode';
 import { FONTS, LABEL } from '@/lib/theme';
 
-const GTIN_LENGTHS = [8, 12, 13];
 const MAX_LENGTH = 13;
 
 /**
- * « 03 · Saisie manuelle » mockup, first cut: numeric field and length check only.
- * The EAN check-digit validation and the barcode preview come with US-06.
+ * « 03 · Saisie manuelle » mockup. The length and the EAN check digit are verified as the
+ * user types, so Open Food Facts is only called with a valid code; the result is the same
+ * product screen as a scan.
  */
 export default function SaisieScreen() {
   const insets = useSafeAreaInsets();
   const [code, setCode] = useState('');
-  const canSubmit = GTIN_LENGTHS.includes(code.length);
+  const check = checkManualCode(code);
 
   const submit = () => {
-    if (!canSubmit) return;
-    // UPC-A (12 digits) is stored by Open Food Facts in its 13-digit EAN form.
-    const normalized = code.length === 12 ? `0${code}` : code;
-    router.push({ pathname: '/produit/[code]', params: { code: normalized } });
+    if (check.status !== 'valid') return;
+    router.push({ pathname: '/produit/[code]', params: { code: check.code } });
   };
 
   return (
@@ -80,8 +80,12 @@ export default function SaisieScreen() {
         </View>
       </View>
 
+      <CheckStatus check={check} />
+
+      {check.status === 'valid' && <BarcodePreview code={code} />}
+
       <Button
-        disabled={!canSubmit}
+        disabled={check.status !== 'valid'}
         onPress={submit}
         className="bg-ink active:bg-ink/90 h-[60px] justify-between rounded-none px-5">
         <Text className="font-display-bold text-paper text-2xl font-normal uppercase tracking-[0.5px]">
@@ -90,5 +94,37 @@ export default function SaisieScreen() {
         <Icon as={ArrowRight} size={26} strokeWidth={2.5} className="text-paper" />
       </Button>
     </ScrollView>
+  );
+}
+
+/** Live result of the check under the field; nothing until the length is a GTIN one. */
+function CheckStatus({ check }: { check: ManualCodeCheck }) {
+  if (check.status === 'incomplete') return null;
+
+  if (check.status === 'valid') {
+    return (
+      <View
+        role="status"
+        className="bg-verdict-free border-ink flex-row items-center gap-2.5 border-2 px-3.5 py-3">
+        <Icon as={Check} size={20} strokeWidth={3} className="text-ink" />
+        <Text className="font-body-bold text-ink text-[15px]">Clé de contrôle valide</Text>
+        <Text className="font-mono text-ink ml-auto text-[11px] tracking-[0.9px]">
+          {check.format}
+        </Text>
+      </View>
+    );
+  }
+
+  return (
+    <View
+      role="status"
+      className="bg-field border-ink flex-row items-center gap-2.5 border-2 border-dashed px-3.5 py-3">
+      <Icon as={TriangleAlert} size={20} strokeWidth={2.5} className="text-ink" />
+      <View className="flex-1 gap-0.5">
+        <Text className="font-body-bold text-ink text-[15px]">Clé de contrôle incorrecte</Text>
+        <Text className="font-body text-ink-muted text-sm">Vérifiez les chiffres saisis.</Text>
+      </View>
+      <Text className="font-mono text-ink text-[11px] tracking-[0.9px]">{check.format}</Text>
+    </View>
   );
 }

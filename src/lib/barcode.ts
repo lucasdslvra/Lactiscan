@@ -64,9 +64,76 @@ export function normalizeScannedCode(type: string, data: string): string | null 
   const digits = data.trim();
   if (!/^\d+$/.test(digits)) return null;
 
-  let code: string | null = digits;
-  if (type === 'upc_e') code = upcEToUpcA(digits);
-  if (code?.length === 12) code = `0${code}`;
+  const code = type === 'upc_e' ? upcEToUpcA(digits) : digits;
+  return code && normalizeGtin(code);
+}
 
-  return code && isValidGtin(code) ? code : null;
+/** Valid GTIN → the form Open Food Facts stores (UPC-A gets a leading `0`), else `null`. */
+export function normalizeGtin(code: string): string | null {
+  if (!isValidGtin(code)) return null;
+  return code.length === 12 ? `0${code}` : code;
+}
+
+export type GtinFormat = 'EAN-8' | 'UPC-A' | 'EAN-13';
+
+const FORMAT_BY_LENGTH: Record<number, GtinFormat> = { 8: 'EAN-8', 12: 'UPC-A', 13: 'EAN-13' };
+
+export type ManualCodeCheck =
+  | { status: 'incomplete' }
+  | { status: 'invalid'; format: GtinFormat }
+  | { status: 'valid'; format: GtinFormat; code: string };
+
+/**
+ * Checks a hand-typed code before any network call: a GTIN length (8, 12 or 13 digits),
+ * then its check digit. `code` is the normalized form to look up.
+ */
+export function checkManualCode(input: string): ManualCodeCheck {
+  const format = /^\d+$/.test(input) ? FORMAT_BY_LENGTH[input.length] : undefined;
+  if (!format) return { status: 'incomplete' };
+  const code = normalizeGtin(input);
+  return code ? { status: 'valid', format, code } : { status: 'invalid', format };
+}
+
+/** Groups the digits as printed under the bars: `3 760123 456784`, `9638 5074`. */
+export function formatGtin(code: string): string {
+  switch (code.length) {
+    case 13:
+      return `${code[0]} ${code.slice(1, 7)} ${code.slice(7)}`;
+    case 12:
+      return `${code[0]} ${code.slice(1, 6)} ${code.slice(6, 11)} ${code[11]}`;
+    case 8:
+      return `${code.slice(0, 4)} ${code.slice(4)}`;
+    default:
+      return code;
+  }
+}
+
+// EAN symbol encoding: each digit is 7 modules (`1` = bar).
+const L_CODES = ['0001101', '0011001', '0010011', '0111101', '0100011', '0110001', '0101111', '0111011', '0110111', '0001011'];
+const G_CODES = ['0100111', '0110011', '0011011', '0100001', '0011101', '0111001', '0000101', '0010001', '0001001', '0010111'];
+const R_CODES = ['1110010', '1100110', '1101100', '1000010', '1011100', '1001110', '1010000', '1000100', '1001000', '1110100'];
+/** EAN-13: the first digit is not drawn, it sets which left digits use the G set. */
+const EAN13_PARITY = ['LLLLLL', 'LLGLGG', 'LLGGLG', 'LLGGGL', 'LGLLGG', 'LGGLLG', 'LGGGLL', 'LGLGLG', 'LGLGGL', 'LGGLGL'];
+const EDGE_GUARD = '101';
+const CENTER_GUARD = '01010';
+
+/**
+ * Bar pattern of an EAN-13 (95 modules) or EAN-8 (67 modules); a UPC-A is drawn as its EAN-13
+ * form. `null` for anything that is not a valid GTIN.
+ */
+export function eanBarModules(input: string): string | null {
+  const code = normalizeGtin(input);
+  if (!code) return null;
+  const digits = [...code].map(Number);
+
+  if (code.length === 8) {
+    const left = digits.slice(0, 4).map((d) => L_CODES[d]);
+    const right = digits.slice(4).map((d) => R_CODES[d]);
+    return EDGE_GUARD + left.join('') + CENTER_GUARD + right.join('') + EDGE_GUARD;
+  }
+
+  const parity = EAN13_PARITY[digits[0]];
+  const left = digits.slice(1, 7).map((d, i) => (parity[i] === 'G' ? G_CODES : L_CODES)[d]);
+  const right = digits.slice(7).map((d) => R_CODES[d]);
+  return EDGE_GUARD + left.join('') + CENTER_GUARD + right.join('') + EDGE_GUARD;
 }

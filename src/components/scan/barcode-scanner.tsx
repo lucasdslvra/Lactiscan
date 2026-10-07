@@ -1,10 +1,11 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { CameraView, type BarcodeScanningResult } from 'expo-camera';
 import * as Haptics from 'expo-haptics';
-import { router, useIsFocused } from 'expo-router';
-import { useCallback } from 'react';
-import { ArrowRight } from 'lucide-react-native';
-import { Platform, StyleSheet, View } from 'react-native';
+import { router, useFocusEffect, useIsFocused } from 'expo-router';
+import { ArrowRight, Flashlight } from 'lucide-react-native';
+import { useCallback, useState } from 'react';
+import { Platform, Pressable, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ManualEntryButton } from '@/components/scan/manual-entry-button';
 import { Button } from '@/components/ui/button';
@@ -13,6 +14,7 @@ import { Text } from '@/components/ui/text';
 import { useScanGuard } from '@/hooks/use-scan-guard';
 import { normalizeScannedCode, SCAN_BARCODE_TYPES } from '@/lib/barcode';
 import { productQueryOptions } from '@/lib/off';
+import { cn } from '@/lib/utils';
 import { LABEL } from '@/lib/theme';
 
 const BARCODE_SETTINGS = { barcodeTypes: [...SCAN_BARCODE_TYPES] };
@@ -38,6 +40,11 @@ export function BarcodeScanner({ cameraEnabled, onRequestPermission }: BarcodeSc
   const queryClient = useQueryClient();
   // Only one camera may run at a time, and unmounting is the only way to stop it on Android.
   const isFocused = useIsFocused();
+  const insets = useSafeAreaInsets();
+  const [torchOn, setTorchOn] = useState(false);
+
+  // The torch always starts off when coming back to the screen (US-07).
+  useFocusEffect(useCallback(() => () => setTorchOn(false), []));
 
   const openProduct = useCallback(
     (code: string) => {
@@ -65,6 +72,7 @@ export function BarcodeScanner({ cameraEnabled, onRequestPermission }: BarcodeSc
           <CameraView
             style={StyleSheet.absoluteFill}
             facing="back"
+            enableTorch={torchOn}
             barcodeScannerSettings={BARCODE_SETTINGS}
             onBarcodeScanned={onBarcodeScanned}
           />
@@ -87,6 +95,11 @@ export function BarcodeScanner({ cameraEnabled, onRequestPermission }: BarcodeSc
             </Text>
           </View>
         </View>
+        {cameraEnabled && Platform.OS !== 'web' && (
+          <View className="absolute right-4" style={{ top: insets.top + 8 }}>
+            <TorchButton on={torchOn} onToggle={() => setTorchOn((on) => !on)} />
+          </View>
+        )}
       </View>
 
       <View className="bg-paper">
@@ -110,6 +123,23 @@ export function BarcodeScanner({ cameraEnabled, onRequestPermission }: BarcodeSc
         </View>
       </View>
     </View>
+  );
+}
+
+function TorchButton({ on, onToggle }: { on: boolean; onToggle: () => void }) {
+  return (
+    <Pressable
+      role="switch"
+      aria-checked={on}
+      aria-label={on ? 'Éteindre la torche' : 'Allumer la torche'}
+      onPress={onToggle}
+      className={cn(
+        'border-paper h-12 w-12 items-center justify-center border-[1.5px]',
+        on ? 'bg-paper' : 'bg-transparent'
+      )}>
+      {/* Same icon in both states: the inverted fill shows it is lit. */}
+      <Icon as={Flashlight} size={22} className={on ? 'text-ink' : 'text-paper'} />
+    </Pressable>
   );
 }
 
