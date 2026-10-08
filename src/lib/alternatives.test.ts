@@ -2,11 +2,15 @@ import { describe, expect, it } from '@jest/globals';
 
 import {
   MAX_ALTERNATIVES,
+  MIN_ALTERNATIVES,
   alternativeCategoryTag,
   alternativesSearchParams,
   compareAlternatives,
   nutriScoreGrade,
+  pickParentCategory,
   selectAlternatives,
+  type Alternative,
+  type AlternativeSources,
 } from '@/lib/alternatives';
 import type { OffProduct } from '@/lib/off';
 import type { VerdictSettings } from '@/lib/verdict';
@@ -96,6 +100,17 @@ describe('nutriScoreGrade', () => {
 });
 
 describe('selectAlternatives', () => {
+  const EXACT = 'en:wholemeal-sliced-breads';
+  const PARENT = 'en:sliced-breads';
+
+  function select(sources: AlternativeSources, settings: VerdictSettings = STRICT) {
+    return selectAlternatives(sources, { scannedCode: SCANNED, categoryTag: EXACT, settings });
+  }
+
+  function listed(alternatives: Alternative[]): string[] {
+    return alternatives.map(({ product: p, origin }) => `${p.code}:${origin}`);
+  }
+
   type Case = [situation: string, Partial<OffProduct>, VerdictSettings, kept: boolean];
 
   // Same engine as the product sheet: an alternative is kept only when its verdict is acceptable.
@@ -122,31 +137,121 @@ describe('selectAlternatives', () => {
     return [`${situation} · ${settings.mode}${option}`, overrides, settings, kept] as const;
   });
 
-  it.each(namedTable)('%s', (_name, overrides, settings, kept) => {
-    const result = selectAlternatives([product('1', overrides)], SCANNED, settings);
-    expect(codes(result)).toEqual(kept ? ['1'] : []);
+  describe.each<[string, keyof AlternativeSources]>([
+    ['catégorie exacte', 'category'],
+    ['catégorie parente', 'parent'],
+    ['équivalences', 'equivalences'],
+  ])('filtre par le verdict · %s', (_source, source) => {
+    it.each(namedTable)('%s', (_name, overrides, settings, kept) => {
+      const sources: AlternativeSources = { category: [], [source]: [product('1', overrides)] };
+      expect(codes(select(sources, settings).map((a) => a.product))).toEqual(kept ? ['1'] : []);
+    });
   });
 
   it('excludes the scanned product', () => {
-    const result = selectAlternatives([product(SCANNED), product('1')], SCANNED, STRICT);
-    expect(codes(result)).toEqual(['1']);
+    const result = select({ category: [product(SCANNED), product('1')] });
+    expect(listed(result)).toEqual(['1:category']);
   });
 
-  it('removes duplicates', () => {
-    const result = selectAlternatives([product('1'), product('1'), product('2')], SCANNED, STRICT);
-    expect(codes(result)).toEqual(['1', '2']);
+  it('removes duplicates, the first source winning', () => {
+    const result = select({
+      category: [product('1'), product('1')],
+      parent: [product('1'), product('2')],
+      equivalences: [product('2'), product('3')],
+    });
+    expect(listed(result)).toEqual(['1:category', '2:parent', '3:equivalence']);
   });
 
   it(`keeps at most ${MAX_ALTERNATIVES} products`, () => {
     const many = Array.from({ length: 30 }, (_, i) => product(String(i + 1)));
-    expect(selectAlternatives(many, SCANNED, STRICT)).toHaveLength(MAX_ALTERNATIVES);
+    expect(select({ category: many })).toHaveLength(MAX_ALTERNATIVES);
   });
 
   it('keeps the most scanned products when it cuts the list', () => {
     const many = Array.from({ length: 30 }, (_, i) => product(String(i + 1), { unique_scans_n: i }));
-    const result = selectAlternatives(many, SCANNED, STRICT);
-    expect(result[0].code).toBe('30');
-    expect(result.at(-1)?.code).toBe('21');
+    const result = select({ category: many });
+    expect(result[0].product.code).toBe('30');
+    expect(result.at(-1)?.product.code).toBe('21');
+  });
+
+  describe(`fewer than ${MIN_ALTERNATIVES} results (US-19)`, () => {
+    it(`ignores the fallbacks with ${MIN_ALTERNATIVES} exact results`, () => {
+      const result = select({
+        category: [product('1'), product('2'), product('3')],
+        parent: [product('4')],
+        equivalences: [product('5')],
+      });
+      expect(listed(result)).toEqual(['1:category', '2:category', '3:category']);
+    });
+
+    it('completes with the parent category', () => {
+      const result = select({
+        category: [product('1'), product('milk', withMilk)],
+        parent: [product('2'), product('3')],
+        equivalences: [product('4')],
+      });
+      expect(listed(result)).toEqual(['1:category', '2:parent', '3:parent']);
+    });
+
+    it('then with the equivalences', () => {
+      const result = select({
+        category: [product('1')],
+        parent: [product('2')],
+        equivalences: [product('3'), product('4')],
+      });
+      expect(listed(result)).toEqual(['1:category', '2:parent', '3:equivalence', '4:equivalence']);
+    });
+
+    it('labels a parent result that carries the exact category « même catégorie »', () => {
+      const result = select({
+        category: [],
+        parent: [product('1', { categories_tags: [PARENT, EXACT] }), product('2', { categories_tags: [PARENT] })],
+      });
+      expect(listed(result)).toEqual(['1:category', '2:parent']);
+    });
+
+    it('lists by origin, then by popularity and Nutri-Score', () => {
+      const result = select({
+        category: [product('rare', { unique_scans_n: 1 })],
+        parent: [
+          product('p-popular', { unique_scans_n: 900 }),
+          product('p-b', { unique_scans_n: 10, nutriscore_grade: 'b' }),
+          product('p-a', { unique_scans_n: 10, nutriscore_grade: 'a' }),
+        ],
+      });
+      expect(listed(result)).toEqual(['rare:category', 'p-popular:parent', 'p-a:parent', 'p-b:parent']);
+    });
+
+    it('gives nothing when no source has a compatible product', () => {
+      const result = select({
+        category: [product('1', withMilk)],
+        parent: [product('2', noIngredients)],
+        equivalences: [product('3', withMilk)],
+      });
+      expect(result).toEqual([]);
+    });
+  });
+});
+
+describe('pickParentCategory', () => {
+  const scanned = product(SCANNED, {
+    categories_tags: ['en:breads', 'en:sliced-breads', 'en:wholemeal-sliced-breads'],
+  });
+
+  it('prefers a parent the product carries', () => {
+    expect(pickParentCategory(['en:wholemeal-breads', 'en:sliced-breads'], scanned)).toBe(
+      'en:sliced-breads'
+    );
+  });
+
+  it('falls back to the first taxonomy parent', () => {
+    expect(pickParentCategory(['fr:Pains', 'en:wholemeal-breads'], product(SCANNED))).toBe(
+      'en:wholemeal-breads'
+    );
+  });
+
+  it('gives null without parent', () => {
+    expect(pickParentCategory([], scanned)).toBeNull();
   });
 });
 

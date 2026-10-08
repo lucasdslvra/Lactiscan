@@ -66,3 +66,6 @@ export interface OffSearchResponse {
   skip: number;
   products: OffProduct[];
 }
+
+/** `/api/v2/taxonomy` answer, keyed by the requested tag; unknown tags may be missing. */
+export type OffTaxonomyResponse = Record<string, { parents?: string[] } | undefined>;

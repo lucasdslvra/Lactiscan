@@ -1,4 +1,9 @@
-export { getProduct, searchProducts, type OffRequestOptions } from './client';
+export {
+  getCategoryParents,
+  getProduct,
+  searchProducts,
+  type OffRequestOptions,
+} from './client';
 export { OFF_USER_AGENT } from './config';
 export {
   OffError,
@@ -12,10 +17,18 @@ export {
   type OffErrorKind,
 } from './errors';
 export {
+  categoryParentsQueryOptions,
   offKeys,
   productQueryOptions,
   searchQueryOptions,
+  useCategoryParents,
   useProduct,
   useProductSearch,
 } from './queries';
-export type { OffProduct, OffSearchParams, OffSearchResponse, OffSortBy } from './types';
+export type {
+  OffProduct,
+  OffSearchParams,
+  OffSearchResponse,
+  OffSortBy,
+  OffTaxonomyResponse,
+} from './types';

@@ -15,7 +15,8 @@ const ERROR_MESSAGES = {
 
 /**
  * « Alternatives sans lait » block under the product: same category, sold in France, only
- * products the active profile accepts. For a product the user can already eat, the mockup calls
+ * products the active profile accepts, completed by the parent category then the equivalences
+ * when there are fewer than three. For a product the user can already eat, the mockup calls
  * them « Autres options ».
  */
 export function AlternativesSection({
@@ -27,7 +28,10 @@ export function AlternativesSection({
   verdict: Verdict;
   settings: VerdictSettings;
 }) {
-  const { alternatives, isPending, error, refetch } = useAlternatives(product, settings);
+  const { alternatives, isPending, isLoadingMore, error, retry } = useAlternatives(
+    product,
+    settings
+  );
   const otherOptions = verdict.acceptable;
   const without = settings.mode === 'lactose-free' ? 'sans lactose' : 'sans lait';
   const count = alternatives.length;
@@ -54,7 +58,7 @@ export function AlternativesSection({
           : 'Vendues en France, triées par popularité puis Nutri-Score.'}
       </Text>
 
-      {isPending ? (
+      {isPending || (count === 0 && isLoadingMore) ? (
         <ActivityIndicator
           color={LABEL.ink}
           size="large"
@@ -62,15 +66,29 @@ export function AlternativesSection({
           aria-label="Recherche des alternatives"
         />
       ) : error ? (
-        <OffErrorPanel error={error} messages={ERROR_MESSAGES} onRetry={() => void refetch()} />
+        <OffErrorPanel error={error} messages={ERROR_MESSAGES} onRetry={retry} />
       ) : count === 0 ? (
         <NoAlternative />
       ) : (
-        <View className="border-ink border-b-2">
-          {alternatives.map((alternative, index) => (
-            <AlternativeRow key={alternative.code} product={alternative} first={index === 0} />
-          ))}
-        </View>
+        <>
+          <View className="border-ink border-b-2">
+            {alternatives.map((alternative, index) => (
+              <AlternativeRow
+                key={alternative.product.code}
+                alternative={alternative}
+                first={index === 0}
+              />
+            ))}
+          </View>
+          {/* Progressive loading: the parent category arrives below the first results. */}
+          {isLoadingMore && (
+            <ActivityIndicator
+              color={LABEL.ink}
+              className="pt-3.5"
+              aria-label="Recherche dans la catégorie parente"
+            />
+          )}
+        </>
       )}
     </View>
   );

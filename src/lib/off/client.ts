@@ -5,6 +5,7 @@ import type {
   OffProductResponse,
   OffSearchParams,
   OffSearchResponse,
+  OffTaxonomyResponse,
 } from './types';
 
 export interface OffRequestOptions {
@@ -22,12 +23,10 @@ interface RawResponse {
   body: unknown;
 }
 
+/** Product endpoints get `fields=` the fields MilkApp reads; other endpoints pass their own. */
 function buildUrl(path: string, params: QueryParams): string {
-  const entries: [string, string | number | undefined][] = [
-    ...Object.entries(params),
-    ['fields', OFF_PRODUCT_FIELDS.join(',')],
-  ];
-  const query = entries
+  const withFields: QueryParams = { fields: OFF_PRODUCT_FIELDS.join(','), ...params };
+  const query = Object.entries(withFields)
     .filter((entry): entry is [string, string | number] => entry[1] !== undefined)
     .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
     .join('&');
@@ -125,4 +124,24 @@ export async function searchProducts(
     throw new OffHttpError(status, 'Malformed search response');
   }
   return body as unknown as OffSearchResponse;
+}
+
+/**
+ * `GET /api/v2/taxonomy` — direct parents of a category, e.g. `en:wholemeal-sliced-breads` →
+ * `['en:sliced-breads', 'en:wholemeal-breads']`. Empty for a root or unknown category.
+ */
+export async function getCategoryParents(
+  categoryTag: string,
+  options: OffRequestOptions = {}
+): Promise<string[]> {
+  const { status, ok, body } = await request(
+    '/api/v2/taxonomy',
+    { tagtype: 'categories', tags: categoryTag, fields: 'parents' },
+    options
+  );
+
+  if (!ok) throw new OffHttpError(status);
+  if (!isObject(body)) throw new OffHttpError(status, 'Malformed taxonomy response');
+  const parents = (body as OffTaxonomyResponse)[categoryTag]?.parents;
+  return Array.isArray(parents) ? parents.filter((tag) => typeof tag === 'string') : [];
 }

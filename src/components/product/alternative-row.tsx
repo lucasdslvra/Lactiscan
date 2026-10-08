@@ -5,20 +5,36 @@ import { Pressable, View } from 'react-native';
 import { ProductPhoto } from '@/components/product/product-photo';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { nutriScoreGrade } from '@/lib/alternatives';
-import type { OffProduct } from '@/lib/off';
+import { nutriScoreGrade, type Alternative, type AlternativeOrigin } from '@/lib/alternatives';
 import { brandLine, photoUrl, productName } from '@/lib/product';
 import { cn } from '@/lib/utils';
 
 const BADGE = 'font-mono text-ink text-[10px] tracking-[0.8px]';
 
+// Origin badge: solid border for the exact category, dashed for the parent one (mockup), ink
+// fill for an equivalence of the JSON. Told apart without color.
+const ORIGIN_BADGE: Record<AlternativeOrigin, { text: string; frame: string; ink: string }> = {
+  category: { text: 'MÊME CATÉGORIE', frame: '', ink: 'text-ink' },
+  parent: { text: 'CATÉGORIE PARENTE', frame: 'border-dashed', ink: 'text-ink' },
+  equivalence: { text: 'ÉQUIVALENCE', frame: 'bg-ink', ink: 'text-paper' },
+};
+
 /** One alternative: photo, name, brand, Nutri-Score; opens its own sheet with its verdict. */
-export function AlternativeRow({ product, first }: { product: OffProduct; first: boolean }) {
+export function AlternativeRow({
+  alternative: { product, origin },
+  first,
+}: {
+  alternative: Alternative;
+  first: boolean;
+}) {
   const uri = photoUrl(product);
   const name = productName(product);
   const brand = brandLine(product);
   const grade = nutriScoreGrade(product);
-  const label = [name, brand, grade && `Nutri-Score ${grade}`].filter(Boolean).join(', ');
+  const badge = ORIGIN_BADGE[origin];
+  const label = [name, brand, grade && `Nutri-Score ${grade}`, badge.text.toLocaleLowerCase('fr-FR')]
+    .filter(Boolean)
+    .join(', ');
 
   return (
     <Pressable
@@ -46,9 +62,10 @@ export function AlternativeRow({ product, first }: { product: OffProduct; first:
               </Text>
             </View>
           )}
-          <Text className={cn(BADGE, 'border-ink border-[1.5px] px-1.5 py-[3px]')}>
-            MÊME CATÉGORIE
-          </Text>
+          {/* Border on a View: a dashed border on a Text is unreliable on Android. */}
+          <View className={cn('border-ink border-[1.5px] px-1.5 py-[3px]', badge.frame)}>
+            <Text className={cn(BADGE, badge.ink)}>{badge.text}</Text>
+          </View>
         </View>
       </View>
 
