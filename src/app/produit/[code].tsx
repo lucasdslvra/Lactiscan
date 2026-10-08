@@ -1,15 +1,16 @@
 import { useLocalSearchParams } from 'expo-router';
-import { WifiOff } from 'lucide-react-native';
 import { ActivityIndicator, ScrollView, View } from 'react-native';
 
+import { AlternativesSection } from '@/components/product/alternatives-section';
 import { IngredientsSection } from '@/components/product/ingredients-section';
-import { OffDisclaimer } from '@/components/product/off-disclaimer';
+import { OffDisclaimer, OffSource } from '@/components/product/off-disclaimer';
+import { OffErrorPanel } from '@/components/product/off-error-panel';
 import { ProductSummary } from '@/components/product/product-summary';
 import { ProductTopBar } from '@/components/product/product-top-bar';
 import { ScanAgainBar, scanAnotherProduct } from '@/components/product/scan-again-bar';
+import { TicketDivider } from '@/components/product/ticket-divider';
 import { VerdictCard } from '@/components/product/verdict-card';
 import { Button } from '@/components/ui/button';
-import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { useVerdictSettings } from '@/hooks/use-verdict-settings';
 import { findDairyIngredients } from '@/lib/dairy';
@@ -19,8 +20,9 @@ import { LABEL } from '@/lib/theme';
 import { evaluateVerdict, type VerdictSettings } from '@/lib/verdict';
 
 /**
- * « 04 · Fiche produit » mockup, landing screen of a scan or a manual entry: product,
- * verdict for the active profile, ingredients and traces, and the Open Food Facts warning.
+ * « 04 · Fiche produit et alternatives » mockup, landing screen of a scan or a manual entry:
+ * product, verdict for the active profile, ingredients and traces, the Open Food Facts warning,
+ * then the alternatives the profile accepts.
  */
 export default function ProduitScreen() {
   const { code } = useLocalSearchParams<{ code: string }>();
@@ -64,9 +66,17 @@ function ProductSheet({ product, settings }: { product: OffProduct; settings: Ve
         tracesTags={product.traces_tags}
       />
       <OffDisclaimer />
+      <TicketDivider />
+      <AlternativesSection product={product} verdict={verdict} settings={settings} />
+      <OffSource />
     </>
   );
 }
+
+const PRODUCT_ERROR_MESSAGES = {
+  offline: 'Ce nouveau produit ne peut pas être chargé.',
+  unavailable: 'Ce produit ne peut pas être chargé.',
+};
 
 function ProductError({ error, onRetry }: { error: OffClientError; onRetry: () => void }) {
   if (error.kind === 'not-found') {
@@ -84,26 +94,7 @@ function ProductError({ error, onRetry }: { error: OffClientError; onRetry: () =
     );
   }
 
-  const offline = error.kind === 'network' || error.kind === 'timeout';
-  return (
-    <View className="bg-ink gap-2 p-4">
-      <View className="flex-row items-center gap-2">
-        {offline && <Icon as={WifiOff} size={16} strokeWidth={2} className="text-paper" />}
-        <Text className="font-mono text-paper text-[10px] tracking-[1.2px]">
-          {offline ? 'HORS LIGNE' : 'SERVICE INDISPONIBLE'}
-        </Text>
-      </View>
-      <Text className="font-display text-paper text-3xl uppercase leading-[27px]">
-        {offline ? 'Pas de connexion' : 'Réessayez plus tard'}
-      </Text>
-      <Text className="font-body text-paper text-sm leading-[20px]">
-        {offline ? 'Ce nouveau produit ne peut pas être chargé.' : 'Ce produit ne peut pas être chargé.'}
-      </Text>
-      <Button onPress={onRetry} className="border-paper bg-paper mt-1 h-11 rounded-none border-2">
-        <Text className="font-body-bold text-ink text-sm font-normal">Réessayer</Text>
-      </Button>
-    </View>
-  );
+  return <OffErrorPanel error={error} messages={PRODUCT_ERROR_MESSAGES} onRetry={onRetry} />;
 }
 
 function ScanAgainButton() {
