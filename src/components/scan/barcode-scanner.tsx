@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { CameraView, type BarcodeScanningResult } from 'expo-camera';
 import * as Haptics from 'expo-haptics';
-import { router, useFocusEffect, useIsFocused } from 'expo-router';
+import { router, useFocusEffect } from 'expo-router';
 import { ArrowRight, Flashlight } from 'lucide-react-native';
 import { useCallback, useRef, useState } from 'react';
 import { Platform, Pressable, StyleSheet, View, type LayoutChangeEvent } from 'react-native';
@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { useScanGuard } from '@/hooks/use-scan-guard';
+import { useSettledFocus } from '@/hooks/use-settled-focus';
 import { normalizeScannedCode, SCAN_BARCODE_TYPES } from '@/lib/barcode';
 import { productQueryOptions } from '@/lib/off';
 import { isInScanWindow, type ScanWindow } from '@/lib/scan-window';
@@ -40,7 +41,8 @@ interface BarcodeScannerProps {
 export function BarcodeScanner({ cameraEnabled, onRequestPermission }: BarcodeScannerProps) {
   const queryClient = useQueryClient();
   // Only one camera may run at a time, and unmounting is the only way to stop it on Android.
-  const isFocused = useIsFocused();
+  // Remounted once the sheet has finished closing, not while it slides away.
+  const cameraVisible = useSettledFocus();
   const insets = useSafeAreaInsets();
   const [torchOn, setTorchOn] = useState(false);
 
@@ -90,7 +92,7 @@ export function BarcodeScanner({ cameraEnabled, onRequestPermission }: BarcodeSc
   return (
     <View className="bg-ink flex-1">
       <View className="flex-1">
-        {cameraEnabled && isFocused && (
+        {cameraEnabled && cameraVisible && (
           <CameraView
             style={StyleSheet.absoluteFill}
             facing="back"

@@ -20,7 +20,11 @@
       "predictiveBackGestureEnabled": false,
       "blockedPermissions": [
         "android.permission.RECORD_AUDIO"
-      ]
+      ],
+      "permissions": [
+        "android.permission.CAMERA"
+      ],
+      "package": "com.anonymous.Lactiscan"
     },
     "web": {
       "output": "static",
@@ -42,7 +46,8 @@
           "cameraPermission": "MilkApp utilise la caméra pour lire les codes-barres. L'image n'est ni enregistrée ni envoyée.",
           "recordAudioAndroid": false
         }
-      ]
+      ],
+      "expo-sqlite"
     ],
     "experiments": {
       "typedRoutes": true,

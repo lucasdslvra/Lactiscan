@@ -1,5 +1,8 @@
 import { Redirect } from 'expo-router';
 
+import { useStoredVerdictSettings } from '@/hooks/use-verdict-settings';
+
 export default function Index() {
-  return <Redirect href="/scan" />;
+  const hasProfile = useStoredVerdictSettings() !== null;
+  return <Redirect href={hasProfile ? '/scan' : '/profil'} />;
 }

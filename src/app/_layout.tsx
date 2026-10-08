@@ -21,6 +21,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
 import { useEffect } from 'react';
 
+import { useStoredVerdictSettings } from '@/hooks/use-verdict-settings';
 import { queryClient } from '@/lib/query-client';
 import { NAV_THEME } from '@/lib/theme';
 
@@ -28,6 +29,8 @@ void SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const { colorScheme } = useColorScheme();
+  // No verdict is shown before the profile is chosen explicitly (US-13).
+  const hasProfile = useStoredVerdictSettings() !== null;
   const scheme = colorScheme ?? 'light';
   // Keys are the family names used by `FONTS` and the `font-*` classes.
   const [fontsLoaded, fontError] = useFonts({
@@ -51,9 +54,14 @@ export default function RootLayout() {
       <ThemeProvider value={NAV_THEME[scheme]}>
         <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
         <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="saisie" options={{ headerShown: false }} />
-          <Stack.Screen name="produit/[code]" options={{ headerShown: false }} />
+          <Stack.Protected guard={!hasProfile}>
+            <Stack.Screen name="profil" options={{ headerShown: false }} />
+          </Stack.Protected>
+          <Stack.Protected guard={hasProfile}>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="saisie" options={{ headerShown: false }} />
+            <Stack.Screen name="produit/[code]" options={{ headerShown: false }} />
+          </Stack.Protected>
         </Stack>
         <PortalHost />
       </ThemeProvider>
