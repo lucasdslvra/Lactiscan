@@ -7,6 +7,7 @@ import { useCallback, useRef, useState } from 'react';
 import { Platform, Pressable, StyleSheet, View, type LayoutChangeEvent } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { ProfileBadge } from '@/components/profile/profile-badge';
 import { ManualEntryButton } from '@/components/scan/manual-entry-button';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
@@ -119,11 +120,14 @@ export function BarcodeScanner({ cameraEnabled, onRequestPermission }: BarcodeSc
             </Text>
           </View>
         </View>
-        {cameraEnabled && Platform.OS !== 'web' && (
-          <View className="absolute right-4" style={{ top: insets.top + 8 }}>
+        <View
+          className="absolute left-4 right-4 flex-row items-center justify-between gap-3"
+          style={{ top: insets.top + 8 }}>
+          <ProfileBadge tone="dark" />
+          {cameraEnabled && Platform.OS !== 'web' && (
             <TorchButton on={torchOn} onToggle={() => setTorchOn((on) => !on)} />
-          </View>
-        )}
+          )}
+        </View>
       </View>
 
       <View className="bg-paper">

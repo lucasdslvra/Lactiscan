@@ -34,6 +34,8 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
+        // Each screen draws its own title, as in the mockup.
+        headerShown: false,
         tabBarActiveTintColor: LABEL.paper,
         tabBarInactiveTintColor: LABEL.ink,
         tabBarActiveBackgroundColor: LABEL.ink,
@@ -51,7 +53,6 @@ export default function TabLayout() {
         name="scan"
         options={{
           title: 'Scan',
-          headerShown: false,
           tabBarItemStyle: { borderLeftWidth: 0 },
           tabBarIcon: ({ color }) => <ScanBarcode color={color} size={22} />,
         }}

@@ -10,8 +10,18 @@ const STORAGE_KEY = 'verdict-settings';
 // the profile choice. Kept as the most cautious profile all the same.
 const FALLBACK_SETTINGS: VerdictSettings = { mode: 'strict', excludeTraces: false };
 
+/** A storage that cannot be read counts as « not chosen »: the profile screen asks again. */
+function readSaved(): VerdictSettings | null {
+  try {
+    return parseVerdictSettings(Storage.getItemSync(STORAGE_KEY));
+  } catch (error) {
+    console.warn('Profil illisible sur l’appareil', error);
+    return null;
+  }
+}
+
 // Read synchronously once, so the first frame already knows whether to show the profile screen.
-let current: VerdictSettings | null = parseVerdictSettings(Storage.getItemSync(STORAGE_KEY));
+let current: VerdictSettings | null = readSaved();
 const listeners = new Set<() => void>();
 
 function subscribe(listener: () => void) {
@@ -21,20 +31,28 @@ function subscribe(listener: () => void) {
   };
 }
 
-function getSnapshot() {
+/** The profile in use, `null` until it is chosen on the first launch. */
+export function getVerdictSettings(): VerdictSettings | null {
   return current;
 }
 
-/** Saves the profile on the device; every screen showing a verdict recomputes it at once. */
+/**
+ * Saves the profile on the device; every screen showing a verdict recomputes it at once. If the
+ * write fails, the profile still applies until the app is closed.
+ */
 export function setVerdictSettings(settings: VerdictSettings) {
-  Storage.setItemSync(STORAGE_KEY, serializeVerdictSettings(settings));
+  try {
+    Storage.setItemSync(STORAGE_KEY, serializeVerdictSettings(settings));
+  } catch (error) {
+    console.warn('Profil non enregistré sur l’appareil', error);
+  }
   current = settings;
   listeners.forEach((listener) => listener());
 }
 
 /** The saved profile, or `null` until it is chosen on the first launch. */
 export function useStoredVerdictSettings(): VerdictSettings | null {
-  return useSyncExternalStore(subscribe, getSnapshot);
+  return useSyncExternalStore(subscribe, getVerdictSettings);
 }
 
 /** The user's verdict profile; the only place screens read it from. */

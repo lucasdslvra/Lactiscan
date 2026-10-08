@@ -4,6 +4,7 @@ import { Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Defs, Pattern, Rect } from 'react-native-svg';
 
+import { ProfileBadge } from '@/components/profile/profile-badge';
 import { ManualEntryButton } from '@/components/scan/manual-entry-button';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
@@ -40,6 +41,7 @@ export function CameraDenied({ permission, onRequest, onOpenSettings }: CameraDe
       className="bg-paper flex-1"
       contentContainerClassName="grow gap-[18px] px-5 pb-4"
       contentContainerStyle={{ paddingTop: insets.top + 16 }}>
+      <ProfileBadge tone="light" />
       <View
         className="border-ink h-[200px] items-center justify-center overflow-hidden border-2 border-dashed"
         aria-hidden>

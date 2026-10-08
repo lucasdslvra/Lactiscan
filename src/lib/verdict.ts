@@ -30,6 +30,13 @@ export const MODE_LABEL: Record<MilkMode, string> = {
   strict: 'SANS LAIT STRICT',
 };
 
+/** Active profile as recalled on the scan screen; the traces option only exists in strict mode. */
+export function profileLabel({ mode, excludeTraces }: VerdictSettings): string {
+  return mode === 'strict' && excludeTraces
+    ? `${MODE_LABEL.strict} · TRACES EXCLUES`
+    : MODE_LABEL[mode];
+}
+
 const MILK_TAG = 'en:milk';
 const LACTOSE_FREE_LABELS = ['en:no-lactose', 'en:lactose-free'];
 const INGREDIENTS_TO_BE_COMPLETED = 'en:ingredients-to-be-completed';

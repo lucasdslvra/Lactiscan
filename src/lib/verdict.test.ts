@@ -1,7 +1,12 @@
 import { describe, expect, it } from '@jest/globals';
 
 import type { OffProduct } from '@/lib/off';
-import { evaluateVerdict, type Verdict, type VerdictSettings } from '@/lib/verdict';
+import {
+  evaluateVerdict,
+  profileLabel,
+  type Verdict,
+  type VerdictSettings,
+} from '@/lib/verdict';
 
 /** A complete sheet with no milk anywhere; each case overrides what it needs. */
 function product(overrides: Partial<OffProduct> = {}): OffProduct {
@@ -118,5 +123,17 @@ describe('evaluateVerdict', () => {
         expect(verdict.acceptable).toBe(false);
       }
     });
+  });
+});
+
+describe('profileLabel', () => {
+  it.each<[VerdictSettings, string]>([
+    [LACTOSE_FREE, 'SANS LACTOSE'],
+    [STRICT, 'SANS LAIT STRICT'],
+    [STRICT_NO_TRACES, 'SANS LAIT STRICT · TRACES EXCLUES'],
+    // The traces option is hidden and ignored in « Sans lactose ».
+    [{ mode: 'lactose-free', excludeTraces: true }, 'SANS LACTOSE'],
+  ])('%j → %s', (settings, label) => {
+    expect(profileLabel(settings)).toBe(label);
   });
 });
