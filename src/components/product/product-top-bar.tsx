@@ -16,7 +16,7 @@ export function ProductTopBar({ code, mode }: { code: string; mode: MilkMode }) 
     <View className="flex-row items-center gap-2.5 px-4" style={{ paddingTop: insets.top + 12 }}>
       <Pressable
         role="button"
-        aria-label="Retour au scan"
+        aria-label="Retour"
         onPress={() => router.back()}
         className="border-ink h-11 w-11 items-center justify-center border-2">
         <Icon as={ArrowLeft} size={22} className="text-ink" />

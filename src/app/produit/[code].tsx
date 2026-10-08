@@ -36,7 +36,8 @@ export default function ProduitScreen() {
       <ScrollView className="flex-1" contentContainerClassName="pb-2">
         {isPending && <ActivityIndicator color={LABEL.ink} size="large" className="mt-12" />}
 
-        {error && (
+        {/* A failed background refresh keeps the sheet already shown. */}
+        {error && !product && (
           <View className="px-4 pt-5">
             <ProductError error={error} onRetry={() => void refetch()} />
           </View>

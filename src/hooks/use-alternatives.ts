@@ -43,18 +43,22 @@ export function useAlternatives(product: OffProduct, settings: VerdictSettings) 
     context
   );
 
-  const fallbackError = parents.error ?? parent.error;
+  // A failed background refresh keeps the cached answer: only a query without data has failed.
+  const exactError = exact.data ? null : exact.error;
+  const fallbackError = (parents.data ? null : parents.error) ?? (parent.data ? null : parent.error);
   const isLoadingMore =
     needsFallback && !fallbackError && (parents.isPending || (!!parentTag && parent.isPending));
 
   return {
     alternatives,
+    /** Without a taxonomy category there is nothing to search. */
+    hasCategory: !!categoryTag,
     /** No list yet: the exact search is running. */
     isPending: !!categoryTag && exact.isPending,
     /** The parent category is being searched, below the results already shown. */
     isLoadingMore,
-    // A failed fallback only matters when there is nothing to show.
-    error: exact.error ?? (alternatives.length === 0 ? fallbackError : null),
+    // Shown only without results (see `alternativesView`).
+    error: exactError ?? fallbackError,
     retry: () => {
       if (exact.error) void exact.refetch();
       if (parents.error) void parents.refetch();

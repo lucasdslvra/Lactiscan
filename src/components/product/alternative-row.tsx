@@ -1,3 +1,4 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { ChevronRight } from 'lucide-react-native';
 import { Pressable, View } from 'react-native';
@@ -6,6 +7,7 @@ import { ProductPhoto } from '@/components/product/product-photo';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { nutriScoreGrade, type Alternative, type AlternativeOrigin } from '@/lib/alternatives';
+import { offKeys, type OffProduct } from '@/lib/off';
 import { brandLine, photoUrl, productName } from '@/lib/product';
 import { cn } from '@/lib/utils';
 
@@ -32,18 +34,27 @@ export function AlternativeRow({
   const brand = brandLine(product);
   const grade = nutriScoreGrade(product);
   const badge = ORIGIN_BADGE[origin];
-  const label = [name, brand, grade && `Nutri-Score ${grade}`, badge.text.toLocaleLowerCase('fr-FR')]
+  const queryClient = useQueryClient();
+  const label = [
+    name,
+    brand,
+    grade ? `Nutri-Score ${grade}` : 'Nutri-Score inconnu',
+    badge.text.toLocaleLowerCase('fr-FR'),
+  ]
     .filter(Boolean)
     .join(', ');
+
+  function openSheet() {
+    seedProductSheet(queryClient, product);
+    // `push`: each alternative stacks a new sheet, the back button returns to this one.
+    router.push({ pathname: '/produit/[code]', params: { code: product.code } });
+  }
 
   return (
     <Pressable
       role="link"
       aria-label={label}
-      onPress={() =>
-        // `push`: each alternative stacks a new sheet, the back button returns to this one.
-        router.push({ pathname: '/produit/[code]', params: { code: product.code } })
-      }
+      onPress={openSheet}
       className={cn(
         'border-ink active:bg-paper-dim flex-row items-center gap-3 py-3.5',
         first ? 'border-t-2' : 'border-t-[1.5px]'
@@ -54,14 +65,12 @@ export function AlternativeRow({
         <Text className="font-body-bold text-ink text-base">{name}</Text>
         {!!brand && <Text className="font-body text-ink-muted text-[13px]">{brand}</Text>}
         <View className="flex-row flex-wrap gap-1.5 pt-0.5">
-          {grade && (
-            <View className="border-ink flex-row border-[1.5px]">
-              <Text className={cn(BADGE, 'px-1.5 py-[3px]')}>NUTRI-SCORE</Text>
-              <Text className="bg-ink font-mono-semibold text-paper px-[7px] py-[3px] text-[10px] tracking-[0.8px]">
-                {grade}
-              </Text>
-            </View>
-          )}
+          <View className="border-ink flex-row border-[1.5px]">
+            <Text className={cn(BADGE, 'px-1.5 py-[3px]')}>NUTRI-SCORE</Text>
+            <Text className="bg-ink font-mono-semibold text-paper px-[7px] py-[3px] text-[10px] tracking-[0.8px]">
+              {grade ?? '?'}
+            </Text>
+          </View>
           {/* Border on a View: a dashed border on a Text is unreliable on Android. */}
           <View className={cn('border-ink border-[1.5px] px-1.5 py-[3px]', badge.frame)}>
             <Text className={cn(BADGE, badge.ink)}>{badge.text}</Text>
@@ -72,4 +81,15 @@ export function AlternativeRow({
       <Icon as={ChevronRight} size={22} strokeWidth={2} className="text-ink" />
     </Pressable>
   );
+}
+
+/**
+ * The search already returned every field the sheet reads: its sheet and verdict show at once,
+ * offline too. Marked as stale so the sheet still refreshes it, and never over a sheet already
+ * loaded.
+ */
+function seedProductSheet(queryClient: ReturnType<typeof useQueryClient>, product: OffProduct) {
+  const key = offKeys.product(product.code);
+  if (queryClient.getQueryData(key)) return;
+  queryClient.setQueryData(key, product, { updatedAt: 1 });
 }
