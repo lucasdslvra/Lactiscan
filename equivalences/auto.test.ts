@@ -6,6 +6,7 @@ import {
   AUTO_PRODUCTS_PER_CATEGORY,
   autoCategories,
   cleanProduct,
+  needsMoreProducts,
   replaceTopLevelValue,
   selectAutoProducts,
   todayInParis,
@@ -52,22 +53,57 @@ describe('autoCategories', () => {
 });
 
 describe('selectAutoProducts', () => {
-  it('keeps only milk-free sheets, traces allowed', () => {
+  const codes = (products: AutoProduct[]) => products.map((product) => product.code);
+
+  it('keeps what one profile at least accepts, never an incomplete sheet or plain milk', () => {
     const withMilk = { ...milkFree('milk', 900), allergens_tags: ['en:milk'] };
+    const lactoseFree = { ...withMilk, code: 'lactose-free', labels_tags: ['en:no-lactose'] };
     const incomplete: AutoProduct = { code: 'incomplete', unique_scans_n: 800 };
     const traces = { ...milkFree('traces', 700), traces_tags: ['en:milk'] };
-    const codes = selectAutoProducts([withMilk, incomplete, traces, milkFree('ok', 1)]).map(
-      (product) => product.code
-    );
-    expect(codes).toEqual(['traces', 'ok']);
+    const { products, counts } = selectAutoProducts([
+      withMilk,
+      lactoseFree,
+      incomplete,
+      traces,
+      milkFree('ok', 1),
+    ]);
+    expect(codes(products)).toEqual(['lactose-free', 'traces', 'ok']);
+    expect(counts).toEqual({ 'sans traces': 1, strict: 2, 'sans lactose': 3 });
+  });
+
+  it('gives each profile its own most scanned products', () => {
+    // Twelve popular products with milk traces, then two without.
+    const traces = Array.from({ length: 12 }, (_, index) => ({
+      ...milkFree(`t${index}`, 100 + index),
+      traces_tags: ['en:milk'],
+    }));
+    const { products, counts } = selectAutoProducts([
+      ...traces,
+      milkFree('a', 2),
+      milkFree('b', 1),
+    ]);
+    expect(counts).toEqual({
+      'sans traces': 2,
+      strict: AUTO_PRODUCTS_PER_CATEGORY,
+      'sans lactose': AUTO_PRODUCTS_PER_CATEGORY,
+    });
+    expect(codes(products)).toHaveLength(AUTO_PRODUCTS_PER_CATEGORY + 2);
+    expect(codes(products).slice(-2)).toEqual(['a', 'b']);
   });
 
   it('sorts by popularity, drops duplicates and stops at the limit', () => {
     const products = Array.from({ length: 15 }, (_, index) => milkFree(String(index), index));
-    const codes = selectAutoProducts([milkFree('14', 14), ...products]).map((p) => p.code);
-    expect(codes).toHaveLength(AUTO_PRODUCTS_PER_CATEGORY);
-    expect(codes.slice(0, 3)).toEqual(['14', '13', '12']);
-    expect(new Set(codes).size).toBe(codes.length);
+    const selection = selectAutoProducts([milkFree('14', 14), ...products]);
+    expect(codes(selection.products)).toHaveLength(AUTO_PRODUCTS_PER_CATEGORY);
+    expect(codes(selection.products).slice(0, 3)).toEqual(['14', '13', '12']);
+  });
+});
+
+describe('needsMoreProducts', () => {
+  it('asks for more results while « traces exclues » is short', () => {
+    const full = Array.from({ length: 10 }, (_, index) => milkFree(String(index), index));
+    expect(needsMoreProducts(selectAutoProducts(full))).toBe(false);
+    expect(needsMoreProducts(selectAutoProducts(full.slice(1)))).toBe(true);
   });
 });
 
@@ -92,6 +128,25 @@ describe('cleanProduct', () => {
       unique_scans_n: 12,
     });
     expect(Object.keys(product!)).toEqual(['code', 'product_name', 'labels_tags', 'unique_scans_n']);
+  });
+
+  it('drops a name or ingredient list identical to the French one', () => {
+    const product = cleanProduct(
+      {
+        code: '1',
+        product_name: 'Sorbet citron',
+        product_name_fr: 'Sorbet citron',
+        ingredients_text: 'Lemon, sugar',
+        ingredients_text_fr: 'Citron, sucre',
+      },
+      SCHEMA
+    );
+    expect(product).toEqual({
+      code: '1',
+      product_name_fr: 'Sorbet citron',
+      ingredients_text: 'Lemon, sugar',
+      ingredients_text_fr: 'Citron, sucre',
+    });
   });
 
   it('drops a product without a code', () => {

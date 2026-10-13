@@ -13,7 +13,8 @@
         "lait UHT"
       ],
       "categoryTags": [
-        "en:plant-based-milk-alternatives"
+        "en:plant-based-milk-alternatives",
+        "en:milks"
       ],
       "replacements": [
         {
@@ -87,7 +88,8 @@
         "crème aigre"
       ],
       "categoryTags": [
-        "en:plant-based-creams"
+        "en:plant-based-creams",
+        "en:lactose-free-creams"
       ],
       "replacements": [
         {
@@ -120,7 +122,8 @@
         "crème UHT"
       ],
       "categoryTags": [
-        "en:plant-based-creams"
+        "en:plant-based-creams",
+        "en:lactose-free-creams"
       ],
       "replacements": [
         {
@@ -153,7 +156,8 @@
         "fromage à gratiner"
       ],
       "categoryTags": [
-        "en:cheese-substitutes"
+        "en:cheese-substitutes",
+        "en:lactose-free-cheeses"
       ],
       "replacements": [
         {
@@ -189,7 +193,8 @@
         "yoghourt"
       ],
       "categoryTags": [
-        "en:non-dairy-yogurts"
+        "en:non-dairy-yogurts",
+        "en:lactose-free-yogurts"
       ],
       "replacements": [
         {
@@ -233,6 +238,66 @@
         },
         {
           "name": "Chocolat au lait sans lactose",
+          "mode": "lactose-free"
+        }
+      ]
+    },
+    {
+      "id": "glace",
+      "name": "Glace",
+      "synonyms": [
+        "crème glacée",
+        "glace à la vanille",
+        "glace au chocolat",
+        "cône glacé",
+        "bâtonnet glacé"
+      ],
+      "categoryTags": [
+        "en:plant-based-ice-creams",
+        "en:sorbets"
+      ],
+      "replacements": [
+        {
+          "name": "Sorbet plein fruit",
+          "mode": "strict",
+          "note": "Souvent sans lait, mais pas toujours : certains sorbets contiennent du lait en poudre ou des traces."
+        },
+        {
+          "name": "Glace végétale au soja, à l'avoine ou au coco",
+          "mode": "strict"
+        },
+        {
+          "name": "Glace sans lactose",
+          "mode": "lactose-free"
+        }
+      ]
+    },
+    {
+      "id": "creme-dessert",
+      "name": "Crème dessert",
+      "synonyms": [
+        "dessert lacté",
+        "crème au chocolat",
+        "crème à la vanille",
+        "flan",
+        "riz au lait"
+      ],
+      "categoryTags": [
+        "en:non-dairy-desserts"
+      ],
+      "replacements": [
+        {
+          "name": "Dessert au soja",
+          "mode": "strict",
+          "note": "Au rayon frais, à côté des yaourts végétaux."
+        },
+        {
+          "name": "Crème maison au lait végétal",
+          "mode": "strict",
+          "note": "Boisson à l'avoine ou au soja épaissie à la fécule de maïs, avec cacao ou vanille."
+        },
+        {
+          "name": "Dessert sans lactose",
           "mode": "lactose-free"
         }
       ]

@@ -40,13 +40,28 @@ La CI (`.github/workflows/equivalences.yml`) lance les deux vérifications à ch
 
 `generate.ts` (TypeScript, lancé par `tsx`) réutilise le client Open Food Facts de l'app, donc son User-Agent `MilkApp/1.0 (contact)`. Le contact vient de `EXPO_PUBLIC_OFF_CONTACT`. Pour chaque catégorie citée dans `manual` :
 
-- il cherche les produits vendus en France, triés par nombre de scans (100 résultats) ;
-- il garde les 10 plus scannés que le moteur de verdict de l'app juge sans lait. Les traces sont permises : l'app les retire elle-même si l'option « traces exclues » est active. Une fiche incomplète n'est jamais retenue ;
-- il ne garde que les champs prévus par le schéma.
+- il cherche les produits vendus en France, triés par nombre de scans (100 résultats par page) ;
+- il garde, pour chacun des trois filtres de l'app, les 10 plus scannés que le moteur de verdict accepte :
+  - « sans lait strict, traces exclues » : aucun lait, aucune trace ;
+  - « sans lait strict » : aucun lait, traces permises ;
+  - « sans lactose » : idem, plus les produits laitiers portant le label « sans lactose ».
+
+  Les trois listes sont fusionnées, donc une catégorie compte entre 10 et 30 produits. Une fiche incomplète n'est jamais retenue ;
+- tant que le filtre « traces exclues » a moins de 10 produits (chocolat noir, sorbets…), il lit la page suivante, jusqu'à 3 pages ;
+- il ne garde que les champs prévus par le schéma, sans le nom ni les ingrédients non français quand ils sont identiques aux versions françaises.
+
+Une catégorie peut ne servir qu'à un profil : `en:lactose-free-yogurts` ou `en:milks` n'apportent que des produits sans lactose, que l'app ne montre pas au profil strict.
 
 Seules les valeurs de `auto` et `version` (date du jour) sont réécrites. `manual` et le reste du fichier restent identiques octet pour octet ; le script le vérifie avant d'écrire. Si `auto` n'a pas changé, le fichier n'est pas touché.
 
-Les requêtes partent une par une, toutes les 7 s (la recherche OFF est limitée à 10 requêtes par minute). Une erreur réseau, un timeout, un 429 ou un 5xx est retenté deux fois, à 20 s d'intervalle. Le script **échoue sans rien écrire** si une catégorie reste en erreur ou n'a aucun produit sans lait. Dans ce cas, vérifier que le tag existe bien chez Open Food Facts.
+Les requêtes partent une par une, toutes les 7 s (la recherche OFF est limitée à 10 requêtes par minute). Open Food Facts répond souvent 503 : une erreur réseau, un timeout, un 429 ou un 5xx est retenté jusqu'à 4 fois, à 30 s d'intervalle.
+
+Quand Open Food Facts ne répond pas pour une catégorie, même après ces essais, la catégorie **garde sa liste précédente** (vide si elle est nouvelle). Le script continue avec un avertissement, visible en annotation sur le workflow. Une page supplémentaire en erreur ne fait que compléter moins de produits.
+
+Le script **échoue sans rien écrire** dans deux cas :
+
+- plus de la moitié des catégories restent sans réponse : Open Food Facts est alors indisponible plutôt que surchargé ;
+- une catégorie a répondu mais n'a de produit pour aucun des trois filtres. Vérifier alors que le tag existe bien chez Open Food Facts.
 
 ### Mise à jour hebdomadaire
 

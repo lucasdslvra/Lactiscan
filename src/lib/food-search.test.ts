@@ -85,7 +85,11 @@ describe('searchFoods', () => {
   });
 
   it('puts the exact food before the ones that only contain the word', () => {
-    expect(ids(searchFoods(EMBEDDED_EQUIVALENCES, 'lait'))).toEqual(['lait', 'chocolat-au-lait']);
+    expect(ids(searchFoods(EMBEDDED_EQUIVALENCES, 'lait'))).toEqual([
+      'lait',
+      'chocolat-au-lait',
+      'creme-dessert',
+    ]);
     expect(firstId('chocolat au lait')).toBe('chocolat-au-lait');
   });
 
@@ -93,6 +97,8 @@ describe('searchFoods', () => {
     expect(ids(searchFoods(EMBEDDED_EQUIVALENCES, 'crème'))).toEqual([
       'creme-fraiche',
       'creme-liquide',
+      'glace',
+      'creme-dessert',
     ]);
   });
 

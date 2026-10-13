@@ -4,31 +4,67 @@ import type { OffProduct } from '../src/lib/off/types';
 import { evaluateVerdict, type VerdictSettings } from '../src/lib/verdict';
 import type { AutoProduct, EquivalencesFile, ManualEquivalence } from './types';
 
-/** Products kept per category: the app shows 5 in Consultation and up to 10 alternatives. */
+/** Products kept per category and profile: the app shows 5 in Consultation, 10 alternatives. */
 export const AUTO_PRODUCTS_PER_CATEGORY = 10;
 
-// Milk-free sheets, traces allowed: the app drops those itself when « traces exclues » is on.
-const MILK_FREE: VerdictSettings = { mode: 'strict', excludeTraces: false };
+/**
+ * The three ways the app filters products. Each gets its own most scanned products, so that
+ * « sans lait strict, traces exclues » is not left empty by popular products with milk traces,
+ * and « sans lactose » also sees lactose-free milk products.
+ */
+export const AUTO_PROFILES = {
+  'sans traces': { mode: 'strict', excludeTraces: true },
+  strict: { mode: 'strict', excludeTraces: false },
+  'sans lactose': { mode: 'lactose-free', excludeTraces: false },
+} as const satisfies Record<string, VerdictSettings>;
+
+export type AutoProfile = keyof typeof AUTO_PROFILES;
+
+const PROFILE_NAMES = Object.keys(AUTO_PROFILES) as AutoProfile[];
 
 /** Categories of every `manual` entry, once each, in order of appearance. */
 export function autoCategories(manual: readonly ManualEquivalence[]): string[] {
   return [...new Set(manual.flatMap((entry) => entry.categoryTags))];
 }
 
+function byPopularity(a: AutoProduct, b: AutoProduct): number {
+  return (b.unique_scans_n ?? 0) - (a.unique_scans_n ?? 0);
+}
+
+export interface AutoSelection {
+  /** Every product kept, most scanned first. */
+  products: AutoProduct[];
+  /** How many of them each profile accepts. */
+  counts: Record<AutoProfile, number>;
+}
+
 /**
- * The most scanned products the app's verdict engine reads as milk-free: an incomplete sheet or
- * a product containing milk never makes it into the file.
+ * The {@link AUTO_PRODUCTS_PER_CATEGORY} most scanned products each profile accepts, merged.
+ * The app's verdict engine decides: an incomplete sheet, or a product with milk and no
+ * « sans lactose » label, never makes it into the file.
  */
-export function selectAutoProducts(products: readonly AutoProduct[]): AutoProduct[] {
-  const seen = new Set<string>();
-  return products
-    .filter((product) => {
-      if (seen.has(product.code)) return false;
-      seen.add(product.code);
-      return evaluateVerdict(product as OffProduct, MILK_FREE).acceptable;
-    })
-    .sort((a, b) => (b.unique_scans_n ?? 0) - (a.unique_scans_n ?? 0))
-    .slice(0, AUTO_PRODUCTS_PER_CATEGORY);
+export function selectAutoProducts(products: readonly AutoProduct[]): AutoSelection {
+  const unique = [...new Map(products.map((product) => [product.code, product])).values()];
+  unique.sort(byPopularity);
+  const kept = new Set<AutoProduct>();
+  const counts = {} as Record<AutoProfile, number>;
+  for (const profile of PROFILE_NAMES) {
+    const settings = AUTO_PROFILES[profile];
+    const accepted = unique
+      .filter((product) => evaluateVerdict(product as OffProduct, settings).acceptable)
+      .slice(0, AUTO_PRODUCTS_PER_CATEGORY);
+    accepted.forEach((product) => kept.add(product));
+    counts[profile] = accepted.length;
+  }
+  return { products: unique.filter((product) => kept.has(product)), counts };
+}
+
+/**
+ * Whether another page of results is worth fetching: products with milk traces are common
+ * (dark chocolate, sorbets…), so the « traces exclues » profile is the one that runs short.
+ */
+export function needsMoreProducts({ counts }: AutoSelection): boolean {
+  return counts['sans traces'] < AUTO_PRODUCTS_PER_CATEGORY;
 }
 
 interface PropertySchema {
@@ -50,9 +86,15 @@ function matches(value: unknown, { type, items }: PropertySchema): boolean {
   return false;
 }
 
+const DUPLICATED_FIELDS = [
+  ['product_name', 'product_name_fr'],
+  ['ingredients_text', 'ingredients_text_fr'],
+] as const;
+
 /**
- * The fields of the schema's `AutoProduct`, in its order, when OFF gave them the expected type.
- * A `null` or an odd value is left out instead of failing the whole file; `null` without a code.
+ * The fields of the schema's `AutoProduct`, in its order, when OFF gave them the expected type,
+ * without a non-French name or ingredient list identical to the French one. A `null` or an odd
+ * value is left out instead of failing the whole file; `null` without a code.
  */
 export function cleanProduct(raw: unknown, schema: AutoProductSchema): AutoProduct | null {
   if (typeof raw !== 'object' || raw === null) return null;
@@ -60,6 +102,11 @@ export function cleanProduct(raw: unknown, schema: AutoProductSchema): AutoProdu
   const product: Record<string, unknown> = {};
   for (const [field, property] of Object.entries(schema.definitions.AutoProduct.properties)) {
     if (matches(source[field], property)) product[field] = source[field];
+  }
+  // The app reads the French field first: a copy of it in the other one only makes the file
+  // heavier.
+  for (const [field, french] of DUPLICATED_FIELDS) {
+    if (product[field] === product[french]) delete product[field];
   }
   return typeof product.code === 'string' && product.code.length > 0
     ? (product as unknown as AutoProduct)
@@ -100,7 +147,10 @@ function valueEnd(text: string, start: number): number {
 }
 
 /** Where the value of `key` of the top-level object sits in the text, `null` without that key. */
-export function topLevelValueSpan(text: string, key: string): { start: number; end: number } | null {
+export function topLevelValueSpan(
+  text: string,
+  key: string
+): { start: number; end: number } | null {
   let depth = 0;
   for (let i = 0; i < text.length; i++) {
     const char = text[i];
