@@ -1,4 +1,5 @@
 import { useLocalSearchParams } from 'expo-router';
+import { useEffect } from 'react';
 import { ActivityIndicator, ScrollView, View } from 'react-native';
 
 import { AlternativesSection } from '@/components/product/alternatives-section';
@@ -12,6 +13,7 @@ import { TicketDivider } from '@/components/product/ticket-divider';
 import { VerdictCard } from '@/components/product/verdict-card';
 import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
+import { recordProductView } from '@/hooks/use-history';
 import { useVerdictSettings } from '@/hooks/use-verdict-settings';
 import { findDairyIngredients } from '@/lib/dairy';
 import { useProduct, type OffClientError, type OffProduct } from '@/lib/off';
@@ -28,6 +30,11 @@ export default function ProduitScreen() {
   const { code } = useLocalSearchParams<{ code: string }>();
   const settings = useVerdictSettings();
   const { data: product, error, isPending, refetch } = useProduct(code);
+
+  // Every sheet shown goes to the top of the history (US-33), and again with a newer version.
+  useEffect(() => {
+    if (product) void recordProductView(product);
+  }, [product]);
 
   return (
     <View className="bg-paper flex-1">

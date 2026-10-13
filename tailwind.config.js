@@ -27,7 +27,7 @@ module.exports = {
         verdict: {
           milk: { DEFAULT: '#B0281C', fg: '#FBF7EE', rule: '#E7A69D' },
           lactose: '#E8AE2E',
-          traces: '#F4C095',
+          traces: { DEFAULT: '#F4C095', hatch: '#FBE6D2' },
           free: '#A9CBF7',
         },
         border: 'hsl(var(--border))',

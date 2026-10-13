@@ -1,7 +1,7 @@
 import Constants from 'expo-constants';
 import { Trash2 } from 'lucide-react-native';
 import type { ReactNode } from 'react';
-import { Pressable, ScrollView, View } from 'react-native';
+import { Alert, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ExternalLink } from '@/components/external-link';
@@ -12,6 +12,7 @@ import { TracesToggle } from '@/components/profile/traces-toggle';
 import { Text } from '@/components/ui/text';
 import { useEquivalences } from '@/hooks/use-equivalences';
 import { setVerdictSettings, useVerdictSettings } from '@/hooks/use-verdict-settings';
+import { clearHistoryAndCache } from '@/lib/clear-history';
 import { formatEquivalencesVersion } from '@/lib/equivalences';
 import { FONTS, LABEL } from '@/lib/theme';
 import { cn } from '@/lib/utils';
@@ -56,11 +57,13 @@ export default function ReglagesScreen() {
       </Section>
 
       <Section title="DONNÉES">
-        {/* Wired with the offline history (E9); shown as in the mockup until then. */}
         <Pressable
           role="button"
-          disabled
-          className="border-verdict-milk h-[52px] flex-row items-center justify-center gap-2.5 border-2">
+          onPress={confirmClearHistory}
+          className={cn(
+            'border-verdict-milk active:bg-paper-dim h-[52px] flex-row items-center',
+            'justify-center gap-2.5 border-2'
+          )}>
           <Trash2 color={LABEL.verdictMilk} size={20} strokeWidth={2} />
           <Text className="font-body-bold text-verdict-milk text-base">
             Effacer l&apos;historique
@@ -107,6 +110,27 @@ export default function ReglagesScreen() {
         </View>
       </Section>
     </ScrollView>
+  );
+}
+
+/** US-35: asks first; the profile and the equivalences are kept. */
+function confirmClearHistory() {
+  Alert.alert(
+    "Effacer l'historique ?",
+    'Les produits consultés et leurs fiches gardées pour le hors ligne seront supprimés. ' +
+      'Vos réglages sont conservés.',
+    [
+      { text: 'Annuler', style: 'cancel' },
+      {
+        text: 'Effacer',
+        style: 'destructive',
+        onPress: () => {
+          clearHistoryAndCache().catch((error: unknown) => {
+            console.warn('Historique non effacé', error);
+          });
+        },
+      },
+    ]
   );
 }
 

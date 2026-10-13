@@ -24,6 +24,7 @@ import { useEffect } from 'react';
 import { refreshEquivalences } from '@/hooks/use-equivalences';
 import { useStoredVerdictSettings } from '@/hooks/use-verdict-settings';
 import { queryClient } from '@/lib/query-client';
+import { queryPersister } from '@/lib/query-persister';
 import { NAV_THEME } from '@/lib/theme';
 
 void SplashScreen.preventAutoHideAsync();
@@ -48,9 +49,12 @@ export default function RootLayout() {
     if (ready) void SplashScreen.hideAsync();
   }, [ready]);
 
-  // The latest equivalences, at most once a day (US-24).
+  // The latest equivalences, at most once a day (US-24); offline copies older than 30 days go.
   useEffect(() => {
     void refreshEquivalences();
+    queryPersister.persisterGc().catch((error: unknown) => {
+      console.warn('Cache hors ligne non nettoyé', error);
+    });
   }, []);
 
   if (!ready) return null;

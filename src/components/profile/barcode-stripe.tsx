@@ -16,18 +16,19 @@ const BARS: [number, number][] = [
   [33, 2],
 ];
 
-/** Decorative barcode band under the app name. */
-export function BarcodeStripe() {
+/** Decorative barcode band under the app name, or on the empty history ticket. */
+export function BarcodeStripe({ height = 28 }: { height?: number }) {
+  const id = `barcode-stripe-${height}`;
   return (
-    <Svg height={28} width="100%" aria-hidden>
+    <Svg height={height} width="100%" aria-hidden>
       <Defs>
-        <Pattern id="barcode-stripe" width={36} height={28} patternUnits="userSpaceOnUse">
+        <Pattern id={id} width={36} height={height} patternUnits="userSpaceOnUse">
           {BARS.map(([x, width]) => (
-            <Rect key={x} x={x} width={width} height={28} fill={LABEL.ink} />
+            <Rect key={x} x={x} width={width} height={height} fill={LABEL.ink} />
           ))}
         </Pattern>
       </Defs>
-      <Rect width="100%" height="100%" fill="url(#barcode-stripe)" />
+      <Rect width="100%" height="100%" fill={`url(#${id})`} />
     </Svg>
   );
 }

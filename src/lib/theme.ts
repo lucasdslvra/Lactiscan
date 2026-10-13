@@ -18,6 +18,8 @@ export const LABEL = {
   verdictMilkFg: '#FBF7EE',
   verdictLactose: '#E8AE2E',
   verdictTraces: '#F4C095',
+  /** Light stripe of the hatched « Traces possibles » badge. */
+  verdictTracesHatch: '#FBE6D2',
   verdictFree: '#A9CBF7',
 } as const;
 
@@ -26,6 +28,7 @@ export const TEXT_PAIRS: Record<string, [string, string]> = {
   'Contient du lait': [LABEL.verdictMilkFg, LABEL.verdictMilk],
   'Sans lactose': [LABEL.ink, LABEL.verdictLactose],
   'Traces possibles': [LABEL.ink, LABEL.verdictTraces],
+  'Badge traces, bande claire': [LABEL.ink, LABEL.verdictTracesHatch],
   'Sans lait': [LABEL.ink, LABEL.verdictFree],
   'Information incomplète': [LABEL.ink, LABEL.paper],
   'Ingrédient laitier': [LABEL.markInk, LABEL.mark],
