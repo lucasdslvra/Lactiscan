@@ -88,7 +88,7 @@ export function AlternativeRow({
  * offline too. Marked as stale so the sheet still refreshes it, and never over a sheet already
  * loaded.
  */
-function seedProductSheet(queryClient: ReturnType<typeof useQueryClient>, product: OffProduct) {
+export function seedProductSheet(queryClient: ReturnType<typeof useQueryClient>, product: OffProduct) {
   const key = offKeys.product(product.code);
   if (queryClient.getQueryData(key)) return;
   queryClient.setQueryData(key, product, { updatedAt: 1 });

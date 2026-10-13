@@ -12,6 +12,8 @@ const SIZES = {
   md: { frame: 'h-24 w-24', hatch: 12, label: true },
   /** Alternatives list: 60 pt thumbnail, hatch only. */
   sm: { frame: 'h-[60px] w-[60px]', hatch: 10, label: false },
+  /** « Les plus scannés » of the consultation: 52 pt thumbnail, hatch only. */
+  xs: { frame: 'h-[52px] w-[52px]', hatch: 10, label: false },
 } as const;
 
 /**
