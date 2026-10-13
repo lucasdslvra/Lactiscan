@@ -21,6 +21,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
 import { useEffect } from 'react';
 
+import { refreshEquivalences } from '@/hooks/use-equivalences';
 import { useStoredVerdictSettings } from '@/hooks/use-verdict-settings';
 import { queryClient } from '@/lib/query-client';
 import { NAV_THEME } from '@/lib/theme';
@@ -46,6 +47,11 @@ export default function RootLayout() {
   useEffect(() => {
     if (ready) void SplashScreen.hideAsync();
   }, [ready]);
+
+  // The latest equivalences, at most once a day (US-24).
+  useEffect(() => {
+    void refreshEquivalences();
+  }, []);
 
   if (!ready) return null;
 

@@ -1,0 +1,35 @@
+name: Équivalences
+
+on:
+  push:
+    paths:
+      - 'equivalences/**'
+      - '.github/workflows/equivalences.yml'
+  pull_request:
+    paths:
+      - 'equivalences/**'
+      - '.github/workflows/equivalences.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: equivalences
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: equivalences/package-lock.json
+      - run: npm ci
+      - name: Valider equivalences.json avec le schéma
+        run: npm run validate
+      - name: Vérifier que types.d.ts suit le schéma
+        run: |
+          npm run types
+          git diff --exit-code -- types.d.ts || {
+            echo "::error file=equivalences/types.d.ts::types.d.ts ne correspond plus au schéma : lancer npm run types dans equivalences/ et commiter le résultat."
+            exit 1
+          }

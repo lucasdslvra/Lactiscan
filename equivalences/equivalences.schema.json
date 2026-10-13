@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EquivalencesFile",
+  "description": "Équivalences sans lait lues par l'app Lactiscan et régénérées par le script hebdomadaire.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "manual", "auto"],
+  "properties": {
+    "$schema": {
+      "description": "Chemin du schéma, pour l'autocomplétion dans l'éditeur.",
+      "type": "string"
+    },
+    "version": {
+      "description": "Date de génération (AAAA-MM-JJ), pour savoir quelle version chaque téléphone utilise.",
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+    },
+    "manual": {
+      "description": "Équivalences génériques écrites à la main. Le script ne la modifie jamais.",
+      "type": "array",
+      "items": { "$ref": "#/definitions/ManualEquivalence" }
+    },
+    "auto": {
+      "description": "Produits sans lait les plus populaires, par tag de catégorie Open Food Facts. Générée par le script.",
+      "type": "object",
+      "propertyNames": { "$ref": "#/definitions/CategoryTag" },
+      "additionalProperties": {
+        "type": "array",
+        "items": { "$ref": "#/definitions/AutoProduct" }
+      }
+    }
+  },
+  "definitions": {
+    "CategoryTag": {
+      "title": "CategoryTag",
+      "description": "Tag de catégorie de la taxonomie Open Food Facts, par exemple `en:margarines`.",
+      "type": "string",
+      "pattern": "^en:[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "MilkMode": {
+      "title": "MilkMode",
+      "description": "`strict` : sans aucun ingrédient laitier, convient aux deux profils. `lactose-free` : contient du lait sans lactose, convient seulement au profil « Sans lactose ».",
+      "type": "string",
+      "enum": ["lactose-free", "strict"]
+    },
+    "ManualEquivalence": {
+      "title": "ManualEquivalence",
+      "description": "Un aliment laitier courant et ce qui peut le remplacer.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "synonyms", "categoryTags", "replacements"],
+      "properties": {
+        "id": {
+          "description": "Identifiant stable, unique dans le fichier.",
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "name": {
+          "description": "Nom affiché et recherché, par exemple « Beurre ».",
+          "type": "string",
+          "minLength": 1
+        },
+        "synonyms": {
+          "description": "Autres noms reconnus par la recherche.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "categoryTags": {
+          "description": "Catégories Open Food Facts où trouver des produits de remplacement : les clés de `auto` affichées avec cette entrée.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/definitions/CategoryTag" }
+        },
+        "replacements": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/Replacement" }
+        }
+      }
+    },
+    "Replacement": {
+      "title": "Replacement",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "mode"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "mode": { "$ref": "#/definitions/MilkMode" },
+        "note": {
+          "description": "Conseil affiché sous le remplacement.",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "AutoProduct": {
+      "title": "AutoProduct",
+      "description": "Produit Open Food Facts, limité aux champs lus par l'app.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code"],
+      "properties": {
+        "code": { "type": "string", "minLength": 1 },
+        "product_name": { "type": "string" },
+        "product_name_fr": { "type": "string" },
+        "brands": { "type": "string" },
+        "quantity": { "type": "string" },
+        "image_front_url": { "type": "string" },
+        "image_front_small_url": { "type": "string" },
+        "ingredients_text": { "type": "string" },
+        "ingredients_text_fr": { "type": "string" },
+        "allergens_tags": { "type": "array", "items": { "type": "string" } },
+        "traces_tags": { "type": "array", "items": { "type": "string" } },
+        "labels_tags": { "type": "array", "items": { "type": "string" } },
+        "categories": { "type": "string" },
+        "categories_tags": { "type": "array", "items": { "type": "string" } },
+        "states_tags": { "type": "array", "items": { "type": "string" } },
+        "nutriscore_grade": { "type": "string" },
+        "unique_scans_n": { "type": "number" }
+      }
+    }
+  }
+}

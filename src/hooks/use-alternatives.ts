@@ -1,3 +1,4 @@
+import { useEquivalences } from '@/hooks/use-equivalences';
 import {
   MIN_ALTERNATIVES,
   alternativeCategoryTag,
@@ -6,7 +7,7 @@ import {
   selectAlternatives,
   type AlternativeContext,
 } from '@/lib/alternatives';
-import { EMBEDDED_EQUIVALENCES, equivalenceProducts } from '@/lib/equivalences';
+import { equivalenceProducts } from '@/lib/equivalences';
 import { useCategoryParents, useProductSearch, type OffProduct } from '@/lib/off';
 import type { VerdictSettings } from '@/lib/verdict';
 
@@ -17,6 +18,7 @@ import type { VerdictSettings } from '@/lib/verdict';
  * without a new request.
  */
 export function useAlternatives(product: OffProduct, settings: VerdictSettings) {
+  const equivalences = useEquivalences();
   const categoryTag = alternativeCategoryTag(product);
   const context: AlternativeContext = { scannedCode: product.code, categoryTag, settings };
 
@@ -38,7 +40,7 @@ export function useAlternatives(product: OffProduct, settings: VerdictSettings) 
     {
       category: exactProducts,
       parent: parent.data?.products,
-      equivalences: equivalenceProducts(EMBEDDED_EQUIVALENCES, [categoryTag, parentTag]),
+      equivalences: equivalenceProducts(equivalences, [categoryTag, parentTag]),
     },
     context
   );

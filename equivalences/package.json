@@ -1,0 +1,17 @@
+{
+  "name": "lactiscan-equivalences",
+  "private": true,
+  "description": "Format, données et outils de equivalences.json, lu par l'app Lactiscan.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "validate": "node validate.mjs",
+    "types": "json2ts --input equivalences.schema.json --output types.d.ts --additionalProperties false --bannerComment \"/* Généré depuis equivalences.schema.json par npm run types, ne pas modifier à la main. */\""
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "json-schema-to-typescript": "^16.0.0"
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "$schema": "./equivalences.schema.json",
+  "version": "2026-10-13",
+  "manual": [
+    {
+      "id": "lait",
+      "name": "Lait",
+      "synonyms": [
+        "lait de vache",
+        "lait entier",
+        "lait demi-écrémé",
+        "lait écrémé",
+        "lait UHT"
+      ],
+      "categoryTags": [
+        "en:plant-based-milk-alternatives"
+      ],
+      "replacements": [
+        {
+          "name": "Boisson au soja",
+          "mode": "strict",
+          "note": "La plus proche du lait en protéines. Choisir une version enrichie en calcium."
+        },
+        {
+          "name": "Boisson à l'avoine",
+          "mode": "strict",
+          "note": "Douce, elle convient au café et aux pâtisseries."
+        },
+        {
+          "name": "Boisson aux amandes",
+          "mode": "strict"
+        },
+        {
+          "name": "Lait sans lactose",
+          "mode": "lactose-free",
+          "note": "Lait de vache dont le lactose est déjà digéré : il contient toujours les protéines du lait."
+        }
+      ]
+    },
+    {
+      "id": "beurre",
+      "name": "Beurre",
+      "synonyms": [
+        "beurre doux",
+        "beurre demi-sel",
+        "beurre salé",
+        "beurre de baratte"
+      ],
+      "categoryTags": [
+        "en:margarines",
+        "en:plant-based-spreads"
+      ],
+      "replacements": [
+        {
+          "name": "Margarine végétale",
+          "mode": "strict",
+          "note": "Vérifier l'étiquette : certaines contiennent du lactosérum ou du babeurre."
+        },
+        {
+          "name": "Huile d'olive ou de colza",
+          "mode": "strict",
+          "note": "Pour la cuisson et les gâteaux : environ 80 g d'huile pour 100 g de beurre."
+        },
+        {
+          "name": "Purée d'amande ou de cajou",
+          "mode": "strict",
+          "note": "Sur les tartines et dans les pâtisseries."
+        },
+        {
+          "name": "Beurre sans lactose",
+          "mode": "lactose-free"
+        },
+        {
+          "name": "Beurre clarifié (ghee)",
+          "mode": "lactose-free",
+          "note": "Presque sans lactose, mais il garde des traces de protéines de lait."
+        }
+      ]
+    },
+    {
+      "id": "creme-fraiche",
+      "name": "Crème fraîche",
+      "synonyms": [
+        "crème épaisse",
+        "crème fraîche épaisse",
+        "crème crue",
+        "crème aigre"
+      ],
+      "categoryTags": [
+        "en:plant-based-creams"
+      ],
+      "replacements": [
+        {
+          "name": "Crème de soja épaisse",
+          "mode": "strict"
+        },
+        {
+          "name": "Crème d'avoine",
+          "mode": "strict"
+        },
+        {
+          "name": "Yaourt au soja nature",
+          "mode": "strict",
+          "note": "Pour les sauces froides et les dips."
+        },
+        {
+          "name": "Crème fraîche sans lactose",
+          "mode": "lactose-free"
+        }
+      ]
+    },
+    {
+      "id": "creme-liquide",
+      "name": "Crème liquide",
+      "synonyms": [
+        "crème fleurette",
+        "crème entière",
+        "crème fluide",
+        "crème à fouetter",
+        "crème UHT"
+      ],
+      "categoryTags": [
+        "en:plant-based-creams"
+      ],
+      "replacements": [
+        {
+          "name": "Crème de soja liquide",
+          "mode": "strict"
+        },
+        {
+          "name": "Crème d'avoine liquide",
+          "mode": "strict"
+        },
+        {
+          "name": "Lait ou crème de coco",
+          "mode": "strict",
+          "note": "Pour les currys et les desserts. Bien froide, la crème de coco se fouette en chantilly."
+        },
+        {
+          "name": "Crème liquide sans lactose",
+          "mode": "lactose-free"
+        }
+      ]
+    },
+    {
+      "id": "fromage-rape",
+      "name": "Fromage râpé",
+      "synonyms": [
+        "emmental râpé",
+        "gruyère râpé",
+        "mozzarella râpée",
+        "râpé",
+        "fromage à gratiner"
+      ],
+      "categoryTags": [
+        "en:cheese-substitutes"
+      ],
+      "replacements": [
+        {
+          "name": "Râpé végétal",
+          "mode": "strict",
+          "note": "Vérifier l'étiquette : certains contiennent de la caséine."
+        },
+        {
+          "name": "Levure maltée ou levure nutritionnelle",
+          "mode": "strict",
+          "note": "Un goût de fromage sur les pâtes et les gratins."
+        },
+        {
+          "name": "Chapelure et filet d'huile d'olive",
+          "mode": "strict",
+          "note": "Pour un gratin croustillant."
+        },
+        {
+          "name": "Parmesan, comté ou emmental affinés",
+          "mode": "lactose-free",
+          "note": "Presque sans lactose grâce à l'affinage, mais ce sont des fromages au lait."
+        }
+      ]
+    },
+    {
+      "id": "yaourt",
+      "name": "Yaourt",
+      "synonyms": [
+        "yaourt nature",
+        "yaourt aux fruits",
+        "yaourt grec",
+        "yogourt",
+        "yoghourt"
+      ],
+      "categoryTags": [
+        "en:non-dairy-yogurts"
+      ],
+      "replacements": [
+        {
+          "name": "Yaourt au soja",
+          "mode": "strict"
+        },
+        {
+          "name": "Yaourt au lait de coco",
+          "mode": "strict"
+        },
+        {
+          "name": "Yaourt à l'avoine",
+          "mode": "strict"
+        },
+        {
+          "name": "Yaourt sans lactose",
+          "mode": "lactose-free"
+        }
+      ]
+    },
+    {
+      "id": "chocolat-au-lait",
+      "name": "Chocolat au lait",
+      "synonyms": [
+        "chocolat lait",
+        "tablette de chocolat au lait",
+        "pépites de chocolat au lait"
+      ],
+      "categoryTags": [
+        "en:dark-chocolates"
+      ],
+      "replacements": [
+        {
+          "name": "Chocolat noir sans lait",
+          "mode": "strict",
+          "note": "Beaucoup de chocolats noirs contiennent du lait ou en signalent des traces : lire les ingrédients."
+        },
+        {
+          "name": "Chocolat végétal au riz ou à l'avoine",
+          "mode": "strict"
+        },
+        {
+          "name": "Chocolat au lait sans lactose",
+          "mode": "lactose-free"
+        }
+      ]
+    }
+  ],
+  "auto": {}
+}
