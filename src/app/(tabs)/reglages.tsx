@@ -10,17 +10,18 @@ import { DashedRule } from '@/components/profile/dashed-rule';
 import { PROFILES, type ProfileCopy } from '@/components/profile/profile-copy';
 import { TracesToggle } from '@/components/profile/traces-toggle';
 import { Text } from '@/components/ui/text';
+import { useEquivalences } from '@/hooks/use-equivalences';
 import { setVerdictSettings, useVerdictSettings } from '@/hooks/use-verdict-settings';
+import { formatEquivalencesVersion } from '@/lib/equivalences';
 import { FONTS, LABEL } from '@/lib/theme';
 import { cn } from '@/lib/utils';
-
-// Version of the bundled equivalences JSON; to be read from it once it ships (E6).
-const EQUIVALENCES_VERSION = '28/09/2026';
 
 /** « 07 · Réglages » mockup: profile, data and about. Every change is saved at once. */
 export default function ReglagesScreen() {
   const insets = useSafeAreaInsets();
   const settings = useVerdictSettings();
+  // The embedded copy until a download replaces it (US-25).
+  const equivalences = useEquivalences();
 
   return (
     <ScrollView
@@ -55,12 +56,6 @@ export default function ReglagesScreen() {
       </Section>
 
       <Section title="DONNÉES">
-        <View className="border-ink flex-row items-center justify-between border-b-[1.5px] pb-3 pt-1.5">
-          <Text className="font-body text-ink text-base">Équivalences</Text>
-          <Text className="font-mono text-ink text-[11px] tracking-[0.9px]">
-            VERSION DU {EQUIVALENCES_VERSION}
-          </Text>
-        </View>
         {/* Wired with the offline history (E9); shown as in the mockup until then. */}
         <Pressable
           role="button"
@@ -100,6 +95,12 @@ export default function ReglagesScreen() {
               </Text>
               <Text className="font-mono text-ink text-[11px] tracking-[0.9px]">
                 ANDROID · HORS STORE
+              </Text>
+            </View>
+            <View className="flex-row justify-between">
+              <Text className="font-mono text-ink text-[11px] tracking-[0.9px]">ÉQUIVALENCES</Text>
+              <Text className="font-mono text-ink text-[11px] tracking-[0.9px]">
+                VERSION DU {formatEquivalencesVersion(equivalences.version)}
               </Text>
             </View>
           </View>

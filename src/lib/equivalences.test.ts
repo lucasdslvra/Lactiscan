@@ -5,6 +5,7 @@ import {
   EQUIVALENCES_DOWNLOAD_INTERVAL_MS,
   currentEquivalences,
   equivalenceProducts,
+  formatEquivalencesVersion,
   isDownloadDue,
   parseEquivalences,
   type EquivalencesFile,
@@ -151,5 +152,15 @@ describe('currentEquivalences', () => {
   it('prefers a newer copy shipped by an app update', () => {
     const downloaded = { ...FILE, version: '2026-09-30' };
     expect(currentEquivalences(downloaded, embeddedCopy)).toBe(embeddedCopy);
+  });
+});
+
+describe('formatEquivalencesVersion', () => {
+  it('shows the date as in France', () => {
+    expect(formatEquivalencesVersion('2026-10-13')).toBe('13/10/2026');
+  });
+
+  it('shows a dash without a readable file', () => {
+    expect(formatEquivalencesVersion('')).toBe('—');
   });
 });

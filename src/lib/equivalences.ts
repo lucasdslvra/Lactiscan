@@ -137,6 +137,12 @@ export function currentEquivalences(
   return downloaded && downloaded.version >= embeddedCopy.version ? downloaded : embeddedCopy;
 }
 
+/** `2026-10-13` → `13/10/2026`, as shown in « À propos »; `—` without a readable file. */
+export function formatEquivalencesVersion(version: string): string {
+  const [year, month, day] = version.split('-');
+  return year && month && day ? `${day}/${month}/${year}` : '—';
+}
+
 /** `auto` products of each category, in the order of the tags given. */
 export function equivalenceProducts(
   file: EquivalencesFile,
