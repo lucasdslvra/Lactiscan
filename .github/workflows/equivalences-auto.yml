@@ -1,0 +1,60 @@
+name: Équivalences auto
+
+# Regenerates the `auto` part of equivalences.json from Open Food Facts every week. Any failed
+# step (OFF error, empty category, invalid file) stops the job before the commit, so the file
+# on main is never replaced by a bad one; GitHub then sends its usual failure notification.
+on:
+  schedule:
+    # Monday, 05:00 UTC.
+    - cron: '0 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: equivalences-auto
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: equivalences
+    env:
+      # Contact sent in the User-Agent, as Open Food Facts asks: repository variable OFF_CONTACT.
+      EXPO_PUBLIC_OFF_CONTACT: ${{ vars.OFF_CONTACT || 'contact@exemple.fr' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: equivalences/package-lock.json
+      - run: npm ci
+      - name: Interroger Open Food Facts et régénérer auto
+        run: npm run generate
+      - name: Valider equivalences.json avec le schéma
+        run: npm run validate
+      - name: Commiter si le contenu a changé
+        run: |
+          if git diff --quiet -- equivalences.json; then
+            echo "Aucun changement : rien à commiter."
+            exit 0
+          fi
+          version=$(node -p "JSON.parse(require('node:fs').readFileSync('equivalences.json', 'utf8')).version")
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add equivalences.json
+          git commit -m "chore : produits auto des équivalences du $version"
+          git push
+      - name: Résumé de l'échec
+        if: failure()
+        run: |
+          {
+            echo "### Équivalences auto : échec"
+            echo "Aucun commit : equivalences.json reste dans sa dernière version valide."
+            echo "Le détail par catégorie est dans les annotations et le journal de l'étape en échec."
+          } >> "$GITHUB_STEP_SUMMARY"

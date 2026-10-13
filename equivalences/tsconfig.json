@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "es2022",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "types": ["node"],
+    "skipLibCheck": true,
+    "noEmit": true,
+    // Aliases of the app modules imported by the script (only types use them).
+    "paths": { "@/*": ["../src/*"] }
+  },
+  "include": ["*.ts"],
+  "exclude": ["*.test.ts"]
+}
