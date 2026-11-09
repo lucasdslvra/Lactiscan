@@ -1,6 +1,6 @@
 {
   "$schema": "./equivalences.schema.json",
-  "version": "2026-11-02",
+  "version": "2026-11-09",
   "manual": [
     {
       "id": "lait",
@@ -703,8 +703,7 @@
         "ingredients_text_fr": "",
         "allergens_tags": [
           "en:gluten",
-          "fr:Ovesná složka",
-          "fr:oves"
+          "cs:Ovesná složka"
         ],
         "traces_tags": [],
         "labels_tags": [
@@ -1077,9 +1076,10 @@
         ],
         "traces_tags": [],
         "labels_tags": [
+          "en:no-lactose",
           "en:french-milk",
           "en:green-dot",
-          "en:no-lactose",
+          "fr:triman",
           "en:Enriched-wih-vitamins",
           "fr:Enricĉ"
         ],
@@ -2922,7 +2922,7 @@
       {
         "code": "3760091727732",
         "product_name_fr": "Beurre bio cacahuète",
-        "brands": "ETHIQUABLE",
+        "brands": "Ethiquable",
         "quantity": "350 g",
         "image_front_url": "https://images.openfoodfacts.org/images/products/376/009/172/7732/front_en.93.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/376/009/172/7732/front_en.93.200.jpg",
@@ -3714,7 +3714,7 @@
       {
         "code": "8428532192376",
         "product_name_fr": "Noix de cajou nature",
-        "brands": "ECOMIL",
+        "brands": "Ecomil",
         "quantity": "200 ml",
         "image_front_url": "https://images.openfoodfacts.org/images/products/842/853/219/2376/front_fr.29.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/842/853/219/2376/front_fr.29.200.jpg",
@@ -4005,7 +4005,7 @@
       },
       {
         "code": "7640166793885",
-        "product_name_fr": "Mascarpone",
+        "product_name_fr": "Mascarpone sans lactose",
         "brands": "Züger, Züger frischkäse",
         "quantity": "250 g",
         "image_front_url": "https://images.openfoodfacts.org/images/products/764/016/679/3885/front_fr.46.400.jpg",
@@ -4020,9 +4020,9 @@
           "en:certified-by-ecocert",
           "en:eu-agriculture",
           "en:eu-organic",
+          "en:no-lactose",
           "en:ch-bio-006",
           "en:made-in-swiss",
-          "en:no-lactose",
           "en:suisse-garantie"
         ],
         "categories": "Lactose-free creams, Mascarpone",
@@ -5505,7 +5505,7 @@
         "code": "5411188125808",
         "product_name": "Mango Ohne Zuckerzusatz",
         "product_name_fr": "Sans Sucres Ajoutés* Mangue",
-        "brands": "Danone Belux nv",
+        "brands": "alpro, Danone Belux nv",
         "quantity": "400 g",
         "image_front_url": "https://images.openfoodfacts.org/images/products/541/118/812/5808/front_de.590.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/541/118/812/5808/front_de.590.200.jpg",
@@ -6049,7 +6049,7 @@
       },
       {
         "code": "3273220181027",
-        "product_name_fr": "Nature",
+        "product_name_fr": "sojade nature",
         "brands": "Sojade",
         "quantity": "400 g",
         "image_front_url": "https://images.openfoodfacts.org/images/products/327/322/018/1027/front_fr.72.400.jpg",
@@ -7204,7 +7204,7 @@
       {
         "code": "3760091726667",
         "product_name_fr": "Chocolat noir 80% Équateur intense et floral",
-        "brands": "ETHIQUABLE",
+        "brands": "Ethiquable",
         "quantity": "100 g",
         "image_front_url": "https://images.openfoodfacts.org/images/products/376/009/172/6667/front_fr.100.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/376/009/172/6667/front_fr.100.200.jpg",
@@ -8423,7 +8423,7 @@
       {
         "code": "3270160864904",
         "product_name_fr": "Les Végétales 4 Chocolat-Noisette",
-        "brands": "PICARD",
+        "brands": "Picard",
         "quantity": "178 g",
         "image_front_url": "https://images.openfoodfacts.org/images/products/327/016/086/4904/front_fr.12.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/327/016/086/4904/front_fr.12.200.jpg",
@@ -9529,7 +9529,7 @@
         "code": "5411188125808",
         "product_name": "Mango Ohne Zuckerzusatz",
         "product_name_fr": "Sans Sucres Ajoutés* Mangue",
-        "brands": "Danone Belux nv",
+        "brands": "alpro, Danone Belux nv",
         "quantity": "400 g",
         "image_front_url": "https://images.openfoodfacts.org/images/products/541/118/812/5808/front_de.590.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/541/118/812/5808/front_de.590.200.jpg",
