@@ -1,6 +1,6 @@
 {
   "$schema": "./equivalences.schema.json",
-  "version": "2026-11-09",
+  "version": "2026-11-16",
   "manual": [
     {
       "id": "lait",
@@ -1894,7 +1894,7 @@
       {
         "code": "3366321052386",
         "product_name_fr": "st hubert bio & végétal",
-        "brands": "St hubert bio & vegetal, St-Hubert",
+        "brands": "St-Hubert, St hubert bio & vegetal",
         "quantity": "230 g",
         "image_front_url": "https://images.openfoodfacts.org/images/products/336/632/105/2386/front_fr.2369.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/336/632/105/2386/front_fr.2369.200.jpg",
@@ -1911,15 +1911,10 @@
           "en:vegan",
           "fr:triman"
         ],
-        "categories": "Plant-based spreads, Salted spreads, Vegetable fats, Light margarines, Margarine (Perishable)",
+        "categories": "Salted spreads, Light margarines, Margarine (Perishable)",
         "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
           "en:spreads",
-          "en:fats",
-          "en:plant-based-spreads",
           "en:salted-spreads",
-          "en:vegetable-fats",
           "en:spreadable-fats",
           "en:margarines",
           "en:light-margarines",
@@ -1972,15 +1967,10 @@
           "en:nutriscore-grade-c",
           "fr:triman"
         ],
-        "categories": "Plant-based spreads, Salted spreads, Vegetable fats, Light unsalted margarines",
+        "categories": "Salted spreads, Light unsalted margarines",
         "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
-          "en:fats",
           "en:spreads",
-          "en:plant-based-spreads",
           "en:salted-spreads",
-          "en:vegetable-fats",
           "en:spreadable-fats",
           "en:margarines",
           "en:light-margarines",
@@ -2101,15 +2091,10 @@
           "en:made-in-france",
           "fr:triman"
         ],
-        "categories": "Plant-based spreads, Salted spreads, Vegetable fats, Light margarines",
+        "categories": "Salted spreads, Light margarines",
         "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
-          "en:fats",
           "en:spreads",
-          "en:plant-based-spreads",
           "en:salted-spreads",
-          "en:vegetable-fats",
           "en:spreadable-fats",
           "en:margarines",
           "en:light-margarines"
@@ -2134,7 +2119,7 @@
           "en:front-photo-selected",
           "en:photos-uploaded"
         ],
-        "nutriscore_grade": "c",
+        "nutriscore_grade": "d",
         "unique_scans_n": 230
       },
       {
@@ -2156,15 +2141,10 @@
           "en:high-in-omega-3",
           "en:made-in-france"
         ],
-        "categories": "Plant-based spreads, Salted spreads, Vegetable fats, Light margarines, Margarines high in omega 3",
+        "categories": "Salted spreads, Light margarines, Margarines high in omega 3",
         "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
-          "en:fats",
           "en:spreads",
-          "en:plant-based-spreads",
           "en:salted-spreads",
-          "en:vegetable-fats",
           "en:spreadable-fats",
           "en:margarines",
           "en:light-margarines",
@@ -2191,7 +2171,7 @@
           "en:front-photo-selected",
           "en:photos-uploaded"
         ],
-        "nutriscore_grade": "c",
+        "nutriscore_grade": "d",
         "unique_scans_n": 223
       },
       {
@@ -2217,15 +2197,10 @@
           "fr:triman",
           "fr:Fabriqué en Lorraine"
         ],
-        "categories": "Plant-based spreads, Salted spreads, Vegetable fats, Light margarines",
+        "categories": "Salted spreads, Light margarines",
         "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
           "en:spreads",
-          "en:fats",
-          "en:plant-based-spreads",
           "en:salted-spreads",
-          "en:vegetable-fats",
           "en:spreadable-fats",
           "en:margarines",
           "en:light-margarines"
@@ -2250,7 +2225,7 @@
           "en:front-photo-selected",
           "en:photos-uploaded"
         ],
-        "nutriscore_grade": "c",
+        "nutriscore_grade": "d",
         "unique_scans_n": 165
       },
       {
@@ -2279,15 +2254,10 @@
           "fr:triman",
           "fr:Fabrique-en-lorraine"
         ],
-        "categories": "Plant-based spreads, Salted spreads, Vegetable fats, Light margarines, Margarines high in omega 3",
+        "categories": "Salted spreads, Light margarines, Margarines high in omega 3",
         "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
           "en:spreads",
-          "en:fats",
-          "en:plant-based-spreads",
           "en:salted-spreads",
-          "en:vegetable-fats",
           "en:spreadable-fats",
           "en:margarines",
           "en:light-margarines",
@@ -2403,15 +2373,10 @@
           "en:nutriscore-grade-d",
           "fr:triman"
         ],
-        "categories": "Plant-based spreads, Salted spreads, Vegetable fats, Margarines",
+        "categories": "Salted spreads, Margarines",
         "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
           "en:spreads",
-          "en:fats",
-          "en:plant-based-spreads",
           "en:salted-spreads",
-          "en:vegetable-fats",
           "en:spreadable-fats",
           "en:margarines"
         ],
@@ -2435,7 +2400,7 @@
           "en:front-photo-selected",
           "en:photos-uploaded"
         ],
-        "nutriscore_grade": "d",
+        "nutriscore_grade": "e",
         "unique_scans_n": 117
       },
       {
@@ -2461,14 +2426,9 @@
           "en:no-salt",
           "fr:triman"
         ],
-        "categories": "Plant-based spreads, Vegetable fats, Light margarines, Unsalted margarines",
+        "categories": "Light margarines, Unsalted margarines",
         "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
           "en:spreads",
-          "en:fats",
-          "en:plant-based-spreads",
-          "en:vegetable-fats",
           "en:spreadable-fats",
           "en:margarines",
           "en:light-margarines",
@@ -2494,7 +2454,7 @@
           "en:front-photo-selected",
           "en:photos-uploaded"
         ],
-        "nutriscore_grade": "c",
+        "nutriscore_grade": "d",
         "unique_scans_n": 99
       },
       {
@@ -2516,15 +2476,10 @@
           "en:nutriscore-grade-d",
           "fr:triman"
         ],
-        "categories": "Plant-based spreads, Salted spreads, Vegetable fats, Light margarines",
+        "categories": "Salted spreads, Light margarines",
         "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
           "en:spreads",
-          "en:fats",
-          "en:plant-based-spreads",
           "en:salted-spreads",
-          "en:vegetable-fats",
           "en:spreadable-fats",
           "en:margarines",
           "en:light-margarines"
@@ -2549,7 +2504,7 @@
           "en:front-photo-selected",
           "en:photos-uploaded"
         ],
-        "nutriscore_grade": "d",
+        "nutriscore_grade": "e",
         "unique_scans_n": 98
       },
       {
@@ -2631,17 +2586,13 @@
           "fr:Fabriqué en Lorraine",
           "fr:Naturellement riche en Oméga 3"
         ],
-        "categories": "Fresh foods, Plant-based spreads, Salted spreads, Vegetable fats, Animal fats, Milkfat, Light margarines, Margarines high in omega 3",
+        "categories": "Salted spreads, Fresh foods, Animal fats, Milkfat, Light margarines, Margarines high in omega 3",
         "categories_tags": [
-          "en:plant-based-foods-and-beverages",
           "en:dairies",
-          "en:plant-based-foods",
-          "en:fats",
           "en:spreads",
-          "en:fresh-foods",
-          "en:plant-based-spreads",
+          "en:fats",
           "en:salted-spreads",
-          "en:vegetable-fats",
+          "en:fresh-foods",
           "en:spreadable-fats",
           "en:animal-fats",
           "en:margarines",
@@ -3034,63 +2985,6 @@
         "unique_scans_n": 500
       },
       {
-        "code": "3366321052386",
-        "product_name_fr": "st hubert bio & végétal",
-        "brands": "St hubert bio & vegetal, St-Hubert",
-        "quantity": "230 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/336/632/105/2386/front_fr.2369.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/336/632/105/2386/front_fr.2369.200.jpg",
-        "ingredients_text_fr": "Huiles végétales 54% (karité*, tournesol oléique* 14%, coco*, colza* 11%), eau, émulsifiant (lécithine de SOJA*), sel, arôme naturel de carotte, jus de citron*, stabilisant (pectine). *Ingrédients issus de l'agriculture biologique. Nom de l'additif : lécithine de soja, pectine",
-        "allergens_tags": [
-          "en:nuts",
-          "en:soybeans"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:vegetarian",
-          "en:organic",
-          "en:eu-organic",
-          "en:vegan",
-          "fr:triman"
-        ],
-        "categories": "Plant-based spreads, Salted spreads, Vegetable fats, Light margarines, Margarine (Perishable)",
-        "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
-          "en:spreads",
-          "en:fats",
-          "en:plant-based-spreads",
-          "en:salted-spreads",
-          "en:vegetable-fats",
-          "en:spreadable-fats",
-          "en:margarines",
-          "en:light-margarines",
-          "en:margarine-perishable"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-validated",
-          "en:packaging-photo-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "d",
-        "unique_scans_n": 414
-      },
-      {
         "code": "3608580124108",
         "product_name_fr": "Be Nuts! Pâte à tartiner Cacahuète",
         "brands": "Andros",
@@ -3267,6 +3161,72 @@
         "unique_scans_n": 319
       },
       {
+        "code": "5013665115571",
+        "product_name_fr": "Beurre de Cacahuètes 99% cacahuètes",
+        "brands": "Whole Earth",
+        "quantity": "340 g e",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/501/366/511/5571/front_fr.35.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/501/366/511/5571/front_fr.35.200.jpg",
+        "ingredients_text_fr": "Cacahuètes grillées (Arachides) 99%, sel marin.",
+        "allergens_tags": [
+          "en:peanuts"
+        ],
+        "traces_tags": [
+          "en:milk",
+          "en:nuts",
+          "en:soybeans"
+        ],
+        "labels_tags": [
+          "en:organic",
+          "en:eu-organic",
+          "en:non-eu-agriculture",
+          "en:source-of-fibre",
+          "en:source-of-proteins",
+          "en:high-fibres",
+          "en:high-proteins",
+          "en:no-added-sugar",
+          "en:no-palm-oil",
+          "fr:ab-agriculture-biologique",
+          "fr:triman"
+        ],
+        "categories": "Peanut butters, Nut butters",
+        "categories_tags": [
+          "en:plant-based-foods-and-beverages",
+          "en:plant-based-foods",
+          "en:legumes-and-their-products",
+          "en:spreads",
+          "en:plant-based-spreads",
+          "en:nuts-and-their-products",
+          "en:oilseed-purees",
+          "en:legume-butters",
+          "en:peanut-butters",
+          "en:nut-butters"
+        ],
+        "states_tags": [
+          "en:to-be-checked",
+          "en:complete",
+          "en:nutrition-facts-completed",
+          "en:ingredients-completed",
+          "en:expiration-date-to-be-completed",
+          "en:packaging-code-to-be-completed",
+          "en:characteristics-completed",
+          "en:origins-completed",
+          "en:categories-completed",
+          "en:brands-completed",
+          "en:packaging-completed",
+          "en:quantity-completed",
+          "en:product-name-completed",
+          "en:photos-validated",
+          "en:packaging-photo-selected",
+          "en:nutrition-photo-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
+          "en:photos-uploaded"
+        ],
+        "nutriscore_grade": "c",
+        "unique_scans_n": 282
+      },
+      {
         "code": "3760278866964",
         "product_name_fr": "Beurre bio cacahuètes crunchy",
         "brands": "Ethiquable",
@@ -3325,6 +3285,63 @@
         ],
         "nutriscore_grade": "c",
         "unique_scans_n": 253
+      },
+      {
+        "code": "8480000168832",
+        "product_name": "Crema de cacahuetes 100%",
+        "brands": "MERCADONA",
+        "quantity": "500 g",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/848/000/016/8832/front_es.217.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/848/000/016/8832/front_es.217.200.jpg",
+        "ingredients_text": "100% _Cacahuetes_ (Arachis hypogaea).",
+        "allergens_tags": [
+          "en:peanuts"
+        ],
+        "traces_tags": [
+          "en:none"
+        ],
+        "labels_tags": [
+          "en:no-gluten",
+          "en:do-not-freeze",
+          "en:green-dot",
+          "es:Recicla amarillo",
+          "es:Recicla verde"
+        ],
+        "categories": "Nut butters, Peanut butters",
+        "categories_tags": [
+          "en:plant-based-foods-and-beverages",
+          "en:plant-based-foods",
+          "en:legumes-and-their-products",
+          "en:spreads",
+          "en:plant-based-spreads",
+          "en:nuts-and-their-products",
+          "en:oilseed-purees",
+          "en:legume-butters",
+          "en:nut-butters",
+          "en:peanut-butters"
+        ],
+        "states_tags": [
+          "en:to-be-completed",
+          "en:nutrition-facts-completed",
+          "en:ingredients-completed",
+          "en:expiration-date-completed",
+          "en:packaging-code-to-be-completed",
+          "en:characteristics-to-be-completed",
+          "en:origins-to-be-completed",
+          "en:categories-completed",
+          "en:brands-completed",
+          "en:packaging-completed",
+          "en:quantity-completed",
+          "en:product-name-completed",
+          "en:photos-validated",
+          "en:packaging-photo-selected",
+          "en:nutrition-photo-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
+          "en:photos-uploaded"
+        ],
+        "nutriscore_grade": "a",
+        "unique_scans_n": 246
       }
     ],
     "en:plant-based-creams": [
@@ -4206,6 +4223,65 @@
         "unique_scans_n": 2
       },
       {
+        "code": "3401297273479",
+        "product_name_fr": "Delical Creme Dessert HP-HC Sans Lact. vanille 4X125G",
+        "brands": "Delical",
+        "quantity": "4 x 125 g",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/340/129/727/3479/front_fr.4.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/340/129/727/3479/front_fr.4.200.jpg",
+        "ingredients_text_fr": "Eau, sucre, protéines de lait, huile de colza, maltodextrine, arôme, amidon modifié, minéraux (citrate de potassium, sulfate de magnésium, chlorure de sodium), épaississant (E407), colorant (E160a), vitamines (C, E, A, B5, PP, D, B2, K, B6, B1, B12, B9, B8), correcteur d'acidité (E524). Traces possibles de soja",
+        "allergens_tags": [
+          "en:milk"
+        ],
+        "traces_tags": [
+          "en:soybeans"
+        ],
+        "labels_tags": [
+          "en:source-of-proteins",
+          "en:high-proteins",
+          "en:low-or-no-sodium",
+          "en:no-gluten",
+          "en:low-sodium",
+          "en:no-lactose",
+          "en:calcium-source",
+          "en:made-in-france"
+        ],
+        "categories": "Refrigerated creamy puddings, Vanilla creamy puddings, Lactose-free creams",
+        "categories_tags": [
+          "en:dairies",
+          "en:desserts",
+          "en:dairy-desserts",
+          "en:creams",
+          "en:entremets-mousses-and-creamy-puddings",
+          "en:creamy-puddings",
+          "en:refrigerated-creamy-puddings",
+          "en:vanilla-creamy-puddings",
+          "en:lactose-free-creams"
+        ],
+        "states_tags": [
+          "en:to-be-completed",
+          "en:nutrition-facts-completed",
+          "en:ingredients-completed",
+          "en:expiration-date-completed",
+          "en:packaging-code-to-be-completed",
+          "en:characteristics-to-be-completed",
+          "en:origins-to-be-completed",
+          "en:categories-completed",
+          "en:brands-completed",
+          "en:packaging-to-be-completed",
+          "en:quantity-completed",
+          "en:product-name-completed",
+          "en:photos-to-be-validated",
+          "en:packaging-photo-to-be-selected",
+          "en:nutrition-photo-to-be-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
+          "en:photos-uploaded"
+        ],
+        "nutriscore_grade": "b",
+        "unique_scans_n": 2
+      },
+      {
         "code": "06008956",
         "product_name_fr": "Sans lactose épaisse",
         "brands": "",
@@ -4803,7 +4879,7 @@
       {
         "code": "7640101096682",
         "product_name_fr": "Bio Cottage Cheese",
-        "brands": "züger",
+        "brands": "Züger",
         "quantity": "150 g",
         "image_front_url": "https://images.openfoodfacts.org/images/products/764/010/109/6682/front_de.83.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/764/010/109/6682/front_de.83.200.jpg",
@@ -4875,7 +4951,7 @@
         "code": "3073780902366",
         "product_name": "Original Mini",
         "product_name_fr": "",
-        "brands": "BEL",
+        "brands": "Bel",
         "quantity": "120 g (6 x 20 g)",
         "image_front_url": "https://images.openfoodfacts.org/images/products/307/378/090/2366/front_es.69.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/307/378/090/2366/front_es.69.200.jpg",
@@ -5290,6 +5366,7 @@
           "en:fermented-milk-products",
           "en:cheeses",
           "en:cow-cheeses",
+          "en:firm-ripened-cheeses",
           "en:hard-cheeses",
           "en:emmentaler",
           "en:lactose-free-cheeses"
@@ -5344,6 +5421,8 @@
           "en:fermented-milk-products",
           "en:cheeses",
           "en:cow-cheeses",
+          "en:firm-ripened-cheeses",
+          "en:semi-hard-cheeses",
           "en:uncooked-pressed-cheeses",
           "en:cheeses-of-the-netherlands",
           "en:gouda",
@@ -5939,13 +6018,16 @@
           "en:nuts"
         ],
         "labels_tags": [
+          "en:low-or-no-sugar",
           "en:vegetarian",
           "en:no-gluten",
+          "en:european-vegetarian-union",
+          "en:no-lactose",
           "en:vegan",
           "en:certified-b-corporation",
-          "en:european-vegetarian-union",
           "en:european-vegetarian-union-vegan",
-          "en:no-lactose"
+          "en:no-sugar",
+          "en:plant-based"
         ],
         "categories": "Plain soy yogurts",
         "categories_tags": [
@@ -6052,8 +6134,8 @@
         "product_name_fr": "sojade nature",
         "brands": "Sojade",
         "quantity": "400 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/327/322/018/1027/front_fr.72.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/327/322/018/1027/front_fr.72.200.jpg",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/327/322/018/1027/front_fr.142.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/327/322/018/1027/front_fr.142.200.jpg",
         "ingredients_text_fr": "Jus de soja* 99% (eau, graines de soja* 10,8%), ferments sélectionnés dont Bifidus et Lactobacillus acidophilus.  *Issus de l'agriculture biologique.",
         "allergens_tags": [
           "en:soybeans"
@@ -6062,28 +6144,27 @@
         "labels_tags": [
           "en:vegetarian",
           "en:no-gluten",
+          "en:no-gmos",
           "en:organic",
           "en:eu-organic",
-          "en:no-gmos",
+          "en:nutriscore",
           "en:vegan",
           "en:fr-bio-01",
           "en:nutri-score-a-b",
+          "en:nutriscore-grade-a",
           "en:the-vegan-society",
-          "fr:ab-agriculture-biologique"
+          "fr:ab-agriculture-biologique",
+          "fr:triman"
         ],
-        "categories": "Fermented dairy desserts, Plain soy yogurts",
+        "categories": "Plain soy yogurts",
         "categories_tags": [
           "en:plant-based-foods-and-beverages",
-          "en:dairies",
           "en:fermented-foods",
-          "en:fermented-milk-products",
-          "en:dairy-substitutes",
           "en:desserts",
+          "en:dairy-substitutes",
           "en:vegan-products",
-          "en:dairy-desserts",
           "en:non-dairy-desserts",
           "en:non-dairy-fermented-foods",
-          "en:fermented-dairy-desserts",
           "en:non-dairy-yogurts",
           "en:soy-milk-yogurts",
           "en:plain-soy-yogurts"
@@ -6666,7 +6747,7 @@
         "quantity": "125 g",
         "image_front_url": "https://images.openfoodfacts.org/images/products/000/002/099/5553/front_en.380.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/000/002/099/5553/front_en.380.200.jpg",
-        "ingredients_text": "Какаова маса, нискомаслено какао на прах, какаово масло, захар, емулгатор: лецитин (соеви), екстракт от ванилия, Може да съдържа следи от ядки и мляко,",
+        "ingredients_text": "cocoa mass, fat reduced cocoa powder, cocoa butter, sugar, emilsifier:  soya  lecithins, vanilla extract, dark chocolate contains: cocoa solids 85% minimum",
         "ingredients_text_fr": "Pâte de cacao, cacao maigre en poudre, beurre de cacao, sucre, émulsifiant : lécithines (soja) ; extrait de vanille. Traces éventuelles de fruits à coque et de lait.",
         "allergens_tags": [
           "en:soybeans"
@@ -6682,9 +6763,11 @@
           "en:fsc",
           "en:max-havelaar",
           "en:no-artificial-flavors",
+          "en:v-label-international",
           "en:vegan",
           "en:fairtrade-cocoa",
-          "en:fsc-mix"
+          "en:fsc-mix",
+          "en:v-label-international-vegan"
         ],
         "categories": "Dark chocolates",
         "categories_tags": [
@@ -6788,7 +6871,7 @@
         "product_name": "Edelbitter Mild 90%",
         "product_name_fr": "chocolat noir J.D GROSS",
         "brands": "J.D: Gross",
-        "quantity": "125.0 g",
+        "quantity": "125 gram",
         "image_front_url": "https://images.openfoodfacts.org/images/products/405/648/947/1264/front_en.122.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/405/648/947/1264/front_en.122.200.jpg",
         "ingredients_text": "Kakaomasse, Kakaobutter, fettarmes Kakaopulver, Zucker, Emulgator: Lecithine (Soja); Vanilleextrakt.\r\nKann Spuren von Schalenfrüchten und Milch enthalten.",
@@ -6877,14 +6960,13 @@
           "fr:Snacks",
           "fr:Sweet-snacks"
         ],
-        "categories": "Dark chocolates, nl:Chocolade, nl:Koeken/Chocolade/Snoep",
+        "categories": "Dark chocolates, nl:Koeken/Chocolade/Snoep",
         "categories_tags": [
           "en:snacks",
           "en:sweet-snacks",
           "en:cocoa-and-its-products",
           "en:chocolates",
           "en:dark-chocolates",
-          "nl:Chocolade",
           "nl:Koeken/Chocolade/Snoep"
         ],
         "states_tags": [
@@ -6929,15 +7011,17 @@
         "labels_tags": [
           "en:made-in-france"
         ],
-        "categories": "dark-chocolate-bar-with-more-than-70-cocoa, Dark chocolate bars for cooking",
+        "categories": "Dark chocolate bars for cooking, Dark chocolate bars with 70% cocoa or more",
         "categories_tags": [
           "en:snacks",
           "en:sweet-snacks",
           "en:cocoa-and-its-products",
           "en:chocolates",
+          "en:chocolate-bars",
           "en:dark-chocolates",
-          "en:dark-chocolate-bar-with-more-than-70-cocoa",
-          "en:dark-chocolate-bars-for-cooking"
+          "en:dark-chocolate-bars",
+          "en:dark-chocolate-bars-for-cooking",
+          "en:dark-chocolate-bars-with-70-cocoa-or-more"
         ],
         "states_tags": [
           "en:to-be-completed",
@@ -7168,14 +7252,16 @@
           "en:green-dot",
           "fr:triman"
         ],
-        "categories": "dark-chocolate-bar-with-more-than-70-cocoa, Dark chocolates with raspberries",
+        "categories": "Dark chocolate bars with 70% cocoa or more, Dark chocolates with raspberries",
         "categories_tags": [
           "en:snacks",
           "en:sweet-snacks",
           "en:cocoa-and-its-products",
           "en:chocolates",
+          "en:chocolate-bars",
           "en:dark-chocolates",
-          "en:dark-chocolate-bar-with-more-than-70-cocoa",
+          "en:dark-chocolate-bars",
+          "en:dark-chocolate-bars-with-70-cocoa-or-more",
           "en:dark-chocolates-with-raspberries"
         ],
         "states_tags": [
@@ -9342,7 +9428,7 @@
       {
         "code": "4056489447924",
         "product_name_fr": "Suprême Framboise-Citron Ice Cream Cones",
-        "brands": "GELATELLI",
+        "brands": "Gelatelli",
         "quantity": "426 g (6 x 71 g)",
         "image_front_url": "https://images.openfoodfacts.org/images/products/405/648/944/7924/front_fr.20.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/405/648/944/7924/front_fr.20.200.jpg",
@@ -9385,67 +9471,6 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "unknown",
-        "unique_scans_n": 1
-      },
-      {
-        "code": "3516459999910",
-        "product_name_fr": "Sorbet plein fruit cassis",
-        "brands": "AquiBio",
-        "quantity": "500 ml",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/351/645/999/9910/front_fr.35.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/351/645/999/9910/front_fr.35.200.jpg",
-        "ingredients_text_fr": "Sirop de sucres* (eau, sucre de canne non blanchi*, glucose de maïs*), purée de cassis* 30%, stabilisants végétaux* (farine de caroube*, gomme de guar*). *Produit issu de l'agriculture biologique. Fabriqué dans un atelier où l'on transforme du lait, des œufs, des fruits à coque, du soja, du gluten et des arachides.",
-        "allergens_tags": [
-          "en:eggs",
-          "en:gluten",
-          "en:nuts",
-          "en:peanuts",
-          "en:soybeans"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:vegetarian",
-          "en:organic",
-          "en:eu-agriculture",
-          "en:eu-organic",
-          "en:non-eu-agriculture",
-          "en:vegan",
-          "en:eu-non-eu-agriculture",
-          "en:fr-bio-01",
-          "en:made-in-france",
-          "en:pefc",
-          "fr:ab-agriculture-biologique"
-        ],
-        "categories": "Blackcurrant sorbets",
-        "categories_tags": [
-          "en:desserts",
-          "en:frozen-foods",
-          "en:frozen-desserts",
-          "en:ice-creams-and-sorbets",
-          "en:sorbets",
-          "en:blackcurrant-sorbets"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "d",
         "unique_scans_n": 1
       }
     ],
@@ -10087,13 +10112,16 @@
           "en:nuts"
         ],
         "labels_tags": [
+          "en:low-or-no-sugar",
           "en:vegetarian",
           "en:no-gluten",
+          "en:european-vegetarian-union",
+          "en:no-lactose",
           "en:vegan",
           "en:certified-b-corporation",
-          "en:european-vegetarian-union",
           "en:european-vegetarian-union-vegan",
-          "en:no-lactose"
+          "en:no-sugar",
+          "en:plant-based"
         ],
         "categories": "Plain soy yogurts",
         "categories_tags": [
