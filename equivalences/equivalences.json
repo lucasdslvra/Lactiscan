@@ -1,6 +1,6 @@
 {
   "$schema": "./equivalences.schema.json",
-  "version": "2026-11-16",
+  "version": "2026-11-23",
   "manual": [
     {
       "id": "lait",
@@ -1118,7 +1118,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 220
+        "unique_scans_n": 225
       },
       {
         "code": "3428272950057",
@@ -1181,7 +1181,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 114
+        "unique_scans_n": 118
       },
       {
         "code": "3428272040055",
@@ -1237,7 +1237,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 113
+        "unique_scans_n": 117
       },
       {
         "code": "3533636760002",
@@ -1287,7 +1287,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 103
+        "unique_scans_n": 106
       },
       {
         "code": "3428272110017",
@@ -1343,7 +1343,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 79
+        "unique_scans_n": 84
       },
       {
         "code": "5411188130031",
@@ -1418,7 +1418,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 66
+        "unique_scans_n": 70
       },
       {
         "code": "3564700597583",
@@ -1473,7 +1473,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 61
+        "unique_scans_n": 64
       },
       {
         "code": "3428273000034",
@@ -1527,11 +1527,11 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 58
+        "unique_scans_n": 60
       },
       {
         "code": "0811620020633",
-        "product_name": "CORE POWER High Protein Milk Shake Chocolate",
+        "product_name": "core power - 42",
         "product_name_fr": "Core power",
         "brands": "rlife",
         "quantity": "414ml",
@@ -1581,28 +1581,31 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "not-applicable",
-        "unique_scans_n": 51
+        "unique_scans_n": 55
       },
       {
-        "code": "3250390883975",
+        "code": "20842253",
+        "product_name": "Lait",
         "product_name_fr": "Lait Facile à digérer",
-        "brands": "Pâturages",
-        "quantity": "1000 ml",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/325/039/088/3975/front_fr.59.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/325/039/088/3975/front_fr.59.200.jpg",
-        "ingredients_text_fr": "Lait demi-écrémé stérilisé UHT, lactase, vitamine D.",
+        "brands": "Envia",
+        "quantity": "1 L",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/000/002/084/2253/front_en.78.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/000/002/084/2253/front_en.78.200.jpg",
+        "ingredients_text": "semi-skimmed milk, lactase,",
+        "ingredients_text_fr": "_Lait (Origine : France) à 1,2% de matière grasse_, _lactase_",
         "allergens_tags": [
-          "en:milk",
-          "en:sulphur-dioxide-and-sulphites"
+          "en:milk"
         ],
         "traces_tags": [],
         "labels_tags": [
-          "en:distributor-labels",
+          "en:green-dot",
           "en:no-lactose",
           "fr:garantie-iplc",
-          "fr:selection-intermarche"
+          "fr:triman",
+          "en:lait-français",
+          "en:point-vert"
         ],
-        "categories": "Semi-skimmed milks, UHT Milks",
+        "categories": "Semi-skimmed milks, UHT Milks, laits-demi-écrémés, laits-homogénéisés, laits-à-teneur-réduite-en-lactose",
         "categories_tags": [
           "en:dairies",
           "en:milks-liquid-and-powder",
@@ -1610,14 +1613,17 @@
           "en:homogenized-milks",
           "en:pasteurised-products",
           "en:semi-skimmed-milks",
-          "en:uht-milks"
+          "en:uht-milks",
+          "en:laits-demi-écrémés",
+          "en:laits-homogénéisés",
+          "en:laits-à-teneur-réduite-en-lactose"
         ],
         "states_tags": [
           "en:to-be-completed",
           "en:nutrition-facts-completed",
           "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
+          "en:expiration-date-completed",
+          "en:packaging-code-completed",
           "en:characteristics-completed",
           "en:origins-completed",
           "en:categories-completed",
@@ -1627,267 +1633,13 @@
           "en:product-name-completed",
           "en:photos-to-be-validated",
           "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "b",
-        "unique_scans_n": 50
-      },
-      {
-        "code": "3596710463824",
-        "product_name_fr": "Avoine",
-        "brands": "Auchan",
-        "quantity": "1 l",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/359/671/046/3824/front_fr.133.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/359/671/046/3824/front_fr.133.200.jpg",
-        "ingredients_text_fr": "Eau, AVOINE 10% (origine France), inuline, huile de tournesol, extrait d'algue Lithothamnium calcareum, maltodextrine, sel marin, stabilisant : gomme gellane.",
-        "allergens_tags": [
-          "en:gluten"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:fsc",
-          "en:fsc-mix",
-          "en:green-dot",
-          "en:made-in-france",
-          "en:nutriscore",
-          "en:nutriscore-grade-a",
-          "en:fsc-c014047"
-        ],
-        "categories": "Oat-based drinks, UHT Milks, ESL milks, Oat",
-        "categories_tags": [
-          "en:beverages-and-beverages-preparations",
-          "en:plant-based-foods-and-beverages",
-          "en:beverages",
-          "en:plant-based-foods",
-          "en:dairies",
-          "en:seeds",
-          "en:cereals-and-potatoes",
-          "en:dairy-substitutes",
-          "en:cereals-and-their-products",
-          "en:milk-substitutes",
-          "en:milks-liquid-and-powder",
-          "en:plant-based-beverages",
-          "en:cereal-grains",
-          "en:milks",
-          "en:plant-based-milk-alternatives",
-          "en:cereal-based-drinks",
-          "en:homogenized-milks",
-          "en:pasteurised-products",
-          "en:oat-based-drinks",
-          "en:uht-milks",
-          "en:esl-milks",
-          "en:oat"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "c",
-        "unique_scans_n": 31
-      },
-      {
-        "code": "3596710481118",
-        "product_name_fr": "Boisson amande sans sucres ajoutés",
-        "brands": "Auchan",
-        "quantity": "1 l",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/359/671/048/1118/front_fr.127.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/359/671/048/1118/front_fr.127.200.jpg",
-        "ingredients_text_fr": "Eau, AMANDE 2% (Europe, Etats-Unis), extrait d'algue Lithothamnium calcareum, sel marin, stabilisant : gomme gellane.",
-        "allergens_tags": [
-          "en:nuts"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:no-added-sugar",
-          "en:nutriscore",
-          "en:nutriscore-grade-b"
-        ],
-        "categories": "UHT Milks, Almond-based drinks, ESL milks",
-        "categories_tags": [
-          "en:beverages-and-beverages-preparations",
-          "en:plant-based-foods-and-beverages",
-          "en:beverages",
-          "en:plant-based-foods",
-          "en:dairies",
-          "en:dairy-substitutes",
-          "en:milk-substitutes",
-          "en:milks-liquid-and-powder",
-          "en:nuts-and-their-products",
-          "en:plant-based-beverages",
-          "en:milks",
-          "en:plant-based-milk-alternatives",
-          "en:homogenized-milks",
-          "en:nut-based-drinks",
-          "en:pasteurised-products",
-          "en:uht-milks",
-          "en:almond-based-drinks",
-          "en:esl-milks"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "b",
-        "unique_scans_n": 24
-      },
-      {
-        "code": "9312336049013",
-        "product_name": "Bonsoy",
-        "product_name_fr": "Sanchi Bonsoy",
-        "brands": "Bonsoy",
-        "quantity": "",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/931/233/604/9013/front_en.45.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/931/233/604/9013/front_en.45.200.jpg",
-        "ingredients_text": "Filtered water, Organic whole soybeans 14%, Tapioca syrup, sea salt, job's tears (hato mugi), calcium carbonate",
-        "ingredients_text_fr": "",
-        "allergens_tags": [
-          "en:soybeans"
-        ],
-        "traces_tags": [
-          "en:soybeans"
-        ],
-        "labels_tags": [
-          "en:organic",
-          "en:no-preservatives"
-        ],
-        "categories": "Milks, Unsweetened beverages, Soy-based drinks",
-        "categories_tags": [
-          "en:beverages-and-beverages-preparations",
-          "en:plant-based-foods-and-beverages",
-          "en:beverages",
-          "en:dairies",
-          "en:plant-based-foods",
-          "en:legumes-and-their-products",
-          "en:dairy-substitutes",
-          "en:milk-substitutes",
-          "en:milks-liquid-and-powder",
-          "en:plant-based-beverages",
-          "en:milks",
-          "en:plant-based-milk-alternatives",
-          "en:legume-based-drinks",
-          "en:unsweetened-beverages",
-          "en:soy-based-drinks"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-to-be-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
+          "en:nutrition-photo-to-be-selected",
           "en:ingredients-photo-to-be-selected",
           "en:front-photo-selected",
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 18
-      },
-      {
-        "code": "3596710453689",
-        "product_name_fr": "Boisson végétale NOISETTE",
-        "brands": "Auchan",
-        "quantity": "1 l",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/359/671/045/3689/front_fr.138.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/359/671/045/3689/front_fr.138.200.jpg",
-        "ingredients_text_fr": "Eau, sucre, NOISETTE 2,5% (origine UE/Non UE), extrait d'algue Lithothamnium calcareum, sel marin stabilisant : gomme gellane.",
-        "allergens_tags": [
-          "en:nuts"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:nutriscore",
-          "en:nutriscore-grade-b",
-          "fr:entrepreneurs-engages"
-        ],
-        "categories": "Frozen foods, UHT Milks, ESL milks, Hazelnut-based drinks, Sweetened beverages",
-        "categories_tags": [
-          "en:beverages-and-beverages-preparations",
-          "en:plant-based-foods-and-beverages",
-          "en:beverages",
-          "en:plant-based-foods",
-          "en:dairies",
-          "en:frozen-foods",
-          "en:dairy-substitutes",
-          "en:milk-substitutes",
-          "en:milks-liquid-and-powder",
-          "en:nuts-and-their-products",
-          "en:plant-based-beverages",
-          "en:milks",
-          "en:plant-based-milk-alternatives",
-          "en:homogenized-milks",
-          "en:nut-based-drinks",
-          "en:pasteurised-products",
-          "en:uht-milks",
-          "en:esl-milks",
-          "en:hazelnut-based-drinks",
-          "en:sweetened-beverages"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "c",
-        "unique_scans_n": 10
+        "unique_scans_n": 43
       }
     ],
     "en:margarines": [
@@ -1941,7 +1693,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 414
+        "unique_scans_n": 433
       },
       {
         "code": "3366321051983",
@@ -1998,7 +1750,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 298
+        "unique_scans_n": 314
       },
       {
         "code": "8719200012608",
@@ -2032,15 +1784,10 @@
           "en:Réduit le cholesterol",
           "en:Sans matière grasse hydrogénée"
         ],
-        "categories": "Plant-based spreads, Salted spreads, Vegetable fats, 30-40% lightly salted vegetable fat with plant sterols esters",
+        "categories": "Salted spreads, 30-40% lightly salted vegetable fat with plant sterols esters",
         "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
-          "en:fats",
           "en:spreads",
-          "en:plant-based-spreads",
           "en:salted-spreads",
-          "en:vegetable-fats",
           "en:spreadable-fats",
           "en:margarines",
           "en:light-margarines",
@@ -2069,58 +1816,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "c",
-        "unique_scans_n": 281
-      },
-      {
-        "code": "3366321053307",
-        "product_name_fr": "Oméga 3",
-        "brands": "St-Hubert",
-        "quantity": "510 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/336/632/105/3307/front_fr.117.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/336/632/105/3307/front_fr.117.200.jpg",
-        "ingredients_text_fr": "Huiles et stéarines végétales non hydrogénées 51% (colza 30%, palmiste, lin 5,4%, palme), eau, émulsifiant (lécithine de SOJA), sel, arômes, colorant (bêta-carotène), vitamine B1.",
-        "allergens_tags": [
-          "en:soybeans"
-        ],
-        "traces_tags": [
-          "en:peanuts"
-        ],
-        "labels_tags": [
-          "en:sustainable",
-          "en:sustainable-palm-oil",
-          "en:made-in-france",
-          "fr:triman"
-        ],
-        "categories": "Salted spreads, Light margarines",
-        "categories_tags": [
-          "en:spreads",
-          "en:salted-spreads",
-          "en:spreadable-fats",
-          "en:margarines",
-          "en:light-margarines"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-validated",
-          "en:packaging-photo-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "d",
-        "unique_scans_n": 230
+        "unique_scans_n": 306
       },
       {
         "code": "3366321053284",
@@ -2172,7 +1868,58 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 223
+        "unique_scans_n": 239
+      },
+      {
+        "code": "3366321053307",
+        "product_name_fr": "Oméga 3",
+        "brands": "St-Hubert",
+        "quantity": "510 g",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/336/632/105/3307/front_fr.117.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/336/632/105/3307/front_fr.117.200.jpg",
+        "ingredients_text_fr": "Huiles et stéarines végétales non hydrogénées 51% (colza 30%, palmiste, lin 5,4%, palme), eau, émulsifiant (lécithine de SOJA), sel, arômes, colorant (bêta-carotène), vitamine B1.",
+        "allergens_tags": [
+          "en:soybeans"
+        ],
+        "traces_tags": [
+          "en:peanuts"
+        ],
+        "labels_tags": [
+          "en:sustainable",
+          "en:sustainable-palm-oil",
+          "en:made-in-france",
+          "fr:triman"
+        ],
+        "categories": "Salted spreads, Light margarines",
+        "categories_tags": [
+          "en:spreads",
+          "en:salted-spreads",
+          "en:spreadable-fats",
+          "en:margarines",
+          "en:light-margarines"
+        ],
+        "states_tags": [
+          "en:to-be-completed",
+          "en:nutrition-facts-completed",
+          "en:ingredients-completed",
+          "en:expiration-date-completed",
+          "en:packaging-code-to-be-completed",
+          "en:characteristics-to-be-completed",
+          "en:origins-to-be-completed",
+          "en:categories-completed",
+          "en:brands-completed",
+          "en:packaging-completed",
+          "en:quantity-completed",
+          "en:product-name-completed",
+          "en:photos-validated",
+          "en:packaging-photo-selected",
+          "en:nutrition-photo-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
+          "en:photos-uploaded"
+        ],
+        "nutriscore_grade": "d",
+        "unique_scans_n": 239
       },
       {
         "code": "3366321051549",
@@ -2226,15 +1973,15 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 165
+        "unique_scans_n": 176
       },
       {
         "code": "3366321052003",
         "product_name_fr": "St Hubert Omega 3 Sans Huile de Palme 500g Doux",
         "brands": "St-Hubert, St hubert omega 3",
         "quantity": "500 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/336/632/105/2003/front_fr.99.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/336/632/105/2003/front_fr.99.200.jpg",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/336/632/105/2003/front_fr.101.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/336/632/105/2003/front_fr.101.200.jpg",
         "ingredients_text_fr": "Huiles et stéarine végétales 50% (colza 28%, coco, karité, lin 5,7%), eau, émulsifiants (mono et diglycérides d'acides gras, lécithine de SOJA), sel, arômes, stabilisant (pectine), colorant (bêta-carotène), vitamine B1. Traces éventuelles d'ARACHIDES.",
         "allergens_tags": [
           "en:soybeans"
@@ -2284,7 +2031,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 154
+        "unique_scans_n": 163
       },
       {
         "code": "8719200031524",
@@ -2314,15 +2061,10 @@
           "en:nutriscore-grade-c",
           "fr:triman"
         ],
-        "categories": "Plant-based spreads, Salted spreads, Vegetable fats, Light margarines, Unsalted margarines, Margarines high in omega 3",
+        "categories": "Salted spreads, Light margarines, Unsalted margarines, Margarines high in omega 3",
         "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
           "en:spreads",
-          "en:fats",
-          "en:plant-based-spreads",
           "en:salted-spreads",
-          "en:vegetable-fats",
           "en:spreadable-fats",
           "en:margarines",
           "en:light-margarines",
@@ -2350,7 +2092,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "unknown",
-        "unique_scans_n": 135
+        "unique_scans_n": 143
       },
       {
         "code": "3366321053291",
@@ -2401,7 +2143,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "e",
-        "unique_scans_n": 117
+        "unique_scans_n": 124
       },
       {
         "code": "3366321051525",
@@ -2455,7 +2197,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 99
+        "unique_scans_n": 105
       },
       {
         "code": "3366321053314",
@@ -2505,60 +2247,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "e",
-        "unique_scans_n": 98
-      },
-      {
-        "code": "3366321052393",
-        "product_name_fr": "St hubert bio & vegetal demi sel 230g ss hdp",
-        "brands": "St-Hubert, St hubert bio, St hubert bio & vegetal",
-        "quantity": "230 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/336/632/105/2393/front_fr.2462.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/336/632/105/2393/front_fr.2462.200.jpg",
-        "ingredients_text_fr": "Huiles végétales 54% (karité*, tournesol oléique* 14%, coco*, colza* 11%), eau, sel, émulsifiant (lécithine de SOJA*), arôme naturel de carotte, jus de citron*, sel, stabilisant (pectine). *Ingrédients issus de l'agriculture biologique.",
-        "allergens_tags": [
-          "en:nuts",
-          "en:soybeans"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:vegetarian",
-          "en:organic",
-          "en:eu-organic",
-          "en:vegan",
-          "fr:triman"
-        ],
-        "categories": "Salted spreads, Light margarines, Margarine (Perishable), fr:Beurre vegetal",
-        "categories_tags": [
-          "en:spreads",
-          "en:salted-spreads",
-          "en:spreadable-fats",
-          "en:margarines",
-          "en:light-margarines",
-          "en:margarine-perishable",
-          "fr:Beurre vegetal"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-completed",
-          "en:origins-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "e",
-        "unique_scans_n": 85
+        "unique_scans_n": 103
       },
       {
         "code": "3366321051556",
@@ -2621,7 +2310,60 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 83
+        "unique_scans_n": 91
+      },
+      {
+        "code": "3366321052393",
+        "product_name_fr": "St hubert bio & vegetal demi sel 230g ss hdp",
+        "brands": "St-Hubert, St hubert bio, St hubert bio & vegetal",
+        "quantity": "230 g",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/336/632/105/2393/front_fr.2462.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/336/632/105/2393/front_fr.2462.200.jpg",
+        "ingredients_text_fr": "Huiles végétales 54% (karité*, tournesol oléique* 14%, coco*, colza* 11%), eau, sel, émulsifiant (lécithine de SOJA*), arôme naturel de carotte, jus de citron*, sel, stabilisant (pectine). *Ingrédients issus de l'agriculture biologique.",
+        "allergens_tags": [
+          "en:nuts",
+          "en:soybeans"
+        ],
+        "traces_tags": [],
+        "labels_tags": [
+          "en:vegetarian",
+          "en:organic",
+          "en:eu-organic",
+          "en:vegan",
+          "fr:triman"
+        ],
+        "categories": "Salted spreads, Light margarines, Margarine (Perishable), fr:Beurre vegetal",
+        "categories_tags": [
+          "en:spreads",
+          "en:salted-spreads",
+          "en:spreadable-fats",
+          "en:margarines",
+          "en:light-margarines",
+          "en:margarine-perishable",
+          "fr:Beurre vegetal"
+        ],
+        "states_tags": [
+          "en:to-be-completed",
+          "en:nutrition-facts-completed",
+          "en:ingredients-completed",
+          "en:expiration-date-to-be-completed",
+          "en:packaging-code-to-be-completed",
+          "en:characteristics-completed",
+          "en:origins-completed",
+          "en:categories-completed",
+          "en:brands-completed",
+          "en:packaging-completed",
+          "en:quantity-completed",
+          "en:product-name-completed",
+          "en:photos-to-be-validated",
+          "en:packaging-photo-to-be-selected",
+          "en:nutrition-photo-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
+          "en:photos-uploaded"
+        ],
+        "nutriscore_grade": "e",
+        "unique_scans_n": 91
       }
     ],
     "en:plant-based-spreads": [
@@ -2682,7 +2424,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 974
+        "unique_scans_n": 1017
       },
       {
         "code": "3760020507350",
@@ -2760,7 +2502,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 890
+        "unique_scans_n": 934
       },
       {
         "code": "3608580124047",
@@ -2769,7 +2511,7 @@
         "quantity": "325 g",
         "image_front_url": "https://images.openfoodfacts.org/images/products/360/858/012/4047/front_en.30.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/360/858/012/4047/front_en.30.200.jpg",
-        "ingredients_text_fr": "Cacahuètes torréfiées 81% sucre, huile et matières grasses végétales (sal, cacao, tournesol), sel, extrait de vanille, émulsifiant : lecithine de tournesol. Peut contenir des fruits à coque.",
+        "ingredients_text_fr": "Cacahuètes torréfiées 81% sucre, huile et matières grasses végétales (sel, cacao, tournesol), sel, extrait de vanille, émulsifiant : lecithine de tournesol. Peut contenir des fruits à coque.",
         "allergens_tags": [
           "en:peanuts"
         ],
@@ -2814,7 +2556,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "c",
-        "unique_scans_n": 644
+        "unique_scans_n": 675
       },
       {
         "code": "3608580157885",
@@ -2868,7 +2610,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 556
+        "unique_scans_n": 580
       },
       {
         "code": "3760091727732",
@@ -2929,7 +2671,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 512
+        "unique_scans_n": 539
       },
       {
         "code": "4056489620938",
@@ -2982,7 +2724,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 500
+        "unique_scans_n": 503
       },
       {
         "code": "3608580124108",
@@ -3041,7 +2783,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "c",
-        "unique_scans_n": 414
+        "unique_scans_n": 438
       },
       {
         "code": "3292070005161",
@@ -3101,7 +2843,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "c",
-        "unique_scans_n": 372
+        "unique_scans_n": 387
       },
       {
         "code": "3608580142966",
@@ -3158,7 +2900,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 319
+        "unique_scans_n": 344
       },
       {
         "code": "5013665115571",
@@ -3224,7 +2966,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "c",
-        "unique_scans_n": 282
+        "unique_scans_n": 287
       },
       {
         "code": "3760278866964",
@@ -3284,7 +3026,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "c",
-        "unique_scans_n": 253
+        "unique_scans_n": 268
       },
       {
         "code": "8480000168832",
@@ -3341,7 +3083,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 246
+        "unique_scans_n": 264
       }
     ],
     "en:plant-based-creams": [
@@ -3383,10 +3125,14 @@
           "en:plant-based-foods-and-beverages",
           "en:beverages",
           "en:plant-based-foods",
+          "en:fruit-based-foods-and-beverages",
+          "en:fruits-and-vegetables-based-foods",
           "en:dairy-substitutes",
-          "en:milk-substitutes",
+          "en:fruit-based-foods",
           "en:plant-based-beverages",
+          "en:milk-substitutes",
           "en:plant-based-milk-alternatives",
+          "en:coconuts-and-their-products",
           "en:plant-based-creams",
           "en:coconut-milks-and-creams",
           "en:plant-based-creams-for-cooking",
@@ -3413,7 +3159,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "e",
-        "unique_scans_n": 170
+        "unique_scans_n": 181
       },
       {
         "code": "3229820791845",
@@ -3477,7 +3223,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 126
+        "unique_scans_n": 132
       },
       {
         "code": "3229820134642",
@@ -3539,7 +3285,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 97
+        "unique_scans_n": 107
       },
       {
         "code": "3250391318445",
@@ -3593,7 +3339,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 94
+        "unique_scans_n": 98
       },
       {
         "code": "3229820763729",
@@ -3658,7 +3404,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 80
+        "unique_scans_n": 82
       },
       {
         "code": "3229820769127",
@@ -3726,7 +3472,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 72
+        "unique_scans_n": 80
       },
       {
         "code": "8428532192376",
@@ -3792,11 +3538,11 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 60
+        "unique_scans_n": 62
       },
       {
         "code": "8019428005001",
-        "product_name_fr": "Bio organic avoine cuisine",
+        "product_name_fr": "Avoine Cuisine",
         "brands": "The Bridge",
         "quantity": "200 ml",
         "image_front_url": "https://images.openfoodfacts.org/images/products/801/942/800/5001/front_fr.48.400.jpg",
@@ -3846,7 +3592,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 54
+        "unique_scans_n": 58
       },
       {
         "code": "3560070379323",
@@ -3909,7 +3655,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "c",
-        "unique_scans_n": 52
+        "unique_scans_n": 57
       },
       {
         "code": "3259010600015",
@@ -3971,7 +3717,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 52
+        "unique_scans_n": 56
       }
     ],
     "en:lactose-free-creams": [
@@ -4018,7 +3764,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 10
+        "unique_scans_n": 12
       },
       {
         "code": "7640166793885",
@@ -4387,7 +4133,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "c",
-        "unique_scans_n": 645
+        "unique_scans_n": 681
       },
       {
         "code": "3760253220378",
@@ -4443,7 +4189,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 20
+        "unique_scans_n": 22
       },
       {
         "code": "3273221118022",
@@ -4496,7 +4242,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 20
+        "unique_scans_n": 22
       },
       {
         "code": "3760253220330",
@@ -4552,58 +4298,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 14
-      },
-      {
-        "code": "3760253221016",
-        "product_name_fr": "L’intense",
-        "brands": "Les Nouveaux Affineurs",
-        "quantity": "100 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/376/025/322/1016/front_en.3.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/376/025/322/1016/front_en.3.200.jpg",
-        "ingredients_text_fr": "Jus de soja bio* (63%), noix de cajou bio**, sel, ferments.\n*France sans OGM **Décorticage mécanique",
-        "allergens_tags": [
-          "en:nuts",
-          "en:soybeans"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:vegetarian",
-          "en:no-gluten",
-          "en:vegan",
-          "en:made-in-france"
-        ],
-        "categories": "Cheese substitutes, fr:Alternative-au-fromage",
-        "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:plant-based-foods",
-          "en:dairy-substitutes",
-          "en:vegan-products",
-          "en:cheese-substitutes",
-          "fr:Alternative-au-fromage"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "d",
-        "unique_scans_n": 11
+        "unique_scans_n": 17
       },
       {
         "code": "7640182884703",
@@ -4660,7 +4355,58 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "e",
-        "unique_scans_n": 9
+        "unique_scans_n": 13
+      },
+      {
+        "code": "3760253221016",
+        "product_name_fr": "L’intense",
+        "brands": "Les Nouveaux Affineurs",
+        "quantity": "100 g",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/376/025/322/1016/front_en.3.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/376/025/322/1016/front_en.3.200.jpg",
+        "ingredients_text_fr": "Jus de soja bio* (63%), noix de cajou bio**, sel, ferments.\n*France sans OGM **Décorticage mécanique",
+        "allergens_tags": [
+          "en:nuts",
+          "en:soybeans"
+        ],
+        "traces_tags": [],
+        "labels_tags": [
+          "en:vegetarian",
+          "en:no-gluten",
+          "en:vegan",
+          "en:made-in-france"
+        ],
+        "categories": "Cheese substitutes, fr:Alternative-au-fromage",
+        "categories_tags": [
+          "en:plant-based-foods-and-beverages",
+          "en:plant-based-foods",
+          "en:dairy-substitutes",
+          "en:vegan-products",
+          "en:cheese-substitutes",
+          "fr:Alternative-au-fromage"
+        ],
+        "states_tags": [
+          "en:to-be-completed",
+          "en:nutrition-facts-completed",
+          "en:ingredients-completed",
+          "en:expiration-date-to-be-completed",
+          "en:packaging-code-to-be-completed",
+          "en:characteristics-to-be-completed",
+          "en:origins-completed",
+          "en:categories-completed",
+          "en:brands-completed",
+          "en:packaging-to-be-completed",
+          "en:quantity-completed",
+          "en:product-name-completed",
+          "en:photos-to-be-validated",
+          "en:packaging-photo-to-be-selected",
+          "en:nutrition-photo-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
+          "en:photos-uploaded"
+        ],
+        "nutriscore_grade": "d",
+        "unique_scans_n": 13
       },
       {
         "code": "8006040259066",
@@ -4825,37 +4571,37 @@
         "unique_scans_n": 7
       },
       {
-        "code": "8053435070218",
-        "product_name": "Plant Based Alternative to Stracciatella Di Burrata",
-        "brands": "Dream Farm",
-        "quantity": "150 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/805/343/507/0218/front_it.12.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/805/343/507/0218/front_it.12.200.jpg",
-        "ingredients_text": "préparation d'amandes (eau, AMANDES 18%, NOIX DE CAJOU), Fibres végétales (Fibre de Mais, Fibre de Chicorée, Plantago ovata), sel, arôme naturel, bactéries lactiques, stabilisant: Agar agar. Peut contenir des traces de: noisettes, pistaches, moutarde, sésame.",
+        "code": "3273221113997",
+        "product_name_fr": "Le rouillé",
+        "brands": "Tomm' pousse",
+        "quantity": "100g",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/327/322/111/3997/front_en.3.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/327/322/111/3997/front_en.3.200.jpg",
+        "ingredients_text_fr": "NOIX DE CAJOU 60%, EAU, SEL, FERMENTS, URUCUM EN POUDRE",
         "allergens_tags": [
-          "en:sesame-seeds"
+          "en:nuts"
         ],
         "traces_tags": [],
         "labels_tags": [
           "en:vegetarian",
+          "en:organic",
           "en:vegan",
-          "en:made-in-italy",
-          "en:nutriscore",
-          "en:nutriscore-grade-a"
+          "fr:triman"
         ],
-        "categories": "Cheese substitutes",
+        "categories": "Sliced cheese substitutes",
         "categories_tags": [
           "en:plant-based-foods-and-beverages",
           "en:plant-based-foods",
           "en:dairy-substitutes",
           "en:vegan-products",
-          "en:cheese-substitutes"
+          "en:cheese-substitutes",
+          "en:sliced-cheese-substitutes"
         ],
         "states_tags": [
           "en:to-be-completed",
           "en:nutrition-facts-completed",
           "en:ingredients-completed",
-          "en:expiration-date-completed",
+          "en:expiration-date-to-be-completed",
           "en:packaging-code-to-be-completed",
           "en:characteristics-to-be-completed",
           "en:origins-to-be-completed",
@@ -4866,12 +4612,12 @@
           "en:product-name-completed",
           "en:photos-to-be-validated",
           "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-to-be-selected",
-          "en:ingredients-photo-to-be-selected",
-          "en:front-photo-to-be-selected",
+          "en:nutrition-photo-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
           "en:photos-uploaded"
         ],
-        "nutriscore_grade": "a",
+        "nutriscore_grade": "d",
         "unique_scans_n": 6
       }
     ],
@@ -4945,7 +4691,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 86
+        "unique_scans_n": 91
       },
       {
         "code": "3073780902366",
@@ -5000,7 +4746,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 26
+        "unique_scans_n": 27
       },
       {
         "code": "7640166796787",
@@ -5109,7 +4855,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 7
+        "unique_scans_n": 8
       },
       {
         "code": "7640101094671",
@@ -5182,6 +4928,55 @@
         "unique_scans_n": 5
       },
       {
+        "code": "20634001",
+        "product_name_fr": "Mozzarella senza lattosio",
+        "brands": "Lovilio",
+        "quantity": "125 g",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/000/002/063/4001/front_fr.52.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/000/002/063/4001/front_fr.52.200.jpg",
+        "ingredients_text_fr": "_Lait_ pasteurisé, sel, enzyme coagulante d'origine microbienne, acidifiant : acide citrique",
+        "allergens_tags": [
+          "en:milk"
+        ],
+        "traces_tags": [],
+        "labels_tags": [
+          "en:no-lactose"
+        ],
+        "categories": "Mozzarella, Lactose-free cheeses",
+        "categories_tags": [
+          "en:dairies",
+          "en:fermented-foods",
+          "en:fermented-milk-products",
+          "en:cheeses",
+          "en:italian-cheeses",
+          "en:stretched-curd-cheeses",
+          "en:mozzarella",
+          "en:lactose-free-cheeses"
+        ],
+        "states_tags": [
+          "en:to-be-completed",
+          "en:nutrition-facts-completed",
+          "en:ingredients-completed",
+          "en:expiration-date-completed",
+          "en:packaging-code-completed",
+          "en:characteristics-to-be-completed",
+          "en:origins-to-be-completed",
+          "en:categories-completed",
+          "en:brands-completed",
+          "en:packaging-completed",
+          "en:quantity-completed",
+          "en:product-name-completed",
+          "en:photos-to-be-validated",
+          "en:packaging-photo-to-be-selected",
+          "en:nutrition-photo-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
+          "en:photos-uploaded"
+        ],
+        "nutriscore_grade": "c",
+        "unique_scans_n": 5
+      },
+      {
         "code": "8000430133189",
         "product_name": "La senza lattosio",
         "product_name_fr": "Santa lucia mozzarella senza lattosio",
@@ -5225,55 +5020,6 @@
           "en:product-name-completed",
           "en:photos-validated",
           "en:packaging-photo-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "c",
-        "unique_scans_n": 4
-      },
-      {
-        "code": "20634001",
-        "product_name_fr": "Mozzarella senza lattosio",
-        "brands": "Lovilio",
-        "quantity": "125 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/000/002/063/4001/front_fr.52.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/000/002/063/4001/front_fr.52.200.jpg",
-        "ingredients_text_fr": "_Lait_ pasteurisé, sel, enzyme coagulante d'origine microbienne, acidifiant : acide citrique",
-        "allergens_tags": [
-          "en:milk"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:no-lactose"
-        ],
-        "categories": "Mozzarella, Lactose-free cheeses",
-        "categories_tags": [
-          "en:dairies",
-          "en:fermented-foods",
-          "en:fermented-milk-products",
-          "en:cheeses",
-          "en:italian-cheeses",
-          "en:stretched-curd-cheeses",
-          "en:mozzarella",
-          "en:lactose-free-cheeses"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-completed",
-          "en:packaging-code-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
           "en:nutrition-photo-selected",
           "en:ingredients-photo-selected",
           "en:front-photo-selected",
@@ -5341,34 +5087,83 @@
         "unique_scans_n": 3
       },
       {
-        "code": "3266191000169",
-        "product_name_fr": "Emmental - La Crèmerie sans lactose",
-        "brands": "La Vie Claire",
+        "code": "5410298086634",
+        "product_name_fr": "Mozarella sans lactose",
+        "brands": "Diléa",
         "quantity": "",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/326/619/100/0169/front_fr.13.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/326/619/100/0169/front_fr.13.200.jpg",
-        "ingredients_text_fr": "LAIT entier pasteurisé*, ferments LACTIQUES,\r\nsel, présure microbienne.",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/541/029/808/6634/front_fr.4.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/541/029/808/6634/front_fr.4.200.jpg",
+        "ingredients_text_fr": "Lait de vache pasteurisé, coagulant microbien, sel, ferments lactiques,",
         "allergens_tags": [
           "en:milk"
         ],
         "traces_tags": [],
         "labels_tags": [
-          "en:organic",
-          "en:eu-organic",
-          "en:de-oko-006",
-          "en:no-lactose",
-          "fr:ab-agriculture-biologique"
+          "en:no-lactose"
         ],
-        "categories": "Emmentaler, Lactose-free cheeses",
+        "categories": "Mozzarella, Lactose-free cheeses",
         "categories_tags": [
           "en:dairies",
           "en:fermented-foods",
           "en:fermented-milk-products",
           "en:cheeses",
-          "en:cow-cheeses",
-          "en:firm-ripened-cheeses",
-          "en:hard-cheeses",
-          "en:emmentaler",
+          "en:italian-cheeses",
+          "en:stretched-curd-cheeses",
+          "en:mozzarella",
+          "en:lactose-free-cheeses"
+        ],
+        "states_tags": [
+          "en:to-be-completed",
+          "en:nutrition-facts-completed",
+          "en:ingredients-completed",
+          "en:expiration-date-to-be-completed",
+          "en:packaging-code-to-be-completed",
+          "en:characteristics-to-be-completed",
+          "en:origins-to-be-completed",
+          "en:categories-completed",
+          "en:brands-completed",
+          "en:packaging-to-be-completed",
+          "en:quantity-to-be-completed",
+          "en:product-name-completed",
+          "en:photos-to-be-validated",
+          "en:packaging-photo-to-be-selected",
+          "en:nutrition-photo-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
+          "en:photos-uploaded"
+        ],
+        "nutriscore_grade": "c",
+        "unique_scans_n": 1
+      },
+      {
+        "code": "7640101094695",
+        "product_name_fr": "Fromage Frais Nature Sans Lactose",
+        "brands": "Züger",
+        "quantity": "150 g",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/764/010/109/4695/front_fr.22.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/764/010/109/4695/front_fr.22.200.jpg",
+        "ingredients_text_fr": "lait, sel de mer, lactase, cultures, présure microbienne",
+        "allergens_tags": [
+          "en:milk"
+        ],
+        "traces_tags": [
+          "en:milk"
+        ],
+        "labels_tags": [
+          "en:organic",
+          "en:eu-organic",
+          "en:no-lactose",
+          "en:suisse-garantie",
+          "fr:ab-agriculture-biologique"
+        ],
+        "categories": "Fresh cheeses, Cream cheeses, Lactose-free cheeses",
+        "categories_tags": [
+          "en:dairies",
+          "en:fermented-foods",
+          "en:fermented-milk-products",
+          "en:cheeses",
+          "en:fresh-cheeses",
+          "en:cream-cheeses",
           "en:lactose-free-cheeses"
         ],
         "states_tags": [
@@ -5382,63 +5177,6 @@
           "en:categories-completed",
           "en:brands-completed",
           "en:packaging-completed",
-          "en:quantity-to-be-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-to-be-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "d",
-        "unique_scans_n": 2
-      },
-      {
-        "code": "3266191000176",
-        "product_name_fr": "Gouda",
-        "brands": "La Vie Claire",
-        "quantity": "200 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/326/619/100/0176/front_fr.21.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/326/619/100/0176/front_fr.21.200.jpg",
-        "ingredients_text_fr": "Lait écrémé pasteurisé (99%), sel, ferments lactiques, présure microbienne,",
-        "allergens_tags": [
-          "en:milk"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:organic",
-          "en:eu-organic",
-          "en:de-oko-006",
-          "en:fr-bio-01",
-          "en:no-lactose",
-          "fr:ab-agriculture-biologique"
-        ],
-        "categories": "Cheeses of the Netherlands, Gouda, Lactose-free cheeses",
-        "categories_tags": [
-          "en:dairies",
-          "en:fermented-foods",
-          "en:fermented-milk-products",
-          "en:cheeses",
-          "en:cow-cheeses",
-          "en:firm-ripened-cheeses",
-          "en:semi-hard-cheeses",
-          "en:uncooked-pressed-cheeses",
-          "en:cheeses-of-the-netherlands",
-          "en:gouda",
-          "en:lactose-free-cheeses"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-completed",
-          "en:packaging-code-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
           "en:quantity-completed",
           "en:product-name-completed",
           "en:photos-to-be-validated",
@@ -5449,7 +5187,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 2
+        "unique_scans_n": 1
       },
       {
         "code": "5202390021633",
@@ -5578,7 +5316,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 422
+        "unique_scans_n": 446
       },
       {
         "code": "5411188125808",
@@ -5655,7 +5393,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 340
+        "unique_scans_n": 349
       },
       {
         "code": "5411188118961",
@@ -5718,7 +5456,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 288
+        "unique_scans_n": 303
       },
       {
         "code": "5411188137993",
@@ -5784,7 +5522,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 174
+        "unique_scans_n": 183
       },
       {
         "code": "5411188139126",
@@ -5851,7 +5589,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 153
+        "unique_scans_n": 158
       },
       {
         "code": "5411188124269",
@@ -5925,7 +5663,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 134
+        "unique_scans_n": 144
       },
       {
         "code": "3273220081068",
@@ -5999,135 +5737,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 121
-      },
-      {
-        "code": "5411188138099",
-        "product_name": "Danone ALPRO® Joghurt Soja Natur ungesüßt",
-        "product_name_fr": "Danone ALPRO® Yaourt Soja nature non sucré 400g",
-        "brands": "alpro",
-        "quantity": "400 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/541/118/813/8099/front_de.153.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/541/118/813/8099/front_de.153.200.jpg",
-        "ingredients_text": "Wasser, geschälte SOJABOHNEN (10,7%), Calcium (Tricalciumcitrat), Stabilisator (Pektine), Säureregulatoren (Natriumcitrate, Citronensäure), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherolhaltige Extrakte, Fettsäureester der Ascorbinsäure), Vitamine (B12, B6, D2), Joghurtkulturen (S. thermophilus, L. bulgaricus). Kann SPUREN VON SCHALENFRÜCHTEN enthalten.",
-        "ingredients_text_fr": "Base de SOJA (eau, fèves de SOJA décortiquées (10,7%)), citrate tricalcique, correcteurs d'acidité (citrates de sodium, acide citrique), stabilisant (pectines), arôme naturel, sel marin, antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), vitamines (B12, D2), ferments de yaourt (S. thermophilus, L. bulgaricus). Peut contenir des TRACES DE FRUITS À COQUE (pas d'arachides).",
-        "allergens_tags": [
-          "en:soybeans"
-        ],
-        "traces_tags": [
-          "en:nuts"
-        ],
-        "labels_tags": [
-          "en:low-or-no-sugar",
-          "en:vegetarian",
-          "en:no-gluten",
-          "en:european-vegetarian-union",
-          "en:no-lactose",
-          "en:vegan",
-          "en:certified-b-corporation",
-          "en:european-vegetarian-union-vegan",
-          "en:no-sugar",
-          "en:plant-based"
-        ],
-        "categories": "Plain soy yogurts",
-        "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:fermented-foods",
-          "en:dairy-substitutes",
-          "en:desserts",
-          "en:vegan-products",
-          "en:non-dairy-desserts",
-          "en:non-dairy-fermented-foods",
-          "en:non-dairy-yogurts",
-          "en:soy-milk-yogurts",
-          "en:plain-soy-yogurts"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "a",
-        "unique_scans_n": 116
-      },
-      {
-        "code": "3273221113195",
-        "product_name_fr": "Skyr végétal nature",
-        "brands": "Sojasun",
-        "quantity": "400 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/327/322/111/3195/front_fr.39.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/327/322/111/3195/front_fr.39.200.jpg",
-        "ingredients_text_fr": "Jus de _soja_ (98%), protéine de fève (1.3%), sel de calcium, arôme naturel, ferments.",
-        "allergens_tags": [
-          "en:soybeans"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:low-or-no-sugar",
-          "en:no-gmos",
-          "en:source-of-proteins",
-          "fr:soja-francais",
-          "en:calcium-source",
-          "en:french-soy-without-gmos",
-          "en:high-proteins",
-          "en:low-or-no-saturated-fat",
-          "en:low-saturated-fat",
-          "en:made-in-france",
-          "en:no-sugar",
-          "en:nutriscore",
-          "en:nutriscore-grade-a",
-          "en:produced-in-brittany",
-          "fr:triman"
-        ],
-        "categories": "Soy milk yogurts",
-        "categories_tags": [
-          "en:plant-based-foods-and-beverages",
-          "en:fermented-foods",
-          "en:dairy-substitutes",
-          "en:desserts",
-          "en:vegan-products",
-          "en:non-dairy-desserts",
-          "en:non-dairy-fermented-foods",
-          "en:non-dairy-yogurts",
-          "en:soy-milk-yogurts"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-validated",
-          "en:packaging-photo-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "a",
-        "unique_scans_n": 116
+        "unique_scans_n": 126
       },
       {
         "code": "3273220181027",
@@ -6191,7 +5801,135 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 114
+        "unique_scans_n": 123
+      },
+      {
+        "code": "5411188138099",
+        "product_name": "Danone ALPRO® Joghurt Soja Natur ungesüßt",
+        "product_name_fr": "Danone ALPRO® Yaourt Soja nature non sucré 400g",
+        "brands": "alpro",
+        "quantity": "400 g",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/541/118/813/8099/front_de.153.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/541/118/813/8099/front_de.153.200.jpg",
+        "ingredients_text": "Wasser, geschälte SOJABOHNEN (10,7%), Calcium (Tricalciumcitrat), Stabilisator (Pektine), Säureregulatoren (Natriumcitrate, Citronensäure), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherolhaltige Extrakte, Fettsäureester der Ascorbinsäure), Vitamine (B12, B6, D2), Joghurtkulturen (S. thermophilus, L. bulgaricus). Kann SPUREN VON SCHALENFRÜCHTEN enthalten.",
+        "ingredients_text_fr": "Base de SOJA (eau, fèves de SOJA décortiquées (10,7%)), citrate tricalcique, correcteurs d'acidité (citrates de sodium, acide citrique), stabilisant (pectines), arôme naturel, sel marin, antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), vitamines (B12, D2), ferments de yaourt (S. thermophilus, L. bulgaricus). Peut contenir des TRACES DE FRUITS À COQUE (pas d'arachides).",
+        "allergens_tags": [
+          "en:soybeans"
+        ],
+        "traces_tags": [
+          "en:nuts"
+        ],
+        "labels_tags": [
+          "en:low-or-no-sugar",
+          "en:vegetarian",
+          "en:no-gluten",
+          "en:european-vegetarian-union",
+          "en:no-lactose",
+          "en:vegan",
+          "en:certified-b-corporation",
+          "en:european-vegetarian-union-vegan",
+          "en:no-sugar",
+          "en:plant-based"
+        ],
+        "categories": "Plain soy yogurts",
+        "categories_tags": [
+          "en:plant-based-foods-and-beverages",
+          "en:fermented-foods",
+          "en:dairy-substitutes",
+          "en:desserts",
+          "en:vegan-products",
+          "en:non-dairy-desserts",
+          "en:non-dairy-fermented-foods",
+          "en:non-dairy-yogurts",
+          "en:soy-milk-yogurts",
+          "en:plain-soy-yogurts"
+        ],
+        "states_tags": [
+          "en:to-be-completed",
+          "en:nutrition-facts-completed",
+          "en:ingredients-completed",
+          "en:expiration-date-to-be-completed",
+          "en:packaging-code-to-be-completed",
+          "en:characteristics-to-be-completed",
+          "en:origins-to-be-completed",
+          "en:categories-completed",
+          "en:brands-completed",
+          "en:packaging-to-be-completed",
+          "en:quantity-completed",
+          "en:product-name-completed",
+          "en:photos-to-be-validated",
+          "en:packaging-photo-to-be-selected",
+          "en:nutrition-photo-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
+          "en:photos-uploaded"
+        ],
+        "nutriscore_grade": "a",
+        "unique_scans_n": 122
+      },
+      {
+        "code": "3273221113195",
+        "product_name_fr": "Skyr végétal nature",
+        "brands": "Sojasun",
+        "quantity": "400 g",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/327/322/111/3195/front_fr.39.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/327/322/111/3195/front_fr.39.200.jpg",
+        "ingredients_text_fr": "Jus de _soja_ (98%), protéine de fève (1.3%), sel de calcium, arôme naturel, ferments.",
+        "allergens_tags": [
+          "en:soybeans"
+        ],
+        "traces_tags": [],
+        "labels_tags": [
+          "en:low-or-no-sugar",
+          "en:no-gmos",
+          "en:source-of-proteins",
+          "fr:soja-francais",
+          "en:calcium-source",
+          "en:french-soy-without-gmos",
+          "en:high-proteins",
+          "en:low-or-no-saturated-fat",
+          "en:low-saturated-fat",
+          "en:made-in-france",
+          "en:no-sugar",
+          "en:nutriscore",
+          "en:nutriscore-grade-a",
+          "en:produced-in-brittany",
+          "fr:triman"
+        ],
+        "categories": "Soy milk yogurts",
+        "categories_tags": [
+          "en:plant-based-foods-and-beverages",
+          "en:fermented-foods",
+          "en:dairy-substitutes",
+          "en:desserts",
+          "en:vegan-products",
+          "en:non-dairy-desserts",
+          "en:non-dairy-fermented-foods",
+          "en:non-dairy-yogurts",
+          "en:soy-milk-yogurts"
+        ],
+        "states_tags": [
+          "en:to-be-completed",
+          "en:nutrition-facts-completed",
+          "en:ingredients-completed",
+          "en:expiration-date-completed",
+          "en:packaging-code-to-be-completed",
+          "en:characteristics-to-be-completed",
+          "en:origins-completed",
+          "en:categories-completed",
+          "en:brands-completed",
+          "en:packaging-to-be-completed",
+          "en:quantity-completed",
+          "en:product-name-completed",
+          "en:photos-validated",
+          "en:packaging-photo-selected",
+          "en:nutrition-photo-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
+          "en:photos-uploaded"
+        ],
+        "nutriscore_grade": "a",
+        "unique_scans_n": 119
       }
     ],
     "en:lactose-free-yogurts": [
@@ -6245,7 +5983,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 78
+        "unique_scans_n": 83
       },
       {
         "code": "5201083338416",
@@ -6305,7 +6043,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 9
+        "unique_scans_n": 10
       },
       {
         "code": "7610900236404",
@@ -6798,7 +6536,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 599
+        "unique_scans_n": 635
       },
       {
         "code": "40896243",
@@ -6834,14 +6572,16 @@
           "fr:ab-agriculture-biologique",
           "fr:triman"
         ],
-        "categories": "Dark chocolates, dark-chocolate-bar-with-more-than-70-cocoa",
+        "categories": "Dark chocolate bars with 70% cocoa or more",
         "categories_tags": [
           "en:snacks",
           "en:sweet-snacks",
           "en:cocoa-and-its-products",
           "en:chocolates",
+          "en:chocolate-bars",
           "en:dark-chocolates",
-          "en:dark-chocolate-bar-with-more-than-70-cocoa"
+          "en:dark-chocolate-bars",
+          "en:dark-chocolate-bars-with-70-cocoa-or-more"
         ],
         "states_tags": [
           "en:to-be-completed",
@@ -6864,7 +6604,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "e",
-        "unique_scans_n": 457
+        "unique_scans_n": 501
       },
       {
         "code": "4056489471264",
@@ -6928,7 +6668,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 295
+        "unique_scans_n": 316
       },
       {
         "code": "3046920029681",
@@ -6991,7 +6731,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "e",
-        "unique_scans_n": 293
+        "unique_scans_n": 299
       },
       {
         "code": "3046920021043",
@@ -7044,7 +6784,74 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "e",
-        "unique_scans_n": 228
+        "unique_scans_n": 239
+      },
+      {
+        "code": "20005832",
+        "product_name": "Dark chocolate 50% Cocoa",
+        "product_name_fr": "Chocolat noir 50% cacao",
+        "brands": "Fin Carré",
+        "quantity": "100g",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/000/002/000/5832/front_en.253.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/000/002/000/5832/front_en.253.200.jpg",
+        "ingredients_text": "sugar, cocoa mass, cocoa butter, emulsifier (sunflower lecithins), vanilla extract",
+        "ingredients_text_fr": "sucre, pâte de cacao, beurre de cacao, émulsifiant : lécithines (soja) ; extrait de vanille. Chocolat noir : cacao : 50% minimum.",
+        "allergens_tags": [
+          "en:soybeans"
+        ],
+        "traces_tags": [
+          "en:gluten",
+          "en:milk",
+          "en:nuts",
+          "en:peanuts"
+        ],
+        "labels_tags": [
+          "en:fair-trade",
+          "en:vegetarian",
+          "en:fairtrade-international",
+          "en:sustainable-farming",
+          "en:max-havelaar",
+          "en:not-advised-for-specific-people",
+          "en:nutriscore",
+          "en:rainforest-alliance",
+          "en:utz-certified",
+          "en:fairtrade-cocoa",
+          "en:green-dot",
+          "en:made-in-germany",
+          "en:not-advised-for-pregnant-women",
+          "en:nutriscore-grade-e",
+          "en:utz-certified-cocoa"
+        ],
+        "categories": "Dark chocolates",
+        "categories_tags": [
+          "en:snacks",
+          "en:sweet-snacks",
+          "en:cocoa-and-its-products",
+          "en:chocolates",
+          "en:dark-chocolates"
+        ],
+        "states_tags": [
+          "en:to-be-completed",
+          "en:nutrition-facts-completed",
+          "en:ingredients-completed",
+          "en:expiration-date-completed",
+          "en:packaging-code-to-be-completed",
+          "en:characteristics-to-be-completed",
+          "en:origins-to-be-completed",
+          "en:categories-completed",
+          "en:brands-completed",
+          "en:packaging-completed",
+          "en:quantity-completed",
+          "en:product-name-completed",
+          "en:photos-validated",
+          "en:packaging-photo-selected",
+          "en:nutrition-photo-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
+          "en:photos-uploaded"
+        ],
+        "nutriscore_grade": "e",
+        "unique_scans_n": 230
       },
       {
         "code": "3560070669981",
@@ -7096,73 +6903,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 218
-      },
-      {
-        "code": "20005832",
-        "product_name": "Dark chocolate 50% Cocoa",
-        "product_name_fr": "Chocolat noir 50% cacao",
-        "brands": "Fin Carré",
-        "quantity": "100g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/000/002/000/5832/front_en.253.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/000/002/000/5832/front_en.253.200.jpg",
-        "ingredients_text": "sugar, cocoa mass, cocoa butter, emulsifier (sunflower lecithins), vanilla extract",
-        "ingredients_text_fr": "sucre, pâte de cacao, beurre de cacao, émulsifiant : lécithines (soja) ; extrait de vanille. Chocolat noir : cacao : 50% minimum.",
-        "allergens_tags": [
-          "en:soybeans"
-        ],
-        "traces_tags": [
-          "en:gluten",
-          "en:milk",
-          "en:nuts",
-          "en:peanuts"
-        ],
-        "labels_tags": [
-          "en:fair-trade",
-          "en:vegetarian",
-          "en:fairtrade-international",
-          "en:sustainable-farming",
-          "en:max-havelaar",
-          "en:not-advised-for-specific-people",
-          "en:nutriscore",
-          "en:utz-certified",
-          "en:fairtrade-cocoa",
-          "en:green-dot",
-          "en:made-in-germany",
-          "en:not-advised-for-pregnant-women",
-          "en:nutriscore-grade-e",
-          "en:utz-certified-cocoa"
-        ],
-        "categories": "Dark chocolates",
-        "categories_tags": [
-          "en:snacks",
-          "en:sweet-snacks",
-          "en:cocoa-and-its-products",
-          "en:chocolates",
-          "en:dark-chocolates"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-validated",
-          "en:packaging-photo-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "e",
-        "unique_scans_n": 216
+        "unique_scans_n": 227
       },
       {
         "code": "3046920016377",
@@ -7219,7 +6960,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 209
+        "unique_scans_n": 220
       },
       {
         "code": "20177201",
@@ -7285,7 +7026,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "e",
-        "unique_scans_n": 202
+        "unique_scans_n": 215
       },
       {
         "code": "3760091726667",
@@ -7350,7 +7091,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 197
+        "unique_scans_n": 208
       },
       {
         "code": "6111017042403",
@@ -7398,7 +7139,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "e",
-        "unique_scans_n": 95
+        "unique_scans_n": 110
       },
       {
         "code": "6111017042427",
@@ -7447,391 +7188,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "e",
-        "unique_scans_n": 91
-      },
-      {
-        "code": "4056489612803",
-        "product_name_fr": "Pépites chocolat noir",
-        "brands": "Navarre",
-        "quantity": "",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/405/648/961/2803/front_en.4.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/405/648/961/2803/front_en.4.200.jpg",
-        "ingredients_text_fr": "50,3% pâte de cacao, sucre, 1,5% beure de cacao, émulsifiant : lécithines (soja), extrait de vanille,",
-        "allergens_tags": [
-          "en:soybeans"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:nutriscore",
-          "en:rainforest-alliance",
-          "en:nutriscore-grade-e"
-        ],
-        "categories": "Frozen foods, Dark chocolates, Snacks  Snacks sucrés  Cacao et dérivés  Chocolats  Chocolats noirs",
-        "categories_tags": [
-          "en:frozen-foods",
-          "en:snacks",
-          "en:sweet-snacks",
-          "en:cocoa-and-its-products",
-          "en:chocolates",
-          "en:dark-chocolates",
-          "en:Snacks  Snacks sucrés  Cacao et dérivés  Chocolats  Chocolats noirs"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-to-be-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-to-be-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "e",
-        "unique_scans_n": 46
-      },
-      {
-        "code": "3770024649079",
-        "product_name_fr": "Tablette Noir noisettes et amandes pilées",
-        "brands": "KROKOLA, Merveilles du Monde",
-        "quantity": "100 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/377/002/464/9079/front_fr.19.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/377/002/464/9079/front_fr.19.200.jpg",
-        "ingredients_text_fr": "Pâte de cacao, sucre, AMANDES hachées grillées 6,5%, NOISETTES\r\nhachées grillées 6,5%, beurre de cacao, émulsifiant : lécithine de colza, arôme naturel de vanille.\r\n\r\nCacao : 64% min.",
-        "allergens_tags": [
-          "en:nuts"
-        ],
-        "traces_tags": [
-          "en:eggs",
-          "en:gluten",
-          "en:nuts",
-          "en:soybeans"
-        ],
-        "labels_tags": [
-          "en:fair-trade",
-          "en:fairtrade-international",
-          "en:1-for-the-planet",
-          "en:made-in-france",
-          "en:max-havelaar",
-          "fr:triman"
-        ],
-        "categories": "Dark chocolates with almonds, fr:Tablettes de chocolat noir",
-        "categories_tags": [
-          "en:snacks",
-          "en:sweet-snacks",
-          "en:cocoa-and-its-products",
-          "en:chocolates",
-          "en:dark-chocolates",
-          "en:chocolates-with-almonds",
-          "en:dark-chocolates-with-almonds",
-          "fr:Tablettes de chocolat noir"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-validated",
-          "en:packaging-photo-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "e",
-        "unique_scans_n": 42
-      },
-      {
-        "code": "6111017040881",
-        "product_name_fr": "Napolitain noir",
-        "brands": "Aiguebelle",
-        "quantity": "",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/611/101/704/0881/front_fr.15.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/611/101/704/0881/front_fr.15.200.jpg",
-        "ingredients_text_fr": "Masse de cacao (Côte d'ivoire, Ghana), sucre, poudre de cacao, beurre de cacao, émulsifiant : lécithine de soja (E322), arôme artificiel vanilline.",
-        "allergens_tags": [
-          "en:soybeans"
-        ],
-        "traces_tags": [],
-        "labels_tags": [],
-        "categories": "Dark chocolates",
-        "categories_tags": [
-          "en:snacks",
-          "en:sweet-snacks",
-          "en:cocoa-and-its-products",
-          "en:chocolates",
-          "en:dark-chocolates"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-to-be-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "e",
-        "unique_scans_n": 38
-      },
-      {
-        "code": "6111017042236",
-        "product_name_fr": "Dessert 72%",
-        "brands": "Aiguebelle",
-        "quantity": "",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/611/101/704/2236/front_fr.18.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/611/101/704/2236/front_fr.18.200.jpg",
-        "ingredients_text_fr": "Masse de cacao, sucre, poudre de cacao, beurre de cacao, émulsifiant: lécithine de soja (E322), arôme artificiel : vanilline. Contient soja, peut contenir des traces de fruits à coques.",
-        "allergens_tags": [
-          "en:soybeans"
-        ],
-        "traces_tags": [
-          "en:nuts"
-        ],
-        "labels_tags": [
-          "en:pure-cocoa-butter"
-        ],
-        "categories": "Dark chocolates",
-        "categories_tags": [
-          "en:snacks",
-          "en:sweet-snacks",
-          "en:cocoa-and-its-products",
-          "en:chocolates",
-          "en:dark-chocolates"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-to-be-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "e",
-        "unique_scans_n": 36
-      },
-      {
-        "code": "3560071207137",
-        "product_name_fr": "3X100G CHOC NR 47% CRF CLASS",
-        "brands": "Carrefour",
-        "quantity": "100 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/356/007/120/7137/front_fr.41.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/356/007/120/7137/front_fr.41.200.jpg",
-        "ingredients_text_fr": "Pâte de cacao, sucre, beurre de cacao, émulsifiant : lécithines (soja), arôme naturel de vanille,",
-        "allergens_tags": [
-          "en:soybeans"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:nutriscore",
-          "en:nutriscore-grade-e"
-        ],
-        "categories": "Dark chocolates",
-        "categories_tags": [
-          "en:snacks",
-          "en:sweet-snacks",
-          "en:cocoa-and-its-products",
-          "en:chocolates",
-          "en:dark-chocolates"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "e",
-        "unique_scans_n": 35
-      },
-      {
-        "code": "3046920021142",
-        "product_name_fr": "Noir dessert",
-        "brands": "Lindtt",
-        "quantity": "200 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/304/692/002/1142/front_fr.26.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/304/692/002/1142/front_fr.26.200.jpg",
-        "ingredients_text_fr": "Sucre, pâte de cacao, beurre de cacao, émulsifiant (lécithine de soja), arôme naturel de vanille.",
-        "allergens_tags": [
-          "en:soybeans"
-        ],
-        "traces_tags": [],
-        "labels_tags": [
-          "en:made-in-france"
-        ],
-        "categories": "Dark chocolate bars for cooking",
-        "categories_tags": [
-          "en:snacks",
-          "en:sweet-snacks",
-          "en:cocoa-and-its-products",
-          "en:chocolates",
-          "en:dark-chocolates",
-          "en:dark-chocolate-bars-for-cooking"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "e",
-        "unique_scans_n": 32
-      },
-      {
-        "code": "6130014080119",
-        "product_name_fr": "Ambassadeur",
-        "brands": "bimo",
-        "quantity": "100 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/613/001/408/0119/front_fr.5.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/613/001/408/0119/front_fr.5.200.jpg",
-        "ingredients_text_fr": "SUCRE, BEURRE DE CACAO, MASSE DE CACAO. EMULSIFIANT: LECITHINE _SOJA_ E322, AROMES",
-        "allergens_tags": [
-          "en:soybeans"
-        ],
-        "traces_tags": [],
-        "labels_tags": [],
-        "categories": "Dark chocolates, fr:Chocolat noire",
-        "categories_tags": [
-          "en:snacks",
-          "en:sweet-snacks",
-          "en:cocoa-and-its-products",
-          "en:chocolates",
-          "en:dark-chocolates",
-          "fr:Chocolat noire"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "unknown",
-        "unique_scans_n": 20
-      },
-      {
-        "code": "6111017000014",
-        "product_name_fr": "Chocolat Dessert Noir 55%",
-        "brands": "Aiguebelle",
-        "quantity": "175g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/611/101/700/0014/front_fr.4.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/611/101/700/0014/front_fr.4.200.jpg",
-        "ingredients_text_fr": "Sucre, masse de cacao, beurre de cacao, émulsifiant : lecithine de soja (E322), arôme artificiel vanilline.",
-        "allergens_tags": [
-          "en:soybeans"
-        ],
-        "traces_tags": [],
-        "labels_tags": [],
-        "categories": "Dark chocolates",
-        "categories_tags": [
-          "en:snacks",
-          "en:sweet-snacks",
-          "en:cocoa-and-its-products",
-          "en:chocolates",
-          "en:dark-chocolates"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "e",
-        "unique_scans_n": 19
+        "unique_scans_n": 104
       }
     ],
     "en:plant-based-ice-creams": [
@@ -8856,61 +8213,6 @@
         "unique_scans_n": 29
       },
       {
-        "code": "3270160841011",
-        "product_name_fr": "Sorbet fou de poire",
-        "brands": "Picard",
-        "quantity": "650 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/327/016/084/1011/front_fr.29.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/327/016/084/1011/front_fr.29.200.jpg",
-        "ingredients_text_fr": "Purée de poire Williams 45% (purée de poire, acidifiant: acide citrique), eau, sucre, sirop de glucose, arôme naturel de poire 0,5%, jus concentré de citron, gélifiants (pectines, gomme Tara), protéine de pois hydrolysée. Peut contenir des traces de : gluten, oeuf, soja, arachide, lait, fruits à coque.",
-        "allergens_tags": [
-          "en:gluten"
-        ],
-        "traces_tags": [
-          "en:eggs",
-          "en:milk",
-          "en:nuts",
-          "en:peanuts",
-          "en:soybeans"
-        ],
-        "labels_tags": [
-          "en:nutriscore",
-          "en:nutriscore-grade-b",
-          "fr:triman"
-        ],
-        "categories": "Pear sorbets",
-        "categories_tags": [
-          "en:desserts",
-          "en:frozen-foods",
-          "en:frozen-desserts",
-          "en:ice-creams-and-sorbets",
-          "en:sorbets",
-          "en:pear-sorbets"
-        ],
-        "states_tags": [
-          "en:to-be-completed",
-          "en:nutrition-facts-completed",
-          "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
-          "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
-          "en:categories-completed",
-          "en:brands-completed",
-          "en:packaging-to-be-completed",
-          "en:quantity-completed",
-          "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
-          "en:nutrition-photo-selected",
-          "en:ingredients-photo-selected",
-          "en:front-photo-selected",
-          "en:photos-uploaded"
-        ],
-        "nutriscore_grade": "c",
-        "unique_scans_n": 26
-      },
-      {
         "code": "3270160346707",
         "product_name_fr": "Sorbet Mangue",
         "brands": "Picard",
@@ -8958,6 +8260,61 @@
           "en:product-name-completed",
           "en:photos-validated",
           "en:packaging-photo-selected",
+          "en:nutrition-photo-selected",
+          "en:ingredients-photo-selected",
+          "en:front-photo-selected",
+          "en:photos-uploaded"
+        ],
+        "nutriscore_grade": "c",
+        "unique_scans_n": 28
+      },
+      {
+        "code": "3270160841011",
+        "product_name_fr": "Sorbet fou de poire",
+        "brands": "Picard",
+        "quantity": "650 g",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/327/016/084/1011/front_fr.29.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/327/016/084/1011/front_fr.29.200.jpg",
+        "ingredients_text_fr": "Purée de poire Williams 45% (purée de poire, acidifiant: acide citrique), eau, sucre, sirop de glucose, arôme naturel de poire 0,5%, jus concentré de citron, gélifiants (pectines, gomme Tara), protéine de pois hydrolysée. Peut contenir des traces de : gluten, oeuf, soja, arachide, lait, fruits à coque.",
+        "allergens_tags": [
+          "en:gluten"
+        ],
+        "traces_tags": [
+          "en:eggs",
+          "en:milk",
+          "en:nuts",
+          "en:peanuts",
+          "en:soybeans"
+        ],
+        "labels_tags": [
+          "en:nutriscore",
+          "en:nutriscore-grade-b",
+          "fr:triman"
+        ],
+        "categories": "Pear sorbets",
+        "categories_tags": [
+          "en:desserts",
+          "en:frozen-foods",
+          "en:frozen-desserts",
+          "en:ice-creams-and-sorbets",
+          "en:sorbets",
+          "en:pear-sorbets"
+        ],
+        "states_tags": [
+          "en:to-be-completed",
+          "en:nutrition-facts-completed",
+          "en:ingredients-completed",
+          "en:expiration-date-to-be-completed",
+          "en:packaging-code-to-be-completed",
+          "en:characteristics-to-be-completed",
+          "en:origins-to-be-completed",
+          "en:categories-completed",
+          "en:brands-completed",
+          "en:packaging-to-be-completed",
+          "en:quantity-completed",
+          "en:product-name-completed",
+          "en:photos-to-be-validated",
+          "en:packaging-photo-to-be-selected",
           "en:nutrition-photo-selected",
           "en:ingredients-photo-selected",
           "en:front-photo-selected",
@@ -9548,7 +8905,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 422
+        "unique_scans_n": 446
       },
       {
         "code": "5411188125808",
@@ -9625,7 +8982,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 340
+        "unique_scans_n": 349
       },
       {
         "code": "5411188129318",
@@ -9635,7 +8992,7 @@
         "quantity": "400 g",
         "image_front_url": "https://images.openfoodfacts.org/images/products/541/118/812/9318/front_en.150.400.jpg",
         "image_front_small_url": "https://images.openfoodfacts.org/images/products/541/118/812/9318/front_en.150.200.jpg",
-        "ingredients_text": "Sojabasis (95,4% (Wasser, geschälte Sojabohnen (15,7%]), Zucker, Stabilisator (Pek - tine), Calcium (Tricalciumcitrat), Säureregulatoren (Natriumcitrate, Citronensäure), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherolhaltige Extrakte, Fettsäureester der Ascorbinsäure), Vitamine B12, D2, Joghurtkulturen (S. thermophilus, L. bulgaricus). Kann Spuren von Schalenfrüchten (keine Erdnüsse) enthalten. Von aue laktose - und glutenfrei.",
+        "ingredients_text": "Sojabasis (95,4%) (Wasser, geschälte Sojabohnen (15,7%)), Zucker, Stabilisator (Pektine), Calcium (Tricalciumcitrat), Säureregulatoren (Natriumcitrate, Citronensäure), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherolhaltige Extrakte, Fettsäureester der Ascorbinsäure), Vitamine B12, D2, Joghurtkulturen (S. thermophilus, L. bulgaricus). Kann Spuren von Schalenfrüchten (keine Erdnüsse) enthalten.",
         "ingredients_text_fr": "",
         "allergens_tags": [
           "en:soybeans"
@@ -9688,7 +9045,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 294
+        "unique_scans_n": 305
       },
       {
         "code": "5411188118961",
@@ -9751,7 +9108,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 288
+        "unique_scans_n": 303
       },
       {
         "code": "5411188137993",
@@ -9817,7 +9174,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 174
+        "unique_scans_n": 183
       },
       {
         "code": "5411188139126",
@@ -9884,7 +9241,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "b",
-        "unique_scans_n": 153
+        "unique_scans_n": 158
       },
       {
         "code": "5411188124269",
@@ -9958,7 +9315,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 134
+        "unique_scans_n": 144
       },
       {
         "code": "3608580942764",
@@ -10019,7 +9376,7 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "d",
-        "unique_scans_n": 131
+        "unique_scans_n": 140
       },
       {
         "code": "3273220081068",
@@ -10093,42 +9450,41 @@
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 121
+        "unique_scans_n": 126
       },
       {
-        "code": "5411188138099",
-        "product_name": "Danone ALPRO® Joghurt Soja Natur ungesüßt",
-        "product_name_fr": "Danone ALPRO® Yaourt Soja nature non sucré 400g",
-        "brands": "alpro",
+        "code": "3273220181027",
+        "product_name_fr": "sojade nature",
+        "brands": "Sojade",
         "quantity": "400 g",
-        "image_front_url": "https://images.openfoodfacts.org/images/products/541/118/813/8099/front_de.153.400.jpg",
-        "image_front_small_url": "https://images.openfoodfacts.org/images/products/541/118/813/8099/front_de.153.200.jpg",
-        "ingredients_text": "Wasser, geschälte SOJABOHNEN (10,7%), Calcium (Tricalciumcitrat), Stabilisator (Pektine), Säureregulatoren (Natriumcitrate, Citronensäure), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherolhaltige Extrakte, Fettsäureester der Ascorbinsäure), Vitamine (B12, B6, D2), Joghurtkulturen (S. thermophilus, L. bulgaricus). Kann SPUREN VON SCHALENFRÜCHTEN enthalten.",
-        "ingredients_text_fr": "Base de SOJA (eau, fèves de SOJA décortiquées (10,7%)), citrate tricalcique, correcteurs d'acidité (citrates de sodium, acide citrique), stabilisant (pectines), arôme naturel, sel marin, antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), vitamines (B12, D2), ferments de yaourt (S. thermophilus, L. bulgaricus). Peut contenir des TRACES DE FRUITS À COQUE (pas d'arachides).",
+        "image_front_url": "https://images.openfoodfacts.org/images/products/327/322/018/1027/front_fr.142.400.jpg",
+        "image_front_small_url": "https://images.openfoodfacts.org/images/products/327/322/018/1027/front_fr.142.200.jpg",
+        "ingredients_text_fr": "Jus de soja* 99% (eau, graines de soja* 10,8%), ferments sélectionnés dont Bifidus et Lactobacillus acidophilus.  *Issus de l'agriculture biologique.",
         "allergens_tags": [
           "en:soybeans"
         ],
-        "traces_tags": [
-          "en:nuts"
-        ],
+        "traces_tags": [],
         "labels_tags": [
-          "en:low-or-no-sugar",
           "en:vegetarian",
           "en:no-gluten",
-          "en:european-vegetarian-union",
-          "en:no-lactose",
+          "en:no-gmos",
+          "en:organic",
+          "en:eu-organic",
+          "en:nutriscore",
           "en:vegan",
-          "en:certified-b-corporation",
-          "en:european-vegetarian-union-vegan",
-          "en:no-sugar",
-          "en:plant-based"
+          "en:fr-bio-01",
+          "en:nutri-score-a-b",
+          "en:nutriscore-grade-a",
+          "en:the-vegan-society",
+          "fr:ab-agriculture-biologique",
+          "fr:triman"
         ],
         "categories": "Plain soy yogurts",
         "categories_tags": [
           "en:plant-based-foods-and-beverages",
           "en:fermented-foods",
-          "en:dairy-substitutes",
           "en:desserts",
+          "en:dairy-substitutes",
           "en:vegan-products",
           "en:non-dairy-desserts",
           "en:non-dairy-fermented-foods",
@@ -10137,27 +9493,28 @@
           "en:plain-soy-yogurts"
         ],
         "states_tags": [
-          "en:to-be-completed",
+          "en:to-be-checked",
+          "en:complete",
           "en:nutrition-facts-completed",
           "en:ingredients-completed",
-          "en:expiration-date-to-be-completed",
+          "en:expiration-date-completed",
           "en:packaging-code-to-be-completed",
-          "en:characteristics-to-be-completed",
-          "en:origins-to-be-completed",
+          "en:characteristics-completed",
+          "en:origins-completed",
           "en:categories-completed",
           "en:brands-completed",
-          "en:packaging-to-be-completed",
+          "en:packaging-completed",
           "en:quantity-completed",
           "en:product-name-completed",
-          "en:photos-to-be-validated",
-          "en:packaging-photo-to-be-selected",
+          "en:photos-validated",
+          "en:packaging-photo-selected",
           "en:nutrition-photo-selected",
           "en:ingredients-photo-selected",
           "en:front-photo-selected",
           "en:photos-uploaded"
         ],
         "nutriscore_grade": "a",
-        "unique_scans_n": 116
+        "unique_scans_n": 123
       }
     ]
   }
